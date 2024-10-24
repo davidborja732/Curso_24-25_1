@@ -1,7 +1,5 @@
 package Ejercicio_17;
-
 import java.util.Scanner;
-
 /**Modifica el programa para que devuelva el mes con menor
  facturación y el valor de ésta.  **/
 public class Ejercicio_17D {

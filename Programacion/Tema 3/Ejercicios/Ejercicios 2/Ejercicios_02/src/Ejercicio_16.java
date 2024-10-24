@@ -1,4 +1,3 @@
-import java.util.Locale;
 import java.util.Scanner;
 /**Conversor pesetas – euros. Modifica el programa de manera que el programa
 pida una cantidad para convertir a euros, muestre el resultado y vuelva a

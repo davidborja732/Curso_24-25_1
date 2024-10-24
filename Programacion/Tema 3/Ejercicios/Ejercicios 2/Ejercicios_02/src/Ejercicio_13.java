@@ -7,8 +7,8 @@ public class Ejercicio_13 {
         int numero= scanner.nextInt();
         String numerolon;
         if (numero>0){
-           numerolon= String.valueOf(numero);
-           System.out.println(numerolon.length());
+           numerolon= String.valueOf(String.valueOf(numero).length());
+           System.out.println(numerolon);
         }else {
             System.out.println("Introduce un numero positivo");
         }
