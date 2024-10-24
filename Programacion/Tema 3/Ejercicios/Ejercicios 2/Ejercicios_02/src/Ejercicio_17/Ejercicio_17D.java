@@ -11,7 +11,7 @@ public class Ejercicio_17D {
         int respuesta=0;
         int respuestamax=0;
         int mesmax=0;
-        int respuestamin=Integer.MAX_VALUE;/**Representa el valor de INT maximo que java puede representar **/
+        int respuestamin=Integer.MAX_VALUE;/**Es el valor de INT maximo que java puede representar **/
         int mesmin=0;
         for (int i = 1; i <= 12; i++) {
             System.out.println("Dime la facturacion para el mes "+i);
