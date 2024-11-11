@@ -1,0 +1,61 @@
+Ejercicio 6:
+A-SI
+B-NO
+C-NO
+D-SI
+Ejercicio 7:
+class Test {
+	public static void main(String[] args) {
+		int i=0x100;
+		i += 1;
+		System.out.println(i);
+	}
+}
+Mostrara 257
+Ejercicio 8:
+public class suma{
+	public static void main(String [] args){
+		int n1=50, n2=30;
+		int suma=0;
+		suma=n1+n2;
+		System.out.println(“LA SUMA ES: “ + suma);
+	}
+}
+Ejercicio 9:
+int num=5;
+num += num - 1 * 4 + 1;
+System.out.println(num);
+num=4;
+num %= 7 * num % 3 * 7 - 1;
+System.out.println(num);
+Mostrara 7 y 4
+Ejercicio 10:
+class cuadrado{
+	public static void main(String[] args){
+		int numero=2;
+		double cuad=numero * numero;
+		System.out.println("EL CUADRADO DE "+numero+" ES: " + cuad);
+	}
+}
+Ejercicio 12
+A)
+boolean adivina = (97 == ‘a’ == 97);
+System.out.println(adivina);
+No funciona
+B)
+boolean adivina = (97 == ‘a’ == true);
+System.out.println(adivina);
+Funciona
+Ejercicio 13
+class suma{
+	static int n1=50;
+	public static void main(String [] args){
+		int n2=30,n3=0;
+		suma=n1+n2;
+		System.out.println(“LA SUMA ES: “ + suma);
+		suma=suma+n3;
+		System.out.println(suma);
+	}
+}
+
+
