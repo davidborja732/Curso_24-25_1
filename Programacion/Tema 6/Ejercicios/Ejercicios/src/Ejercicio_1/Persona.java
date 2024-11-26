@@ -1,6 +1,7 @@
 package Ejercicio_1;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Persona {
     private String nombre;
@@ -81,9 +82,10 @@ public class Persona {
         System.out.println("Hola, soy " + this.nombre);
     }
 
-    public void edad() {
-        int edad = LocalDate.now().getYear() - this.fecha_nac.getYear();
-        System.out.println("Edad= " + edad);
+    public int edad() {
+        int edad = Period.between(this.getFecha_nac(), LocalDate.now()).getYears();
+        System.out.print("Edad= ");
+        return edad;
     }
 }
 
