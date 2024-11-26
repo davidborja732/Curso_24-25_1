@@ -5,46 +5,45 @@ import java.time.Period;
 import java.util.ArrayList;
 
 public class Personas {
-    private ArrayList<Persona> personas;
+    private ArrayList<Persona> PersonasLista;
 
     public Personas() {
-        this.personas = new ArrayList<>();
+        this.PersonasLista = new ArrayList<>();
     }
 
     public Personas(ArrayList<Persona> personas) {
-        this.personas = personas;
+        this.PersonasLista = personas;
     }
 
-    public ArrayList<Persona> getPersonas() {
-        return personas;
+    public ArrayList<Persona> getPersonasLista() {
+        return PersonasLista;
     }
 
-    public void setPersonas(ArrayList<Persona> personas) {
-        this.personas = personas;
+    public void setPersonasLista(ArrayList<Persona> personasLista) {
+        this.PersonasLista = personasLista;
     }
 
     public double calcularEdadMedia() {
-        if (personas.isEmpty()) {
+        if (PersonasLista.isEmpty()) {
             return 0.0;
         }
         int totalEdad = 0;
-        int contador = 0;
-        for (Persona persona : personas) {
+        for (Persona persona : PersonasLista) {
             if (persona.getFecha_nac() != null) {
-                totalEdad += Period.between(persona.getFecha_nac(), LocalDate.now()).getYears();
-                contador++;
+                totalEdad += persona.edad();
             }
         }
-        System.out.print("La edad media es ");
-        return contador == 0 ? 0.0 : (double) totalEdad / contador;
+        System.out.println("La edad media es ");
+        return totalEdad / PersonasLista.size();
     }
-    public Persona getPersonaMasEdad() {
-        if (personas.isEmpty()) {//si lista esta vacia devuelvo el null
+
+    public Persona PersonaMasEdad() {
+        if (PersonasLista.isEmpty()) {//si lista esta vacia devuelvo el null
             return null;
         }
         Persona personaMasEdad = null;//recogere a la persona con mas edad para luego mostrarla
-        int mayorEdad = Integer.MIN_VALUE;//numero minimo que puede representar Integer para poder hacer la comparacion
-        for (Persona persona : personas) {//recorro la lista personas
+        int mayorEdad = Integer.MIN_VALUE;//Numero minimo que puede representar Integer para poder hacer la comparacion
+        for (Persona persona : PersonasLista) {//recorro la lista PersonasLista
             if (persona.getFecha_nac() != null) {//compruebo que la persona si que tiene una fecha de nacimiento
                 int edad = Period.between(persona.getFecha_nac(), LocalDate.now()).getYears();//calculo la edad 
                 if (edad > mayorEdad) {
@@ -53,13 +52,19 @@ public class Personas {
                 }
             }
         }
+        System.out.println("La persona de mas edad es: ");
         return personaMasEdad;
+    }
+
+    public void Mostrarpersonas() {
+        for (Persona persona : PersonasLista) {
+            System.out.println(persona);
+        }
     }
     @Override
     public String toString() {
-        return "Personas{" +
-                "personas=" + personas +
-                '}';
+        return "PersonasLista{" +
+                "PersonasLista=" + PersonasLista + "\n";
     }
 }
 
