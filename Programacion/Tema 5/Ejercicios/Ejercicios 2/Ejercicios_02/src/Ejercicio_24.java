@@ -1,22 +1,32 @@
-import java.util.Arrays;
+import java.text.Normalizer;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+
 
 public class Ejercicio_24 {
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Dime una palabra" );
-        String palabra= scanner.next();
-        String[] palabrainvertida=new String[palabra.length()];
-        int numero=palabra.length();
-        for (int i=0;i<palabrainvertida.length;i++){
-            numero--;
-            palabrainvertida[i]= String.valueOf(palabra.charAt(numero));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Dime una palabra ");
+        String palabra=remove1(scanner.next());
+        String palabrareves = new StringBuilder(palabra).reverse().toString();
+        if (palabra.equalsIgnoreCase(palabrareves)) {
+            System.out.println("Es palindromo");
+        } else {
+            System.out.println("No es palindromo");
         }
-        String palabrareves=new String(Arrays.toString(palabrainvertida));
-        if (palabra==palabrareves){
-            System.out.println("Es un palindromo ");
-        }else {
-            System.out.println("No lo es ");
+    }
+
+    static String remove1(String texto) {
+        String original = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ";
+        // Cadena de caracteres ASCII que reemplazarán los originales.
+        String ascii = "AAAAAAACEEEEIIIIDNOOOOOOUUUUYBaaaaaaaceeeeiiiionoooooouuuuyy";
+        String output = texto;
+        for (int i = 0; i < original.length(); i++) {
+            // Reemplazamos los caracteres especiales.
+
+            output = output.replace(original.charAt(i), ascii.charAt(i));
+
         }
+        return output;
     }
 }
