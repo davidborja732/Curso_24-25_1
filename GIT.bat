@@ -9,12 +9,8 @@ set GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"
 
 :: Configurar nombre de usuario y correo electrónico de Git start "" %GIT_BASH_PATH% -c "git config --global user.name \"David Borja Mateo\" && git config --global user.email \dborjam@iesch.org\
 
-:: Obtener la fecha actual en el formato YYYY-MM-DD
-for /f "tokens=2 delims==" %%i in ('wmic os get localdatetime /value') do set datetime=%%i
-set year=%datetime:~0,4%
-set month=%datetime:~4,2%
-set day=%datetime:~6,2%
-set commit_message=%day%/%month%/%year%
+:: Obtener la fecha actual en el formato YYYY-MM-DD usando PowerShell 
+for /f %%i in ('powershell -command "Get-Date -Format yyyy-MM-dd"') do set commit_message=%%i
 
 :menu
 cls
