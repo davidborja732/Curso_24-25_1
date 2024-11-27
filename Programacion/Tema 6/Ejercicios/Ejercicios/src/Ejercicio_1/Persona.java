@@ -59,7 +59,7 @@ public class Persona {
         this.fecha_nac = fecha_nac;
     }
 
-    public Persona(String nombre, String apellidos, LocalDate fecha_nac, String dni, char sexo) {
+    public Persona() {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fecha_nac = fecha_nac;
@@ -69,13 +69,12 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" +
+        return "Persona " +
                 "nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", fecha_nac=" + fecha_nac +
                 ", dni='" + dni + '\'' +
-                ", sexo=" + sexo +
-                '}';
+                ", sexo=" + sexo;
     }
 
     public void saludar() {

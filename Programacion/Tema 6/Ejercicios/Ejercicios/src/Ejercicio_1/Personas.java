@@ -34,7 +34,7 @@ public class Personas {
             }
         }
         System.out.println("La edad media es ");
-        return totalEdad / PersonasLista.size();
+        return (double) totalEdad / PersonasLista.size();
     }
 
     public Persona PersonaMasEdad() {
@@ -64,7 +64,7 @@ public class Personas {
     @Override
     public String toString() {
         return "PersonasLista{" +
-                "PersonasLista=" + PersonasLista + "\n";
+                "PersonasLista=" + PersonasLista + " ";
     }
 }
 
