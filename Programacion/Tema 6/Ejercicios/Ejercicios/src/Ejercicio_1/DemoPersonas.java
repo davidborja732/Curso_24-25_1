@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class DemoPersonas {
     public static void main(String[] args) {
         Personas grupo=new Personas();
-        Persona p1=new Persona();
+        Persona p1=new Persona("Antonia",LocalDate.parse("2000-09-12"));
         Persona p2=new Persona("Jose");
         Persona p3=new Persona();
         Persona p5=new Persona("Pepe",LocalDate.parse("2001-03-06"));

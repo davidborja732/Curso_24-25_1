@@ -11,13 +11,13 @@ public class Ejercicio_1 {
 
         String[] cadenanum= new String[cadena.length-1];
         System.out.println(cadenanum.length);
-        for (int i=0;i<=listaini.length();i++){
+        for (int i=0;i<=cadenanum.length-1;i++){
             if (!lista.contains(String.valueOf(listaini.charAt(i)))){
                 cadenanum[i]= String.valueOf(listaini.charAt(i));
             }
         }
-        for (int i=0;i<=cadena.length-1;i++){
-            System.out.println(cadenanum[i]);
+        for (int i=0;i<=cadenanum.length-1;i++){
+            System.out.print(cadenanum[i]+",");
         }
     }
 }

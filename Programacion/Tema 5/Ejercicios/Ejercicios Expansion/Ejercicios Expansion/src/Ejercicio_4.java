@@ -7,7 +7,7 @@ public class Ejercicio_4 {
         Scanner scanner=new Scanner(System.in);
         ArrayList<Integer> numeros=new ArrayList<>();
         boolean cierto=true;
-        while (cierto==true){
+        while (cierto){
             System.out.println("Dime un numero ");
             int numero= scanner.nextInt();
             if (numero==0){
@@ -23,8 +23,11 @@ public class Ejercicio_4 {
                 numeros.add(numero);
             }
         }
-        Collections.min(numeros);
+        Collections.sort(numeros);
         System.out.println(numeros);
-
+        System.out.println("Los dos numeros mas mayores son ");
+        for (int i=numeros.toArray().length-1;i>=numeros.toArray().length-2;i--) {
+            System.out.print(numeros.get(i) + " ");
+        }
     }
 }

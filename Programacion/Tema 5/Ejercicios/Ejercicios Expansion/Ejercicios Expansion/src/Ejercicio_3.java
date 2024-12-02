@@ -23,6 +23,7 @@ public class Ejercicio_3 {
             }
         }
         System.out.println("El numero de s en la palabra es "+contadors);
+        System.out.println(contadordistintas);
         System.out.println("La suma de las letras sin contar . es "+(contadors+contadordistintas));
     }
 }
