@@ -9,6 +9,7 @@ public class Ejercicio_7 {
             int numero= scanner.nextInt();
             if (numero==0){
                 cierto=false;
+                System.out.println("Programa Finalizado");
             }else if (numero<0) {
                 continue;
             }else {
