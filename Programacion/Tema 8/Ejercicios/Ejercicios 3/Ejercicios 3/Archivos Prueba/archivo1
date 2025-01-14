@@ -1,0 +1,7 @@
+Para añadir texto a un archivo existente en Java, se puede utilizar la clase BufferedWriter
+junto con el constructor de FileWriter que acepta un parámetro true para habilitar el
+modo de añadir. Esto garantiza que el contenido se agregue al final del archivo sin
+sobrescribir el texto existente.
+BufferedReader se utiliza para leer caracteres de un archivo de texto. En Java, puedes
+especificar la codificación mediante un InputStreamReader envolviendo un flujo de
+entrada (como un FileInputStream) y especificando la codificación, como UTF-8.
