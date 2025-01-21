@@ -12,6 +12,7 @@ public class Ejercicio_5 {
             int i;
             while ((i= arorigen.read())!=-1){
                 System.out.print((char) i);
+
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -14,21 +14,25 @@ public class Ejercicio_2 {
         String archivo="Archivos_Ejercicios/archivo1.txt";
         File archivo1=new File(archivo);
         File directorio1=new File(directorio);
+        System.out.println("archivo");
         if (archivo1.exists()){
             System.out.println("El archivo existe");
         }else {
             System.out.println("El archivo no existe");
         }
+        System.out.println("Directorio");
         if (directorio1.exists()){
             System.out.println("El directorio existe");
         }else {
             System.out.println("El directorio no existe");
         }
+        System.out.println("archivo");
         if (archivo1.isFile()){
             System.out.println("Es un archivo");
         }else {
             System.out.println("No es un archivo");
         }
+        System.out.println("Directorio");
         if (directorio1.isDirectory()){
             System.out.println("Es un directorio");
             System.out.println(directorio1.toPath());

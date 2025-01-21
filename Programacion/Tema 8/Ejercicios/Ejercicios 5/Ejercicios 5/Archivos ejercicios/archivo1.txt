@@ -1,0 +1,2 @@
+En Java, las expresiones regulares son herramientas poderosas que nos permiten
+realizar búsquedas, validaciones y manipulaciones complejas de cadenas de texto con Java.
