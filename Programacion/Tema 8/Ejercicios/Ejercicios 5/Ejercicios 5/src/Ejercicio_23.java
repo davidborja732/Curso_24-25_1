@@ -1,23 +1,20 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-/*
-Reemplazar palabras específicas en un archivo. Desarrolla un programa que
-lea un archivo de texto, reemplace todas las apariciones de una palabra
-específica (por ejemplo, "hola") por otra palabra (por ejemplo, "adiós"), y
-guarde el resultado en un nuevo archivo.
- */
+import java.io.*;
 public class Ejercicio_23 {
     public static void main(String[] args) {
-        try (BufferedReader br = new BufferedReader(new FileReader("Archivos ejercicios/archivo1.txt"))) {
+        String nombreArchivoEntrada = "Archivos ejercicios/archivo1.txt";
+        String nombreArchivoSalida = "Archivos ejercicios/archivo2.txt";
+        String palabraReemplazar = "Java";
+        String nuevaPalabra = "Lenguaje";
+        try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivoEntrada));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivoSalida))) {
             String linea;
-            String cambio="Lenguaje";
-            while ((linea = br.readLine()) != null) {
-                linea.replaceAll("^[Java]$",cambio);
-                System.out.println(linea);
+            while ((linea = reader.readLine()) != null) {
+                linea = linea.replaceAll(palabraReemplazar, nuevaPalabra);
+                writer.write(linea);
+                writer.newLine();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error al leer o escribir el archivo: " + e.getMessage());
         }
     }
 }
