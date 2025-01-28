@@ -1,21 +1,25 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class Ejercicio_5 {
-    public static void main(String[] args) throws FileNotFoundException {
-        String origen="Archivos Prueba/archivo1";
-        String destino="Archivos Prueba/archivo_copia(archivo1)";
-        try (FileInputStream arorigen = new FileInputStream(origen);
-             FileOutputStream ardestino = new FileOutputStream(destino)) {
-            int i;
-            while ((i= arorigen.read())!=-1){
-                System.out.print((char) i);
+    public static void main(String[] args) {
+        String origen = "Archivos Prueba/archivo1";
+        String destino = "Archivos Prueba/archivo_copia(archivo1)";
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(origen));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(destino))) {
+
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                writer.write(linea.toUpperCase());
+                writer.newLine();
             }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 }
+
+

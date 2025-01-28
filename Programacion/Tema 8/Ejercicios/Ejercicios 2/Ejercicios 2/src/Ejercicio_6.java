@@ -15,7 +15,6 @@ public class Ejercicio_6 {
                    contador++;
                }
             }
-            System.out.println(" ");
             System.out.println("La letra a aparece "+contador+" veces");
         } catch (IOException e) {
             throw new RuntimeException(e);
