@@ -53,6 +53,12 @@ public class practica {
 
         if (contadorfallos == 8) {
             System.out.println("Has fallado. La palabra era: " + palabraadivinar);
+            System.out.println(
+                    "0\n" +
+                            "|\n"+
+                    "|\n"+
+                            "/\\"
+            );
         } else {
             System.out.println("¡Palabra acertada! La palabra es: " + palabraadivinar);
         }

@@ -15,20 +15,17 @@ public class Ejercicio_10 {
     public static void main(String[] args) {
         String correo = "[a-zA-Z0-9_%$]+@[a-zA-Z0-9_%$]+\\.edu";
         String correoyahoo = "[a-zA-Z0-9_%$]+@+yahoo+.[a-zA-Z]{1,}";
-        String alta = "2015-05-[0-31]{1,2}|2016-02-[0-31]{1,2}";
+        String alta = "2015-(0[5-9]|1[0-2])-[0-3][0-9]|2016-[0-1][0-9]-[0-3][0-9]|2017-0[1-2]-[0-3][0-9]";
         try (BufferedReader bu=new BufferedReader(new FileReader("Archivos Prueba/DATA.csv"))){
             String linea;
             while ((linea= bu.readLine())!=null){
                 if (linea.contains("ES") || linea.contains("PT")){
                     System.out.println(linea);
-                }
-                if (buscar(correo,linea)) {
+                }else if (buscar(correo,linea)) {
                     System.out.println(linea);
-                }
-                if (buscar(correoyahoo,linea)){
+                }else if (buscar(correoyahoo,linea)){
                     System.out.println(linea);
-                }
-                if (buscar(alta,linea)){
+                }else if (buscar(alta,linea)){
                     System.out.println(linea);
                 }
             }
