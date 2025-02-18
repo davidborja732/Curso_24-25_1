@@ -25,9 +25,9 @@ public class PayPal extends MetodoPago{
         this.saldo = saldo;
     }
 
+
     @Override
     String procesar_pago(int monto) {
-        return "El usuario con id"+id+" con el saldo "+saldo+ " con factura por valor de  "+monto+
-                " Tiene un saldo ahora de "+(saldo-monto)+" euros";
+        return "";
     }
 }

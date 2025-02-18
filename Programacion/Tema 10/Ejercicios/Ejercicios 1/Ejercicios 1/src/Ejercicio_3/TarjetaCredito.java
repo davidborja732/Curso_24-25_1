@@ -26,9 +26,9 @@ public class TarjetaCredito extends MetodoPago{
         Saldo = saldo;
     }
 
+
     @Override
     String procesar_pago(int monto) {
-        return "El usuario "+Titular+" con el saldo "+Saldo+ " con factura por valor de  "+monto+
-                " Tiene un saldo ahora de "+(Saldo-monto)+" euros";
+        return "";
     }
 }

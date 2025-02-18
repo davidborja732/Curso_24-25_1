@@ -8,7 +8,7 @@ public class Leer_fichero {
         try (BufferedReader buffer=new BufferedReader(new FileReader(archivo))) {
             String datos;
             while ((datos= buffer.readLine())!=null){
-                Pattern pattern=Pattern.compile("[a-zA-Záéíóú]{1,}e[a-záéíóú]{1,}");
+                Pattern pattern=Pattern.compile("[A-Z]{1}[a-záéíóú]{1,}");
                 Matcher matcher= pattern.matcher(datos);
                 while (matcher.find()){
                     System.out.println(matcher.group());

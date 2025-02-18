@@ -17,14 +17,14 @@ public class Ejercicio_1 {
             Pattern pattern=Pattern.compile("[a-zA-Z][?._;!¡]");
             //Regex para obtener primera letra
             Pattern pattern2=Pattern.compile("[¿?._;!¡][a-zA-Z]");
-            //comprueba cual es la primera letra con un matcher y un matcher,group y le asigno esa letra a la variable primera letra
+            //comprueba cuál es la primera letra con un matcher y un matcher, group y le asigno esa letra a la variable primera letra
             Matcher matcherprimeraletra = pattern2.matcher(frase);
             if (matcherprimeraletra.find()){
                 primeraletra= matcherprimeraletra.group().charAt(1);
             }else {
                 primeraletra=frase.charAt(0);
             }
-            //Si haa una coincidencia el programa entra en este if me mueestra un mensaje por pantalla y finaliza el programa
+            //Si hay una coincidencia el programa entra en este if me muestra un mensaje por pantalla y finaliza el programa
             if (String.valueOf(primeraletra).toLowerCase().equals(String.valueOf(ultimaletra).toLowerCase())){
                 System.out.println("¡Coincidencia detectada! Finalizacion del programa");
                 System.exit(1);

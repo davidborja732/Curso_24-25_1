@@ -25,9 +25,9 @@ public class TransferenciaBancaria extends MetodoPago{
         this.saldo = saldo;
     }
 
+
     @Override
     String procesar_pago(int monto) {
-        return "El usuario con la transferencia"+transfer+" con el saldo "+saldo+ " con transferencia por valor de  "+monto+
-                " Tiene un saldo ahora de "+(saldo-monto)+" euros";
+        return "";
     }
 }

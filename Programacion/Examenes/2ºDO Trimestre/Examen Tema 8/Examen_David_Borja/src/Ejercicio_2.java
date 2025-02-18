@@ -17,7 +17,7 @@ public class Ejercicio_2 {
                 Pattern pattern=Pattern.compile("\\b[R]\\b");
                 //Compruebo si la linea cumple el regex
                 Matcher matcher= pattern.matcher(linea);
-                //mientras cumpla el regex la linea se sumara 1 al contador
+                //mientras cumpla el regex la línea se sumara 1 al contador
                 while (matcher.find()){
                     contador++;
                 }
