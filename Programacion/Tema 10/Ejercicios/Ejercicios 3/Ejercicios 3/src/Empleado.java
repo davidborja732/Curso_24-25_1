@@ -112,6 +112,7 @@ public class Empleado {
     }
     public int incrementarsalariosalario(int antiguedad,int incremento) {
         int incre=((salario*incremento)/100)*antiguedad;
+        setSalario(salario+incre);
         return salario+incre;
     }
 }

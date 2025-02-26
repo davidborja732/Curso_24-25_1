@@ -261,16 +261,15 @@ ORDER BY LENGTH(nombre);
 +---------------------------------------+
 39 rows in set (0.00 sec)
 -- 15
-SELECT COUNT(numero_producto) FROM productos
-WHERE numero_producto IN (SELECT numero_producto FROM detalles_pedidos WHERE numero_producto IN
-(SELECT numero_producto FROM productos WHERE precio_venta > (SELECT AVG(precio_venta) FROM productos 
-WHERE id_categoria = (SELECT id_categoria FROM categorias WHERE descripcion="componentes"))));
+SELECT COUNT(numero_producto) FROM detalles_pedidos
+WHERE numero_producto IN (SELECT numero_producto FROM productos WHERE precio_venta > (SELECT AVG(precio_venta) FROM productos
+WHERE id_categoria = (SELECT id_categoria FROM categorias WHERE descripcion="componentes")));
 +------------------------+
 | COUNT(numero_producto) |
 +------------------------+
-|                     13 |
+|                   1229 |
 +------------------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
 -- 16
 SELECT SUM(precio_venta) FROM productos
 WHERE id_categoria = (SELECT id_categoria FROM categorias WHERE descripcion="ropa");
@@ -301,15 +300,17 @@ numero_producto IN (SELECT numero_producto FROM productos_proveedores WHERE id_p
 +------------------------+
 1 row in set (0.02 sec)
 -- 19
-SELECT COUNT(id_empleado) FROM pedidos
-WHERE numero_pedido IN (SELECT numero_pedido FROM detalles_pedidos WHERE numero_producto IN 
+SELECT COUNT(DISTINCT id_empleado) FROM pedidos
+WHERE numero_pedido IN (SELECT numero_pedido FROM detalles_pedidos WHERE numero_producto IN
 (SELECT numero_producto FROM productos WHERE precio_venta=(SELECT MAX(precio_venta) FROM productos)));
-+--------------------+
-| COUNT(id_empleado) |
-+--------------------+
-|                 17 |
-+--------------------+
-1 row in set (0.00 sec)-- 20
++-----------------------------+
+| COUNT(DISTINCT id_empleado) |
++-----------------------------+
+|                           5 |
++-----------------------------+
+1 row in set (0.00 sec)
+-- 20
+
 -- 21
 SELECT id_cliente FROM pedidos 
 WHERE fecha_pedido BETWEEN '2007-11-20' AND '2007-11-23';
@@ -331,23 +332,20 @@ WHERE fecha_pedido BETWEEN '2007-11-20' AND '2007-11-23';
 +------------+
 12 rows in set (0.00 sec)
 -- 22 
-SELECT id_empleado FROM pedidos
+SELECT DISTINCT id_empleado FROM pedidos
 WHERE fecha_pedido = (SELECT MAX(fecha_pedido) FROM pedidos);
-+-------------+--------------+
-| id_empleado | fecha_pedido |
-+-------------+--------------+
-|         704 | 2008-02-28   |
-|         706 | 2008-02-28   |
-|         705 | 2008-02-28   |
-|         702 | 2008-02-28   |
-|         702 | 2008-02-28   |
-|         706 | 2008-02-28   |
-|         707 | 2008-02-28   |
-|         702 | 2008-02-28   |
-+-------------+--------------+
-8 rows in set (0.00 sec)
++-------------+
+| id_empleado |
++-------------+
+|         702 |
+|         704 |
+|         705 |
+|         706 |
+|         707 |
++-------------+
+5 rows in set (0.01 sec)
 -- 23
-SELECT productos_proveedores.numero_producto, (precio_venta-productos_proveedores.precio_por_mayor) AS Beneficio FROM productos
+SELECT productos_proveedores.numero_producto,(precio_venta-productos_proveedores.precio_por_mayor) AS Beneficio FROM productos
 INNER JOIN productos_proveedores ON productos.numero_producto=productos_proveedores.numero_producto
 WHERE (precio_venta-productos_proveedores.precio_por_mayor)=(SELECT MAX(precio_venta-productos_proveedores.precio_por_mayor) FROM 
 productos INNER JOIN productos_proveedores ON productos.numero_producto=productos_proveedores.numero_producto);
@@ -370,13 +368,13 @@ GROUP BY id_prov;
 +---------+-----------------+
 3 rows in set (0.00 sec)
 -- 25
-SELECT SUM(precio) AS Recaudacion FROM detalles_pedidos;
+SELECT SUM(precio*cantidad) AS Recaudacion FROM detalles_pedidos;
 +-------------+
 | Recaudacion |
 +-------------+
-|   605435.39 |
+|  2176593.48 |
 +-------------+
-1 row in set (0.00 sec)
+1 row in set (0.01 sec)
 -- 26
 SELECT id_categoria,nombre,MAX(precio_venta) FROM productos
 GROUP BY id_categoria;
@@ -390,6 +388,7 @@ GROUP BY id_categoria;
 |            5 | Road Warrior soporte para maletero |            180.00 |
 |            6 | X-Pro All Weather Llantas          |             34.00 |
 +--------------+------------------------------------+-------------------+
+6 rows in set (0,00 sec)
 -- 27
 SELECT id_categoria,AVG(precio_venta) FROM productos
 GROUP BY id_categoria;

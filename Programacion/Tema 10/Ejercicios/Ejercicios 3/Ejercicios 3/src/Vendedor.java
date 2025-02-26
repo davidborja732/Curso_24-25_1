@@ -10,6 +10,10 @@ public class Vendedor extends Empleado{
     private int porcentaje_Ventas;
     private int incremento=10;
 
+    public void getClientes(ArrayList clientes) {
+        this.clientes = clientes;
+    }
+
     public int getIncremento() {
         return incremento;
     }
