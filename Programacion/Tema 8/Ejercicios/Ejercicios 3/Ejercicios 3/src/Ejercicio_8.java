@@ -12,7 +12,7 @@ public class Ejercicio_8 {
             String linea;
             while ((linea= reader.readLine())!=null) {
                 String[] palabras = linea.split(" ");
-                contador += palabras.length;
+                contador +=palabras.length;
             }
             System.out.println("El archivo tiene "+contador+" palabras");
 

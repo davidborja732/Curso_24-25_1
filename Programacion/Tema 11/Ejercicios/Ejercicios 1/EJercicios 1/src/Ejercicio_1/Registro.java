@@ -1,5 +1,7 @@
 package Ejercicio_1;
 
+import java.time.LocalDateTime;
+
 public class Registro {
     private int id;
     private String firstName;
@@ -10,9 +12,9 @@ public class Registro {
     private String email;
     private String country;
     private String ipAddress;
-    private String lastLogin;
+    private LocalDateTime lastLogin;
 
-    public Registro(int id, String firstName, String lastName, double latitude, double longitude, String domain, String email, String country, String ipAddress, String lastLogin) {
+    public Registro(int id, String firstName, String lastName, double latitude, double longitude, String domain, String email, String country, String ipAddress, LocalDateTime lastLogin) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -97,11 +99,11 @@ public class Registro {
         this.ipAddress = ipAddress;
     }
 
-    public String getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(String lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 

@@ -1,0 +1,5 @@
+Para añadir texto a  archivo existente en Java, se puede utilizar la clase BufferedWriter 
+junto con el constructor de FileWriter que acepta un parámetro true para habilitar el 
+modo de añadir. Esto garantiza que el contenido se agregue al final del archivo sin 
+sobrescribir el texto existente.A continuación, te presento un ejemplo donde solicitamos al Usuario que ingrese frases 
+que se agregarán a un archivo existente: 
