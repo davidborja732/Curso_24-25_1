@@ -1,0 +1,205 @@
+DROP DATABASE IF EXISTS aeropuerto;
+CREATE DATABASE aeropuerto;
+USE aeropuerto;
+
+CREATE TABLE aviones(
+	id_avion		NUMERIC(9,0),
+	nombre			VARCHAR(30),
+	autonomia		NUMERIC(6,0),
+	PRIMARY KEY (id_avion)
+);
+
+CREATE TABLE vuelos(
+	vuelo_no 		NUMERIC(4,0),
+	origen 			VARCHAR(20),
+	destino			VARCHAR(20),
+	distancia		NUMERIC(6,0),
+	salida			DATETIME,
+	llegada			DATETIME,
+	precio			NUMERIC(7,2),
+	avion			NUMERIC(9,0),
+	PRIMARY KEY (vuelo_no),
+	FOREIGN KEY(avion) REFERENCES aviones(id_avion)
+);
+
+CREATE TABLE aerolineas (
+	id_aerolinea INT PRIMARY KEY,
+	nombre VARCHAR(30),
+	pais VARCHAR(30),
+	fecha_creacion DATE
+);
+
+CREATE TABLE empleados(
+	id_emp			NUMERIC(9,0),
+	nombre			VARCHAR(30),
+	salario			NUMERIC(10,2),
+	aerolinea		INT,
+	PRIMARY KEY (id_emp),
+	FOREIGN KEY(aerolinea) REFERENCES aerolineas (id_aerolinea)
+);
+
+CREATE TABLE certificado(
+	id_emp				NUMERIC(9,0),
+	id_avion			NUMERIC(9,0),
+	PRIMARY KEY (id_emp,id_avion),
+	FOREIGN KEY(id_emp) REFERENCES empleados (id_emp),
+	FOREIGN KEY(id_avion) REFERENCES aviones(id_avion)
+);
+	
+
+INSERT INTO aviones VALUES (1,'Boeing 747-400',8430);
+INSERT INTO aviones VALUES (2,'Boeing 737-800',3383);
+INSERT INTO aviones VALUES (3,'Airbus A340-300',7120);
+INSERT INTO aviones VALUES (4,'British Aerospace Jetstream 41',1502);
+INSERT INTO aviones VALUES (5,'Embraer ERJ-145',1530);
+INSERT INTO aviones VALUES (6,'SAAB 340',2128);
+INSERT INTO aviones VALUES (7,'Piper Archer III',520);
+INSERT INTO aviones VALUES (8,'Tupolev 154',4103);
+INSERT INTO aviones VALUES (16,'Schwitzer 2-33',30);
+INSERT INTO aviones VALUES (9,'Lockheed L1011',6900);
+INSERT INTO aviones VALUES (10,'Boeing 757-300',4010);
+INSERT INTO aviones VALUES (11,'Boeing 777-300',6441);
+INSERT INTO aviones VALUES (12,'Boeing 767-400ER',6475);
+INSERT INTO aviones VALUES (13,'Airbus A320',2605);
+INSERT INTO aviones VALUES (14,'Airbus A319',1805);
+INSERT INTO aviones VALUES (15,'Boeing 727',1504);
+
+INSERT INTO vuelos VALUES (99,'Los Angeles','Washington D.C.',2308,'2013-04-12 09:30','2013-04-12 21:40',235.98,1);
+INSERT INTO vuelos VALUES (13,'Los Angeles','Chicago',1749,'2013-04-12 08:45','2013-04-12 20:45',220.98,2);
+INSERT INTO vuelos VALUES (346,'Los Angeles','Dallas',1251,'2013-04-12 11:50','2013-04-12 19:05',225.43,3);
+INSERT INTO vuelos VALUES (387,'Los Angeles','Boston',2606,'2013-04-12 07:03','2013-04-12 17:03',261.56,4);
+INSERT INTO vuelos VALUES (7,'Los Angeles','Sydney',7487,'2013-04-12 22:30','2013-04-14 6:10',1278.56,5);
+INSERT INTO vuelos VALUES (2,'Los Angeles','Tokyo',5478,'2013-04-12 12:30','2013-04-13 15:55',780.99,6);
+INSERT INTO vuelos VALUES (33,'Los Angeles','Honolulu',2551,'2013-04-12 09:15','2013-04-12 11:15',375.23,7);
+INSERT INTO vuelos VALUES (34,'Los Angeles','Honolulu',2551,'2013-04-12 12:45','2013-04-12 15:18',425.98,8);
+INSERT INTO vuelos VALUES (76,'Chicago','Los Angeles',1749,'2013-04-12 08:32','2013-04-12 10:03',220.98,9);
+INSERT INTO vuelos VALUES (68,'Chicago','New York',802,'2013-04-12 09:00','2013-04-12 12:02',202.45,10);
+INSERT INTO vuelos VALUES (7789,'Madison','Detroit',319,'2013-04-12 06:15','2013-04-12 08:19',120.33,11);
+INSERT INTO vuelos VALUES (701,'Detroit','New York',470,'2013-04-12 08:55','2013-04-12 10:26',180.56,12);
+INSERT INTO vuelos VALUES (702,'Madison','New York',789,'2013-04-12 07:05','2013-04-12 10:12',202.34,13);
+INSERT INTO vuelos VALUES (4884,'Madison','Chicago',84,'2013-04-12 22:12','2013-04-12 23:02',112.45,14);
+INSERT INTO vuelos VALUES (2223,'Madison','Pittsburgh',517,'2013-04-12 08:02','2013-04-12 10:01',189.98,15);
+INSERT INTO vuelos VALUES (5694,'Madison','Minneapolis',247,'2013-04-22 08:32','2013-04-22 09:33',120.11,1);
+INSERT INTO vuelos VALUES (304,'Minneapolis','New York',991,'2013-04-22 10:00','2013-04-22 1:39',101.56,2);
+INSERT INTO vuelos VALUES (149,'Pittsburgh','New York',303,'2013-04-22 09:42','2013-04-22 12:09',116.50,3);
+
+
+
+
+INSERT INTO aerolineas VALUES (100, 'KLM', 'Paises Bajos','1919-10-05' );
+INSERT INTO aerolineas VALUES (200, 'Avianca', 'Colombia','1919-12-05' );
+INSERT INTO aerolineas VALUES (300, 'Qantas', 'Australia','1920-11-16' );
+INSERT INTO aerolineas VALUES (400, 'Aeroflot','Rusia', '1919-10-05' );
+INSERT INTO aerolineas VALUES (500, 'Czech Airlines','Republica Checa', '1923-02-03' );
+INSERT INTO aerolineas VALUES (600, 'Delta Airlines', 'Estados Unidos','1925-03-02' );
+INSERT INTO aerolineas VALUES (700, 'American Airlines','Estados Unidos', '1926-04-15' );
+INSERT INTO aerolineas VALUES (800, 'Iberia','España', '1927-07-17' );
+INSERT INTO aerolineas VALUES (900, 'Air France','Francia', '1933-06-25' );
+INSERT INTO aerolineas VALUES (1000, 'Emirates','Emiratos Arabes', '1985-04-15' );
+
+INSERT INTO empleados VALUES (242518965,'James Smith',120433,100);
+INSERT INTO empleados VALUES (141582651,'Mary Johnson',178345,200);
+INSERT INTO empleados VALUES (011564812,'John Williams',153972,300);
+INSERT INTO empleados VALUES (567354612,'Lisa Walker',256481, 400);
+INSERT INTO empleados VALUES (552455318,'Larry Kane',101745,500);
+INSERT INTO empleados VALUES (550156548,'Karen Scott',205187,600);
+INSERT INTO empleados VALUES (390487451,'Lawrence Sperry',212156,700);
+INSERT INTO empleados VALUES (274878974,'Michael Miller',99890,800);
+INSERT INTO empleados VALUES (254099823,'Patricia Jones',24450,900);
+INSERT INTO empleados VALUES (356187925,'Robert Brown',44740,1000);
+INSERT INTO empleados VALUES (355548984,'Angela Martinez',212156,100);
+INSERT INTO empleados VALUES (310454876,'Joseph Thompson',212156,200);
+INSERT INTO empleados VALUES (489456522,'Linda Davis',127984,300);
+INSERT INTO empleados VALUES (489221823,'Richard Jackson',23980,400);
+INSERT INTO empleados VALUES (548977562,'William Ward',84476,500);
+INSERT INTO empleados VALUES (310454877,'Chad Stewart',33546,600);
+INSERT INTO empleados VALUES (142519864,'Beatriz Asa',227489,700);
+INSERT INTO empleados VALUES (269734834,'Jorge Gracia',289950,800);
+INSERT INTO empleados VALUES (287321212,'Miguel Gomez',48090,900);
+INSERT INTO empleados VALUES (552455348,'Dorothy Lewis',92013,1000);
+INSERT INTO empleados VALUES (248965255,'Barbara Wilson',43723,100);
+INSERT INTO empleados VALUES (159542516,'William Moore',48250,200);
+INSERT INTO empleados VALUES (348121549,'Enrique Salas',32899,300);
+INSERT INTO empleados VALUES (090873519,'Elizabeth Taylor',32021,400);
+INSERT INTO empleados VALUES (486512566,'David Anderson',743001,500);
+INSERT INTO empleados VALUES (619023588,'Jennifer Thomas',54921,600);
+INSERT INTO empleados VALUES (015645489,'Donald McDonald',18050,700);
+INSERT INTO empleados VALUES (556784565,'Mark Young',205187,800);
+INSERT INTO empleados VALUES (573284895,'Eric Cooper',114323,900);
+INSERT INTO empleados VALUES (574489456,'William Jones',105743,1000);
+INSERT INTO empleados VALUES (584419457,'Bruce Lee',20000, 100);
+INSERT INTO empleados VALUES (574489457,'Maria Lopez',15450,200);
+INSERT INTO empleados VALUES (594889447,'Pobre Diablo',2000,300);
+INSERT INTO empleados VALUES (274489457,'Bugs Bunny',20520,400);
+INSERT INTO empleados VALUES (374489457,'Chandler Bing',18756,500);
+INSERT INTO empleados VALUES (474489457,'Dana Scully',26789,600);
+
+INSERT INTO certificado VALUES (567354612,1);
+INSERT INTO certificado VALUES (567354612,2);
+INSERT INTO certificado VALUES (567354612,10);
+INSERT INTO certificado VALUES (567354612,11);
+INSERT INTO certificado VALUES (567354612,12);
+INSERT INTO certificado VALUES (567354612,15);
+INSERT INTO certificado VALUES (567354612,7);
+INSERT INTO certificado VALUES (567354612,9);
+INSERT INTO certificado VALUES (567354612,3);
+INSERT INTO certificado VALUES (567354612,4);
+INSERT INTO certificado VALUES (567354612,5);
+INSERT INTO certificado VALUES (552455318,2);
+INSERT INTO certificado VALUES (552455318,14);
+INSERT INTO certificado VALUES (550156548,1);
+INSERT INTO certificado VALUES (550156548,12);
+INSERT INTO certificado VALUES (390487451,3);
+INSERT INTO certificado VALUES (390487451,13);
+INSERT INTO certificado VALUES (390487451,14);
+INSERT INTO certificado VALUES (274878974,10);
+INSERT INTO certificado VALUES (274878974,12);
+INSERT INTO certificado VALUES (355548984,8);
+INSERT INTO certificado VALUES (355548984,9);
+INSERT INTO certificado VALUES (310454876,8);
+INSERT INTO certificado VALUES (310454876,9);
+INSERT INTO certificado VALUES (548977562,7);
+INSERT INTO certificado VALUES (142519864,1);
+INSERT INTO certificado VALUES (142519864,11);
+INSERT INTO certificado VALUES (142519864,12);
+INSERT INTO certificado VALUES (142519864,10);
+INSERT INTO certificado VALUES (142519864,3);
+INSERT INTO certificado VALUES (142519864,2);
+INSERT INTO certificado VALUES (142519864,13);
+INSERT INTO certificado VALUES (142519864,7);
+INSERT INTO certificado VALUES (269734834,1);
+INSERT INTO certificado VALUES (269734834,2);
+INSERT INTO certificado VALUES (269734834,3);
+INSERT INTO certificado VALUES (269734834,4);
+INSERT INTO certificado VALUES (269734834,5);
+INSERT INTO certificado VALUES (269734834,6);
+INSERT INTO certificado VALUES (269734834,7);
+INSERT INTO certificado VALUES (269734834,8);
+INSERT INTO certificado VALUES (269734834,9);
+INSERT INTO certificado VALUES (269734834,10);
+INSERT INTO certificado VALUES (269734834,11);
+INSERT INTO certificado VALUES (269734834,12);
+INSERT INTO certificado VALUES (269734834,13);
+INSERT INTO certificado VALUES (269734834,14);
+INSERT INTO certificado VALUES (269734834,15);
+INSERT INTO certificado VALUES (552455318,7);
+INSERT INTO certificado VALUES (556784565,5);
+INSERT INTO certificado VALUES (556784565,2);
+INSERT INTO certificado VALUES (556784565,3);
+INSERT INTO certificado VALUES (573284895,3);
+INSERT INTO certificado VALUES (573284895,4);
+INSERT INTO certificado VALUES (573284895,5);
+INSERT INTO certificado VALUES (574489456,8);
+INSERT INTO certificado VALUES (574489456,6);
+INSERT INTO certificado VALUES (574489457,7);
+INSERT INTO certificado VALUES (242518965,2);
+INSERT INTO certificado VALUES (242518965,10);
+INSERT INTO certificado VALUES (141582651,2);
+INSERT INTO certificado VALUES (141582651,10);
+INSERT INTO certificado VALUES (141582651,12);
+INSERT INTO certificado VALUES (011564812,2);
+INSERT INTO certificado VALUES (011564812,10);
+INSERT INTO certificado VALUES (356187925,6);
+INSERT INTO certificado VALUES (159542516,5);
+INSERT INTO certificado VALUES (159542516,7);
+INSERT INTO certificado VALUES (090873519,6);

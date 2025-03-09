@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Crear_carpetas_y_ficheros {
     public static void main(String[] args) {
-        File file = new File("Repaso/archivos/carpetanueva");
+        File file = new File("Repaso1");
         File file2 = new File("Repaso/archivos/archivo1.txt");
         File file3 = new File("Repaso/archivos/archivo3.txt");
         File file4 = new File("Repaso/archivos/archivo4.txt");

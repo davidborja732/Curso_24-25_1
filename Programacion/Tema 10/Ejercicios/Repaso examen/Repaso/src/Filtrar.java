@@ -13,7 +13,7 @@ public class Filtrar {
         nombres.add("Miguel");
         nombres.add("Laura");
         nombres.add("Daniel");
-        nombres.stream().filter(nombre -> nombre.endsWith("a")).forEach(System.out::println);
+        nombres.stream().filter(nombre -> nombre.contains("a")).forEach(System.out::println);
 
     }
 }
