@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bookstore>
+    <listaautores>
+        <booksauthor>
+            <año_publicacion>1967</año_publicacion>
+            <titulo>Cien años de soledad</titulo>
+        </booksauthor>
+        <booksauthor>
+            <año_publicacion>1985</año_publicacion>
+            <titulo>El amor en los tiempos del cólera</titulo>
+        </booksauthor>
+        <booksauthor>
+            <año_publicacion>1981</año_publicacion>
+            <titulo>Crónica de una muerte anunciada</titulo>
+        </booksauthor>
+        <name>Gabriel García Márquez</name>
+    </listaautores>
+    <listalibros>
+        <autor>Matar a un ruiseñor</autor>
+        <publicacion>1960</publicacion>
+        <titulo>Harper Lee</titulo>
+    </listalibros>
+    <listalibros>
+        <autor>La isla del tesoro</autor>
+        <publicacion>1883</publicacion>
+        <titulo>Robert Louis Stevenson</titulo>
+    </listalibros>
+    <listalibros>
+        <autor>Fahrenheit 451</autor>
+        <publicacion>1953</publicacion>
+        <titulo>Ray Bradbury</titulo>
+    </listalibros>
+</bookstore>

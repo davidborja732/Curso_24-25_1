@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21c99431-c27c-4d11-a77b-4a32682c5785" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FIcheros/EJ9.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_1/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_1/Pruebas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_JSON/Author_EJ10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_JSON/EJ10_Serializar_JSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_JSON/LibraryCatalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_XML/Author_EJ10_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_XML/EJ10_Serializar_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_10_XML/LibraryCatalog_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_2/Prueba_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_3/Library.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_3/prueba_3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_4/prueba_4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_5/Book_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_5/prueba_deserializar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_5/prueba_serializar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_6/Library.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_6/prueba_deserializar_varios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_6/prueba_serializar_varios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_JSON/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_JSON/Book_EJ7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_JSON/EJ7_Serializacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_XML/Author_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_XML/Book_EJ7_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_7_XML/EJ7_Serializacion_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_8_JSON/Bookstore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_8_JSON/Ejercicio_8_serializar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_8_XML/Bookstore_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_8_XML/Ejercicio_8_serializar_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_JSON/Book_EJ9.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_JSON/EJ9_Serializar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_JSON/Publisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_XML/Book_EJ9_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_XML/EJ9_Serializar_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ejercicio_9_XML/Publisher_XML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ejercicios Serializacion.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;davidborja732&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/davidborja732/Curso_24-25_1.git&quot;,
+    &quot;accountId&quot;: &quot;fc92b96a-9767-41ff-8e50-1a04a52748a2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2u7Ul1Qv6mxf290YuCJRsh3uJQR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EJ10_Serializar_JSON.executor": "Run",
+    "Application.EJ10_Serializar_XML.executor": "Run",
+    "Application.EJ7_Serializacion.executor": "Run",
+    "Application.EJ7_Serializacion_XML.executor": "Run",
+    "Application.EJ9_Serializar.executor": "Run",
+    "Application.EJ9_Serializar_XML.executor": "Run",
+    "Application.Ejercicio.executor": "Run",
+    "Application.Ejercicio_8_serializar.executor": "Run",
+    "Application.Ejercicio_8_serializar_XML.executor": "Run",
+    "Application.Prueba_2.executor": "Run",
+    "Application.Pruebas.executor": "Run",
+    "Application.prueba.executor": "Run",
+    "Application.prueba_deserializar_varios.executor": "Run",
+    "Application.prueba_serializar_varios.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Grado Superior/Curso_24-25_1/Programacion/Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Ejercicio_5" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Ejercicio_10_XML" />
+      <recent name="Ejercicio_10_JSON" />
+      <recent name="Ejercicio_9_XML" />
+      <recent name="Ejercicio_9_JSON" />
+      <recent name="Ejercicio_8_XML" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21c99431-c27c-4d11-a77b-4a32682c5785" name="Changes" comment="" />
+      <created>1741599256624</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741599256624</updated>
+    </task>
+    <servers />
+  </component>
+</project>
