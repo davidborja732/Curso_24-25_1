@@ -29,7 +29,7 @@ public class EJ10_Serializar_JSON {
                 String json = objectMapper.writeValueAsString(libreria);
                 System.out.println(json);
             }
-            for (Map.Entry(String,String) )
+            //for (Map.Entry(String,String) )
 
 
         } catch (Exception e) {

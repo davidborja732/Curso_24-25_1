@@ -111,7 +111,7 @@ WHERE id_categoria IN (SELECT id_categoria FROM categorias WHERE descripcion IN 
 +-----------------+---------------------------------------+-------------+--------------+-------+--------------+
 32 rows in set (0.00 sec)
 -- 9
-SELECT RPAD(nombre,10,'*') FROM empleados
+SELECT RPAD(nombre,10,'+') FROM empleados
 WHERE LENGTH(nombre) <=10;
 +---------------------+
 | RPAD(nombre,10,'*') |
