@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listaProductos>
+    <listaproductos>
+        <id>1</id>
+        <nombre>Chubasquero para peces</nombre>
+        <precio>20</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>2</id>
+        <nombre>Sombrero acuático</nombre>
+        <precio>15</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>3</id>
+        <nombre>Gafas de sol para peces</nombre>
+        <precio>10</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>4</id>
+        <nombre>Zapatos impermeables para gatos</nombre>
+        <precio>25</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>5</id>
+        <nombre>Paraguas portátil para tortugas</nombre>
+        <precio>30</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>6</id>
+        <nombre>Chaleco salvavidas para patos</nombre>
+        <precio>35</precio>
+    </listaproductos>
+    <listaproductos>
+        <id>7</id>
+        <nombre>Bufanda térmica para pingüinos</nombre>
+        <precio>20</precio>
+    </listaproductos>
+    <productos>
+        <id>1</id>
+        <nombre>Chubasquero para peces</nombre>
+        <precio>20</precio>
+    </productos>
+    <productos>
+        <id>2</id>
+        <nombre>Sombrero acuático</nombre>
+        <precio>15</precio>
+    </productos>
+    <productos>
+        <id>3</id>
+        <nombre>Gafas de sol para peces</nombre>
+        <precio>10</precio>
+    </productos>
+    <productos>
+        <id>4</id>
+        <nombre>Zapatos impermeables para gatos</nombre>
+        <precio>25</precio>
+    </productos>
+    <productos>
+        <id>5</id>
+        <nombre>Paraguas portátil para tortugas</nombre>
+        <precio>30</precio>
+    </productos>
+    <productos>
+        <id>6</id>
+        <nombre>Chaleco salvavidas para patos</nombre>
+        <precio>35</precio>
+    </productos>
+    <productos>
+        <id>7</id>
+        <nombre>Bufanda térmica para pingüinos</nombre>
+        <precio>20</precio>
+    </productos>
+</listaProductos>

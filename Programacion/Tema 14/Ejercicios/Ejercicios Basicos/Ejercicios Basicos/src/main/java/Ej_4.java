@@ -2,7 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class Ej_4 {
     static String url="jdbc:mysql://localhost:3306/ej14";
@@ -40,6 +43,7 @@ public class Ej_4 {
                     int filas=preparedStatement.executeUpdate();
                     if (filas>0){
                         JOptionPane.showMessageDialog(frame, "Alumno añadido");
+                        frame.dispose();
                     }
                 }catch (SQLException z) {
                     throw new RuntimeException(z);

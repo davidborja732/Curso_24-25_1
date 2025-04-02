@@ -5,19 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d52f47-6ce7-4c4d-b265-3ed5fafe9e11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Alumno.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EJ_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Bases de datos/Practicas/Tema 7/Consultas avanzadas ventas/Consultas_David_Borja.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Bases de datos/Practicas/Tema 7/Consultas avanzadas ventas/Consultas_David_Borja.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Digitalizacion/Dibujar/pythonProject1/EJ2_David_Borja.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Conexion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EJ_8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EjJ_10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/EJ1_XML_Des.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/Ej1_JSON_Des.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_jSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/EJ2_JSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/Ej2_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Lista_productos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Productos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/EJ2_JSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/Ej2_XML.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Bases de datos/Practicas/Tema 8/Inicial.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/src/main/java/Ejercicio_10_JSON/EJ10_Serializar_JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/src/main/java/Ejercicio_10_JSON/EJ10_Serializar_JSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ejercicios Basicos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base de datos/BaseEJ14.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Base de datos/BaseEJ14.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EJ_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EJ_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_5.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,20 +74,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EJ_2.executor": "Run",
-    "Application.Ej_3.executor": "Run",
-    "Application.Ej_4.executor": "Run",
-    "Application.Ej_5.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Grado Superior/Curso_24-25_1/Programacion/Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EJ_2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EJ_8.executor&quot;: &quot;Run&quot;,
+    &quot;Application.EjJ_10.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ej_3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ej_4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ej_5.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ej_6.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Ej_7.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Grado Superior/Curso_24-25_1/Programacion/Tema 14/Ejercicios/Repaso General/Repaso General&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />

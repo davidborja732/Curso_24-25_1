@@ -4,6 +4,7 @@ import java.util.List;
 
 public class EJ_2 {
     public static void main(String[] args) {
+        Conexion conexion=new Conexion();
         String url="jdbc:mysql://localhost:3306/ej14";
         String usuario="root";
         String Contraseña="1234";
@@ -18,16 +19,15 @@ public class EJ_2 {
         alumnos.add(new Alumno("Clara", "Jiménez", "Calle Este 34"));
         alumnos.add(new Alumno("Álvaro", "Ruiz", "Pasaje Norte 67"));
         alumnos.add(new Alumno("Sofía", "Torres", "Calle Flor 90"));
-        try (Connection connection= DriverManager.getConnection(url,usuario,Contraseña)){
-
-            PreparedStatement preparedStatement= connection.prepareStatement("INSERT INTO alumnos (Nombre, Apellidos, Direccion) VALUES (?, ?, ?)");
+        try {
+            PreparedStatement preparedStatement= conexion.prepared("INSERT INTO alumnos (Nombre, Apellidos, Direccion) VALUES (?, ?, ?)");
             for (Alumno alumno:alumnos){
                 preparedStatement.setString(1, alumno.getNombre());
                 preparedStatement.setString(2, alumno.getApellidos());
                 preparedStatement.setString(3, alumno.getDireccion());
                 preparedStatement.executeUpdate();
             }
-            Statement statement= connection.createStatement();
+            Statement statement= conexion.statement();
             ResultSet resultSet= statement.executeQuery("Select * from alumnos");
             while (resultSet.next()){
                 String Nombre=resultSet.getString("Nombre");
