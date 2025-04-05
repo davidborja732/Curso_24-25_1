@@ -1,0 +1,6 @@
+CREATE DATABASE EJ4;
+USE EJ4
+CREATE TABLE usuarios(
+nombre VARCHAR(100),
+Correo VARCHAR(100)
+);

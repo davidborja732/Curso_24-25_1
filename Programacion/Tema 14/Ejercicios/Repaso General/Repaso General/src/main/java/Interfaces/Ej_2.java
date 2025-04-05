@@ -22,14 +22,13 @@ public class Ej_2 {
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (usuario.getText().toLowerCase().equals("admin") && contrasena.getText().equals("1234")){
+                if (usuario.getText().equals("admin") && contrasena.getText().equals("1234")){
                     JOptionPane.showMessageDialog(frame, "Registro correcto");
                 }else {
                     JOptionPane.showMessageDialog(frame, "ERROR 404");
                 }
             }
         });
-
         frame.setVisible(true);
 
 

@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d52f47-6ce7-4c4d-b265-3ed5fafe9e11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../../Digitalizacion/Dibujar/pythonProject1/EJ2_David_Borja.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Conexion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EJ_8.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EjJ_10.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ej_7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/EJ1_XML_Des.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/Ej1_JSON_Des.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_XML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_jSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/EJ2_JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/Ej2_XML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Lista_productos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Productos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/EJ2_JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/Ej2_XML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Bases de datos/Practicas/Tema 8/Inicial.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/Base de datos/BaseEJ4.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/EJ_4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Base de datos/BaseEJ14.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Base de datos/BaseEJ14.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EJ_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EJ_2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Repaso General/Repaso General/src/main/java/Interfaces/Ej_3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -19,7 +19,7 @@ public class Ej_3 {
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(frame, "Hola "+usuario.getText());
+                JOptionPane.showMessageDialog(frame, ("Hola "+usuario.getText())+"!");
             }
         });
         frame.setVisible(true);

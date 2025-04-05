@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vendedores>
+    <vendedor>
+        <contacto>juan@gmail.com</contacto>
+        <empresa>Mercadona</empresa>
+        <id>1</id>
+        <nombre>Juan</nombre>
+    </vendedor>
+    <vendedor>
+        <contacto>pepe@gmail.com</contacto>
+        <empresa>Alcampo</empresa>
+        <id>2</id>
+        <nombre>Pepe</nombre>
+    </vendedor>
+</vendedores>
