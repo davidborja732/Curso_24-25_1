@@ -5,34 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21c99431-c27c-4d11-a77b-4a32682c5785" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../../Digitalizacion/Dibujar/pythonProject1/EJ2_David_Borja.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Conexion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/EJ_8.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/EjJ_10.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_6.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/EJ1_XML_Des.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_1/Deserializar/Ej1_JSON_Des.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_1/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_XML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_1/Serializar/EJ1_jSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/EJ2_JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Deserializar/Ej2_XML.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Lista_productos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Productos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/EJ2_JSON.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso General/Repaso General/src/main/java/Ejercicio_2/Serializar/Ej2_XML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Bases de datos/Practicas/Tema 8/Inicial.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso Examen/Repaso Examen/Base de datos/Archivo.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso Examen/Repaso Examen/src/main/java/org/example/Alumno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso Examen/Repaso Examen/src/main/java/org/example/Conexion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso Examen/Repaso Examen/src/main/java/org/example/Insertar_datos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Repaso Examen/Repaso Examen/src/main/java/org/example/Visualizar_datos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/Base de datos/BaseEJ14.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/Base de datos/BaseEJ14.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/EJ_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/EJ_2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Conexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_5.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Ejercicios/Ejercicios Basicos/Ejercicios Basicos/src/main/java/Ej_5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Practica/Practica_David_Borja/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Practica/Practica_David_Borja/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Tema 14/Practica/Practica_David_Borja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 14/Practica/Practica_David_Borja/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.dia" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.dia" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

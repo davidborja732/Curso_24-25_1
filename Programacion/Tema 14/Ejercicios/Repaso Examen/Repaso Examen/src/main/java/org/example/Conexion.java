@@ -1,9 +1,11 @@
+package org.example;
+
 import java.sql.*;
 
 public class Conexion {
-    private static String url="jdbc:mysql://localhost:3306/ej14";
+    private static String url="jdbc:mysql://localhost:3306/repasoexamen";
     private static String usuario="root";
-    private static String Contraseña="1234";
+    private static String Contrasena="1234";
 
     public Conexion() {
     }
@@ -11,7 +13,7 @@ public class Conexion {
     public Connection conectar(){
         Connection connection=null;
         try {
-            connection= DriverManager.getConnection(url,usuario,Contraseña);
+            connection= DriverManager.getConnection(url,usuario,Contrasena);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -27,20 +29,14 @@ public class Conexion {
         }
         return preparedStatement;
     }
-    public  Statement statement(){
-        Conexion conexio
-        Statement statement;
-        try {
-            statement=conectar().createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return statement();
-    }
     public ResultSet resultSet(String consulta){
-        ResultSet resultSet;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
         try {
-            resultSet=statement().executeQuery(consulta);
+            connection = conectar();
+            preparedStatement = connection.prepareStatement(consulta);
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

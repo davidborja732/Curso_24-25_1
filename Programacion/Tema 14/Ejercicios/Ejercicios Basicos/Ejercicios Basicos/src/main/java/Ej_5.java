@@ -56,7 +56,7 @@ public class Ej_5 {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 Alumno alumno=new Alumno(recogonombre.getText(),recogoapellidos.getText(),recogodireccion.getText());
-                                try (Connection connection = DriverManager.getConnection(url, usuario, Contraseña)) {
+                                try (Connection connection = DriverManager.getConnection(url, usuario,Contraseña)) {
                                     PreparedStatement preparedStatement = connection.prepareStatement("UPDATE alumnos SET Nombre = ?, Apellidos = ?, Direccion = ? WHERE Id ="+recogoID.getText());
                                     preparedStatement.setString(1, alumno.getNombre());
                                     preparedStatement.setString(2, alumno.getApellidos());
