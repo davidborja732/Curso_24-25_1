@@ -28,7 +28,7 @@ public class Conexion {
         return preparedStatement;
     }
     public  Statement statement(){
-        Conexion conexio
+        Conexion conexion;
         Statement statement;
         try {
             statement=conectar().createStatement();

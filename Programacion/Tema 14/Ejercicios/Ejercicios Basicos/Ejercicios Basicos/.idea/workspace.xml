@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d52f47-6ce7-4c4d-b265-3ed5fafe9e11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Repaso Examen/Repaso Examen/Base de datos/Archivo.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso Examen/Repaso Examen/src/main/java/org/example/Conexion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso Examen/Repaso Examen/src/main/java/org/example/Insertar_datos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Repaso Examen/Repaso Examen/src/main/java/org/example/Visualizar_datos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Tema 13/Ejercicios/Ejercicios De Serializacion/Ejercicios Serializacion/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Digitalizacion/Dibujar/pythonProject1/Actividad_3_David_Borja.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Digitalizacion/Dibujar/pythonProject1/Ejemplo_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/Ficheros/Informacion_conexion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/Ficheros/log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/src/main/java/Conexiones/Ficheros.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/src/main/java/Interfaz/Interfaz_Inicial_y_login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/src/main/java/Interfaz/Interfaz_login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Programa/Liga_de_hockey_David_Borja_Mateo/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ej_5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ej_5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Practica/Practica_David_Borja/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Practica/Practica_David_Borja/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Practica/Practica_David_Borja/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Practica/Practica_David_Borja/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.dia" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.dia" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.png" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Diagrama Liga de hockey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Proyecto 24-25/Liga de hockey.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
