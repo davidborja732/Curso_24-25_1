@@ -20,7 +20,7 @@ public class Interfaz_login {
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
-        frame=new JFrame("Liga De Hockey");
+        frame=new JFrame("Login Programa");
         frame.setSize(ancho/4,alto/4);
         frame.setLayout(new GridLayout(3,2));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -40,7 +40,7 @@ public class Interfaz_login {
         boton_Iniciar_Sesion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ResultSet resultSet= conexion.resultSet("SELECT * FROM usuario");
+                ResultSet resultSet= conexion.resultSet("SELECT * FROM usuario",1);
                 try {
                     while (resultSet.next()){
                         String usuario_base= resultSet.getString("usuario");
@@ -52,6 +52,14 @@ public class Interfaz_login {
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        boton_Cambiar_Contraseña.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Interfaz_Cambiar_Contraseña interfazCambiarContraseña=new Interfaz_Cambiar_Contraseña();
+                frame.dispose();
+                interfazCambiarContraseña.Inicializar_Cambio();
             }
         });
     }

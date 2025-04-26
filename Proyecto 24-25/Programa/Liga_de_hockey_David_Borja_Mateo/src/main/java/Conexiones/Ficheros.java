@@ -7,7 +7,7 @@ public class Ficheros {
     public Ficheros() {
     }
 
-    private ArrayList<String> lineas_lectura=new ArrayList<>();
+    private final ArrayList<String> lineas_lectura=new ArrayList<>();
     public void escritura(File archivo,String texto_a_escribir){
         try(BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(archivo,true))) {
             bufferedWriter.write(texto_a_escribir);
@@ -22,8 +22,6 @@ public class Ficheros {
             while ((linea= bufferedReader.readLine())!=null){
                 lineas_lectura.add(linea);
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
