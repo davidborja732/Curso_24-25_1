@@ -14,6 +14,7 @@ public class Interfaz_Cambiar_Contraseña {
     public Interfaz_Cambiar_Contraseña() {
     }
     public void Inicializar_Cambio(){
+        Interfaz_login interfazLogin=new Interfaz_login();
         Conexion conexion=new Conexion();
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -39,18 +40,20 @@ public class Interfaz_Cambiar_Contraseña {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ResultSet resultSet= conexion.resultSet("SELECT contraseña FROM usuario",1);
+                    ResultSet resultSet= conexion.resultSet("SELECT contraseña FROM usuario");
                     while (resultSet.next()){
                         String contraseña_base= resultSet.getString("contraseña");
                         if (contraseña_base.equals(Contrasena_Actual.getText())){
                             if (contraseña_base.equals(Contrasena_Nueva.getText())){
                                 JOptionPane.showMessageDialog(frame, "No puedes cambiar la contraseña por la misma");
                             }else {
-                                PreparedStatement preparedStatement = conexion.prepared("UPDATE usuario SET contraseña=?", 1);
+                                PreparedStatement preparedStatement = conexion.prepared("UPDATE usuario SET contraseña=? WHERE usuario='Admin'");
                                 preparedStatement.setString(1, Contrasena_Nueva.getText());
                                 int filas = preparedStatement.executeUpdate();
                                 if (filas > 0) {
                                     JOptionPane.showMessageDialog(frame, "Contraseña cambiada correctamanete");
+                                    frame.dispose();
+                                    interfazLogin.Inicializar_Login();
                                 }
                             }
                         } else {
@@ -65,7 +68,6 @@ public class Interfaz_Cambiar_Contraseña {
         boton_Cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Interfaz_login interfazLogin=new Interfaz_login();
                 frame.dispose();
                 interfazLogin.Inicializar_Login();
             }

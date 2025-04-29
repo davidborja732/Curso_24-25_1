@@ -1,4 +1,3 @@
-jdbc:mysql://localhost:3306/login
-jdbc:mysql://localhost:3306/login
+jdbc:mysql://localhost:3306/Liga_Hockey
 root
 1234
