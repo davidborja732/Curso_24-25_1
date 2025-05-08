@@ -26,9 +26,6 @@ BEGIN
 END;
 //
 
-DELIMITER ;
-DELIMITER //
-
 CREATE TRIGGER evitar_entrenador_duplicado
 BEFORE INSERT ON Equipo
 FOR EACH ROW

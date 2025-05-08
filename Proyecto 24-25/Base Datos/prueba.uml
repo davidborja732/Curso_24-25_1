@@ -1,0 +1,11 @@
+@startumlclass Persona {  - Dirección : String  - DNI : String  - Apellidos : String  - Nombre : String  - Teléfono : String  - F_nacimiento : Date}
+class Jugador {  - Posición : String  - Valor_mercado : Double  - ID_eq : String  - Dorsal : Integer}
+class Entrenador {  - Nº_Equipos_Entrenados : Integer  - Salario : Double  - Años_exp : Integer  - Palmarés : String}
+class Equipo {  - ID_eq : String  - Nombre : String  - Nº_Titulos : Integer  - Estadio : String  - DNI_entrenador : String}
+class Arbitro {  - ID : String  - Nombre : String}
+class Historial {  - Nº_sanciones : Integer  - Partidos_Arbitrados : Integer  - ID_arbitro : String  - Id_Historial : String  - Rojas_sacadas : Integer  - Amarillas_sacadas : Integer}
+class Informe {  - Nº_Rojas : Integer  - Nº_Amarillas : Integer  - ID_informe : String  - Id_arbitro : String  - Id_partido : String}
+class Partidos {  - ID_partido : String  - Fecha : Date  - Ganador : String}
+Persona <|-- JugadorPersona <|-- EntrenadorPersona <|-- Arbitro
+Jugador --> Equipo : pertenece (1:N)Entrenador --> Equipo : entrena (1:1)Arbitro --> Historial : supervisa (1:N)Arbitro --> Partidos : arbitra (1:N)Historial --> Informe : genera (1:N)Equipo --> Partidos : juega (N:M)Partidos --> Informe : tiene (1:1)
+@enduml

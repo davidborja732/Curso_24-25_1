@@ -20,6 +20,7 @@ public class Interfaz_login {
         Conexion conexion=new Conexion();
         Ficheros ficheros=new Ficheros();
         Interfaz_Seleccion_Tablas interfazSeleccionTablas=new Interfaz_Seleccion_Tablas();
+        Interfaz_Arbitros interfazArbitros=new Interfaz_Arbitros();
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -51,14 +52,16 @@ public class Interfaz_login {
                         String usuario_base= resultSet.getString("usuario");
                         String contraseña_base= resultSet.getString("contraseña");
                         if (usuario_base.equals(usuario.getText()) && contraseña_base.equals(contrasena.getText())){
+                            JOptionPane.showMessageDialog(frame, "Registro correcto");
                             if (usuario.getText().equals("Arbitro")){
                                 ficheros.escritura(new File("Ficheros/log.txt"),"Registro Arbitro "+ LocalDateTime.now());
+                                frame.dispose();
+                                interfazArbitros.Inicializar_Interfaz_Arbitro();
                             } else if (usuario.getText().equals("Admin")) {
                                 ficheros.escritura(new File("Ficheros/log.txt"),"Registro Administrador "+ LocalDateTime.now());
+                                frame.dispose();
+                                interfazSeleccionTablas.Inicializar_Seleccion();
                             }
-                            JOptionPane.showMessageDialog(frame, "Registro correcto");
-                            frame.dispose();
-                            interfazSeleccionTablas.Inicializar_Seleccion();
                             registrado_correctamente =true;
                             break;
                         }else{

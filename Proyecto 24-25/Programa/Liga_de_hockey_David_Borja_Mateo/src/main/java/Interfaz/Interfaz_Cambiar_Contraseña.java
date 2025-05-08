@@ -43,9 +43,13 @@ public class Interfaz_Cambiar_Contraseña {
                     ResultSet resultSet= conexion.resultSet("SELECT contraseña FROM usuario");
                     while (resultSet.next()){
                         String contraseña_base= resultSet.getString("contraseña");
-                        if (contraseña_base.equals(Contrasena_Actual.getText())){
+                        if (Contrasena_Actual.getText().isBlank() || Contrasena_Nueva.getText().isBlank()){
+                            JOptionPane.showMessageDialog(frame, "Hay un campo vacio");
+                            break;
+                        } else if (contraseña_base.equals(Contrasena_Actual.getText())){
                             if (contraseña_base.equals(Contrasena_Nueva.getText())){
                                 JOptionPane.showMessageDialog(frame, "No puedes cambiar la contraseña por la misma");
+                                break;
                             }else {
                                 PreparedStatement preparedStatement = conexion.prepared("UPDATE usuario SET contraseña=? WHERE usuario='Admin'");
                                 preparedStatement.setString(1, Contrasena_Nueva.getText());
@@ -54,6 +58,7 @@ public class Interfaz_Cambiar_Contraseña {
                                     JOptionPane.showMessageDialog(frame, "Contraseña cambiada correctamanete");
                                     frame.dispose();
                                     interfazLogin.Inicializar_Login();
+                                    break;
                                 }
                             }
                         } else {
