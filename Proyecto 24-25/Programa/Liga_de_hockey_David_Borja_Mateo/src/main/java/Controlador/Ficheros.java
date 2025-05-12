@@ -1,4 +1,4 @@
-package Conexiones;
+package Controlador;
 
 import java.io.*;
 import java.util.ArrayList;

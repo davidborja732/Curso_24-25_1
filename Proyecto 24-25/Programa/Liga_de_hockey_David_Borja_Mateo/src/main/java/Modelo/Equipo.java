@@ -1,10 +1,23 @@
-package Interfaz.Ver;
+package Modelo;
 
 public class Equipo {
     private String Nombre;
     private int N_trofeos;
     private String DNI_Entrenador;
     private int ID_eq;
+
+    public Equipo(String DNI_Entrenador, int n_trofeos, String nombre) {
+        this.DNI_Entrenador = DNI_Entrenador;
+        N_trofeos = n_trofeos;
+        Nombre = nombre;
+    }
+
+    public Equipo(String DNI_Entrenador, int ID_eq, int n_trofeos, String nombre) {
+        this.DNI_Entrenador = DNI_Entrenador;
+        this.ID_eq = ID_eq;
+        N_trofeos = n_trofeos;
+        Nombre = nombre;
+    }
 
     public String getDNI_Entrenador() {
         return DNI_Entrenador;

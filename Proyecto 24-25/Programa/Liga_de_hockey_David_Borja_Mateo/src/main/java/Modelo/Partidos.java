@@ -1,4 +1,4 @@
-package Interfaz.Ver;
+package Modelo;
 
 import java.util.Date;
 
@@ -7,6 +7,13 @@ public class Partidos {
     private int Ganador;
     private int ID_partido;
     private int ID_arbitro;
+
+    public Partidos(Date fecha, int ganador, int ID_arbitro, int ID_partido) {
+        this.fecha = fecha;
+        Ganador = ganador;
+        this.ID_arbitro = ID_arbitro;
+        this.ID_partido = ID_partido;
+    }
 
     public Date getFecha() {
         return fecha;

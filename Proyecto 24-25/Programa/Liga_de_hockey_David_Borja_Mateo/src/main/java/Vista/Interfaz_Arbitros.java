@@ -1,26 +1,26 @@
-package Interfaz;
+package Vista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Interfaz_Arbitro {
-    public Interfaz_Arbitro() {
+public class Interfaz_Arbitros {
+    public Interfaz_Arbitros() {
     }
-    public void Inicializar_interfaz_arbitro(){
+    public void Inicializar_Interfaz_Arbitro(){
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
-        frame=new JFrame("Seleccion tabla a trabajar");
+        frame=new JFrame("Seleccion tabla a ver");
         frame.setSize(ancho/6,alto/4);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
-        JButton equipos=new JButton(" Ver equipos");
-        JButton juega=new JButton("Ver juegan");
-        JButton partidos=new JButton("Ver partidos");
+        JButton equipos=new JButton("Ver Equipos");
+        JButton juega=new JButton("Ver Juegan");
+        JButton partidos=new JButton("Ver Partidos");
         JButton informe=new JButton("Ver Informe");
         frame.add(equipos);
         frame.add(juega);

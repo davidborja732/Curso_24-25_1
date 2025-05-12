@@ -1,9 +1,15 @@
-package Interfaz.Ver;
+package Modelo;
 
 public class Juega {
     private int ID_partido;
     private int ID_equipo;
     private String ROL;
+
+    public Juega(int ID_equipo, int ID_partido, String ROL) {
+        this.ID_equipo = ID_equipo;
+        this.ID_partido = ID_partido;
+        this.ROL = ROL;
+    }
 
     public int getID_equipo() {
         return ID_equipo;

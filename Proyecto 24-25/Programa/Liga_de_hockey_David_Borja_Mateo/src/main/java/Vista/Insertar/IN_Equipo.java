@@ -1,14 +1,12 @@
-package Interfaz.Insertar;
+package Vista.Insertar;
 
-import Conexiones.Conexion;
+import Controlador.Conexion;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class IN_Equipo {
     public IN_Equipo() {
@@ -51,7 +49,7 @@ public class IN_Equipo {
         boton_Cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                frame.dispose();
             }
         });
     }

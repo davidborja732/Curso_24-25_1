@@ -1,4 +1,4 @@
-package Interfaz.Ver;
+package Modelo;
 
 public class Informe {
     private int N_rojas;
@@ -6,6 +6,13 @@ public class Informe {
     private int Id_informe;
     private int ID_partido;
     private int ID_arbitro;
+
+    public Informe(int ID_arbitro, int ID_partido, int n_amarillas, int n_rojas) {
+        this.ID_arbitro = ID_arbitro;
+        this.ID_partido = ID_partido;
+        N_amarillas = n_amarillas;
+        N_rojas = n_rojas;
+    }
 
     public int getID_arbitro() {
         return ID_arbitro;

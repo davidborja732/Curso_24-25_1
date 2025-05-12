@@ -1,14 +1,18 @@
-import Conexiones.Conexion;
-import Interfaz.Insertar.IN_Juega;
-import Interfaz.Interfaz_Inicial;
+import Vista.Borrar.BO_Juega;
+import Vista.Insertar.IN_Juega;
+import Vista.Interfaz_Inicial;
+import Vista.Modificar.MO_Juega;
+import Vista.Ver.VR_Juega;
 
 public class Main {
     public static void main(String[] args) {
-        /*Interfaz_Inicial interfaz=new Interfaz_Inicial();
+        Interfaz_Inicial interfaz=new Interfaz_Inicial();
         interfaz.Inicializar_Interfaz_inicial();
-        Conexion conexion=new Conexion();
+        /*Conexion conexion=new Conexion();
         System.out.printf(conexion.toString());*/
-        IN_Juega inJuega=new IN_Juega();
-        inJuega.Iniciar_insercion();
+        /*IN_Juega inJuega=new IN_Juega();
+        inJuega.Iniciar_insercion();*/
+        /*VR_Juega moJuega=new VR_Juega();
+        moJuega.Iniciar_Vista();*/
     }
 }

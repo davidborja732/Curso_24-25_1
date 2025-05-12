@@ -1,15 +1,14 @@
-package Interfaz;
+package Vista;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Interfaz_Seleccion_Tablas {
-    public Interfaz_Seleccion_Tablas() {
+public class Interfaz_Arbitro {
+    public Interfaz_Arbitro() {
     }
-    public void Inicializar_Seleccion(){
-        Interfaz_CRUD interfazCrud=new Interfaz_CRUD();
+    public void Inicializar_interfaz_arbitro(){
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -19,10 +18,10 @@ public class Interfaz_Seleccion_Tablas {
         frame.setSize(ancho/6,alto/4);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
-        JButton equipos=new JButton("Equipos");
-        JButton juega=new JButton("Juegan");
-        JButton partidos=new JButton("Partidos");
-        JButton informe=new JButton("Informe");
+        JButton equipos=new JButton(" Ver equipos");
+        JButton juega=new JButton("Ver juegan");
+        JButton partidos=new JButton("Ver partidos");
+        JButton informe=new JButton("Ver Informe");
         frame.add(equipos);
         frame.add(juega);
         frame.add(partidos);
@@ -31,25 +30,25 @@ public class Interfaz_Seleccion_Tablas {
         equipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(1);
+
             }
         });
         juega.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(2);
+
             }
         });
         partidos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(3);
+
             }
         });
-       informe.addActionListener(new ActionListener() {
+        informe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(4);
+
             }
         });
     }

@@ -1,7 +1,7 @@
-package Interfaz;
+package Vista;
 
-import Conexiones.Conexion;
-import Conexiones.Ficheros;
+import Controlador.Conexion;
+import Controlador.Ficheros;
 
 import javax.swing.*;
 import java.awt.*;

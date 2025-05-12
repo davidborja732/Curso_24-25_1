@@ -1,4 +1,10 @@
-package Interfaz;
+package Vista;
+
+import Vista.Borrar.BO_Juega;
+import Vista.Insertar.IN_Equipo;
+import Vista.Insertar.IN_Juega;
+import Vista.Modificar.MO_Juega;
+import Vista.Ver.VR_Juega;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,9 +37,11 @@ public class Interfaz_CRUD {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
-
+                    IN_Equipo inEquipo=new IN_Equipo();
+                    inEquipo.Iniciar_insercion();
                 } else if (opcion==2) {
-
+                    IN_Juega inJuega=new IN_Juega();
+                    inJuega.Iniciar_insercion();
                 } else if (opcion==3) {
 
                 } else if (opcion==4) {
@@ -47,7 +55,8 @@ public class Interfaz_CRUD {
                 if (opcion == 1) {
 
                 } else if (opcion==2) {
-
+                    BO_Juega boJuega=new BO_Juega();
+                    boJuega.Iniciar_Borrado();
                 } else if (opcion==3) {
 
                 } else if (opcion==4) {
@@ -61,7 +70,8 @@ public class Interfaz_CRUD {
                 if (opcion == 1) {
 
                 } else if (opcion==2) {
-
+                    MO_Juega moJuega=new MO_Juega();
+                    moJuega.Iniciar_Modificacion();
                 } else if (opcion==3) {
 
                 } else if (opcion==4) {
@@ -75,7 +85,8 @@ public class Interfaz_CRUD {
                 if (opcion == 1) {
 
                 } else if (opcion==2) {
-
+                    VR_Juega vrJuega=new VR_Juega();
+                    vrJuega.Iniciar_Vista();
                 } else if (opcion==3) {
 
                 } else if (opcion==4) {
