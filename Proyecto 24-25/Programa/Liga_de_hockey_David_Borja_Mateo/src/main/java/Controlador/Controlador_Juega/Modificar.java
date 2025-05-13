@@ -2,22 +2,36 @@ package Controlador.Controlador_Juega;
 
 import Controlador.Conexion;
 import Modelo.Juega;
+import Vista.Modificar.MO_Juega;
 
 import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Modificar {
-    private Conexion conexion;
+    private Conexion conexion=new Conexion();
 
     public Modificar() {
-        conexion = new Conexion();
-    }
 
-    public void Modificar_juega(Juega juega, JFrame frame) {
+    }
+    public int obtener_ID_equipo(String nombre){
+        int id_equipo=0;
+        try {
+            ResultSet resultSet = conexion.resultSet("SELECT ID_eq FROM equipo WHERE Nombre='"+nombre+"'");
+            while (resultSet.next()) {
+                id_equipo=resultSet.getInt("ID_eq");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id_equipo;
+    }
+    public void Modificar_juega(Juega juega) {
+        MO_Juega moJuega=new MO_Juega();
         try {
             // Modifico en la tabla juega los datos seleccionados por el usuario, comprobando también el ROL en la condición WHERE
             String modificar_juega = "UPDATE juega SET ID_eq = ? WHERE ID_partido = ? AND Rol = ?";
@@ -28,24 +42,24 @@ public class Modificar {
 
             int filas = preparedStatement.executeUpdate();
             if (filas > 0) {
-                JOptionPane.showMessageDialog(frame, "Modificado correctamente.");
+                moJuega.recogermensaje("Modificado correctamente.");
             } else {
-                JOptionPane.showMessageDialog(frame, "No se pudo modificar. Verifique que el partido y el rol existen.");
+                moJuega.recogermensaje("No se pudo modificar. Verifique que el partido y el rol existen.");
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(frame, "Error al modificar equipo: " + ex.getMessage());
+            moJuega.recogermensaje("Error al modificar equipo: " + ex.getMessage());
+
         }
     }
 
     // Método para obtener los equipos
-    public List<Integer> obtenerEquipos() {
-        List<Integer> equipos = new ArrayList<>();
+    public List<String> obtenerEquipos() {
+        List<String> equipos = new ArrayList<>();
         try {
-            ResultSet resultSet = conexion.resultSet("SELECT ID_eq FROM equipo");
+            ResultSet resultSet = conexion.resultSet("SELECT Nombre FROM equipo");
             while (resultSet.next()) {
-                equipos.add(resultSet.getInt("ID_eq"));
+                equipos.add(resultSet.getString("Nombre"));
             }
-            resultSet.close();
         } catch (SQLException e) {
             throw new RuntimeException("Error al obtener equipos: " + e.getMessage());
         }
@@ -56,11 +70,15 @@ public class Modificar {
     public List<Integer> obtenerPartidos() {
         List<Integer> partidos = new ArrayList<>();
         try {
-            ResultSet resultSet = conexion.resultSet("SELECT ID_partido FROM partidos");
-            while (resultSet.next()) {
-                partidos.add(resultSet.getInt("ID_partido"));
+            try (ResultSet resultSet = conexion.resultSet("SELECT ID_partido FROM juega")) {
+                while (resultSet.next()) {
+                    int idPartido = resultSet.getInt("ID_partido");
+                    if (!partidos.contains(idPartido)) {
+                        partidos.add(idPartido);
+                    }
+                }
+                Collections.sort(partidos);
             }
-            resultSet.close();
         } catch (SQLException e) {
             throw new RuntimeException("Error al obtener partidos: " + e.getMessage());
         }

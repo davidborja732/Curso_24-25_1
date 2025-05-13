@@ -1,21 +1,22 @@
 package Vista;
 
+import Controlador.Obtener_resolucion;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Interfaz_Arbitros {
+    Obtener_resolucion obtenerResolucion=new Obtener_resolucion();
     public Interfaz_Arbitros() {
     }
     public void Inicializar_Interfaz_Arbitro(){
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
         frame=new JFrame("Seleccion tabla a ver");
-        frame.setSize(ancho/6,alto/4);
+        frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
         JButton equipos=new JButton("Ver Equipos");

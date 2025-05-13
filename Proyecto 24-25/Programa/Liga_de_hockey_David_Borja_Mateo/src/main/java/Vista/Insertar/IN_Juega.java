@@ -1,24 +1,28 @@
 package Vista.Insertar;
 
 import Controlador.Controlador_Juega.Anadir;
-import Controlador.Conexion;
+import Controlador.Obtener_resolucion;
 import Modelo.Juega;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class IN_Juega {
+    private static String mensaje_confirmacion;
+    public void recogermensaje(String mensaje){
+        mensaje_confirmacion=mensaje;
+    }
     public IN_Juega() {
+
     }
     public void Iniciar_insercion() {
-        Conexion conexion = new Conexion();
         Anadir anadir = new Anadir(); // Instancia de la clase Anadir
+        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame = new JFrame("Asignar equipo a partido");
-        frame.setSize(400, 250);
+        frame.setSize(ancho/4, alto/2);
         frame.setLayout(new GridLayout(4, 2));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -26,7 +30,7 @@ public class IN_Juega {
         JComboBox<Integer> equipos = new JComboBox<>();
         JComboBox<Integer> partidos = new JComboBox<>();
         JComboBox<String> Rol = new JComboBox<>();
-        JButton boton_Añadir = new JButton("Añadir");
+        JButton boton_Anadir = new JButton("Añadir");
         JButton boton_Cancelar = new JButton("Cancelar");
 
         frame.add(new JLabel("ID_eq "));
@@ -48,19 +52,19 @@ public class IN_Juega {
             JOptionPane.showMessageDialog(null, "Error al cargar datos: " + e.getMessage());
         }
 
-
         Rol.addItem("Local");
         Rol.addItem("Visitante");
 
-        frame.add(boton_Añadir);
+        frame.add(boton_Anadir);
         frame.add(boton_Cancelar);
         frame.setVisible(true);
 
-        boton_Añadir.addActionListener(new ActionListener() {
+        boton_Anadir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Juega juega = new Juega(Integer.valueOf(equipos.getSelectedItem().toString()), Integer.valueOf(partidos.getSelectedItem().toString()), String.valueOf(Rol.getSelectedItem()));
-                anadir.Anadir_juega(juega,frame);
+                Juega juega = new Juega(Integer.parseInt(String.valueOf(equipos.getSelectedItem())), Integer.parseInt(String.valueOf(partidos.getSelectedItem())), String.valueOf(Rol.getSelectedItem()));
+                anadir.Anadir_juega(juega);
+                JOptionPane.showMessageDialog(frame,mensaje_confirmacion);
             }
         });
         boton_Cancelar.addActionListener(new ActionListener() {

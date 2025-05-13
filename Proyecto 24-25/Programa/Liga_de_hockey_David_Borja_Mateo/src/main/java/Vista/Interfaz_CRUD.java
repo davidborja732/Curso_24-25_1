@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.Obtener_resolucion;
 import Vista.Borrar.BO_Juega;
 import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
@@ -13,15 +14,14 @@ import java.awt.event.ActionListener;
 
 public class Interfaz_CRUD {
     public Interfaz_CRUD() {
+
     }
     public void Inicializar_CRUD(int opcion){
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
         frame=new JFrame("Seleccion tabla a ver");
-        frame.setSize(ancho/6,alto/4);
+        frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
         JButton insertar =new JButton("Insertar");

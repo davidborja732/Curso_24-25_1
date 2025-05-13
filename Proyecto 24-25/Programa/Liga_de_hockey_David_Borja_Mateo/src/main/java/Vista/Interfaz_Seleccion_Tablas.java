@@ -10,13 +10,11 @@ public class Interfaz_Seleccion_Tablas {
     }
     public void Inicializar_Seleccion(){
         Interfaz_CRUD interfazCrud=new Interfaz_CRUD();
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
         frame=new JFrame("Seleccion tabla a trabajar");
-        frame.setSize(ancho/6,alto/4);
+        frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
         JButton equipos=new JButton("Equipos");

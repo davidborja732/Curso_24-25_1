@@ -1,6 +1,7 @@
 package Vista.Insertar;
 
 import Controlador.Conexion;
+import Controlador.Obtener_resolucion;
 
 
 import javax.swing.*;
@@ -9,17 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class IN_Equipo {
+
     public IN_Equipo() {
+
     }
     public void Iniciar_insercion(){
-        Conexion conexion=new Conexion();
-        Toolkit t = Toolkit.getDefaultToolkit();
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
+        Conexion conexion=new Conexion();
         JFrame frame;
-        frame=new JFrame("Cambiar contraseña");
-        frame.setSize(ancho/4,alto/4);
+        frame=new JFrame("Insertar equipo");
+        frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(5,2));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);

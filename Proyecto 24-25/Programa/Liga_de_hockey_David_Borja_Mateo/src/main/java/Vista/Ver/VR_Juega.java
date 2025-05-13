@@ -1,6 +1,8 @@
 package Vista.Ver;
 
 import Controlador.Controlador_Juega.Eliminar; // Se mantiene para cargar los datos
+import Controlador.Obtener_resolucion;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -10,21 +12,23 @@ public class VR_Juega {
     private JFrame frame;
     private JTable tablaEquipos;
     private DefaultTableModel modeloTabla;
-
     public VR_Juega() {
         eliminar = new Eliminar();
+
     }
 
     public void Iniciar_Vista() {
+        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         frame = new JFrame("Ver equipos de partido");
-        frame.setSize(500, 300);
+        frame.setSize(ancho/4,alto/2);
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         // Crear la tabla y su modelo
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("ID Equipo");
+        modeloTabla.addColumn("Nombre Equipo");
         modeloTabla.addColumn("Partido");
         modeloTabla.addColumn("Rol");
 

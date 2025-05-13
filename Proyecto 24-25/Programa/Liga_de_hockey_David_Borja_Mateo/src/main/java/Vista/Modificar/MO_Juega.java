@@ -10,19 +10,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MO_Juega {
-    private Modificar modificar; // Instancia de la clase Modificar
-    private Conexion conexion;
+    private int ancho;
+    private int alto;
+    Conexion conexion=new Conexion();
+    Modificar modificar=new Modificar();
+    private static String mensaje_confirmacion;
     private JFrame frameSeleccion;
     private JComboBox<Integer> partidos;
-
     public MO_Juega() {
-        modificar = new Modificar();
-        conexion = new Conexion();
+        ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
+        alto = Toolkit.getDefaultToolkit().getScreenSize().height;
     }
-
+    public void recogermensaje(String mensaje){
+        mensaje_confirmacion=mensaje;
+    }
     public void Iniciar_Modificacion() {
         frameSeleccion = new JFrame("Seleccionar partido");
-        frameSeleccion.setSize(300, 150);
+        frameSeleccion.setSize(ancho/4,alto/2);
         frameSeleccion.setLayout(new GridLayout(2, 2));
         frameSeleccion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frameSeleccion.setLocationRelativeTo(null);
@@ -70,12 +74,12 @@ public class MO_Juega {
 
     private void AbrirFormularioModificacion(int idPartido) {
         JFrame frameModificar = new JFrame("Modificar equipo de partido");
-        frameModificar.setSize(400, 250);
+        frameModificar.setSize(ancho/4,alto/2);
         frameModificar.setLayout(new GridLayout(3, 2));
         frameModificar.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frameModificar.setLocationRelativeTo(null);
 
-        JComboBox<Integer> equipos = new JComboBox<>();
+        JComboBox<String> equipos = new JComboBox<>();
         JComboBox<String> Rol = new JComboBox<>();
         JButton botonGuardar = new JButton("Guardar");
         JButton botonCancelar = new JButton("Cancelar");
@@ -86,8 +90,9 @@ public class MO_Juega {
         frameModificar.add(Rol);
 
         // Cargar los equipos en el JComboBox
+
         try {
-            for (int id : modificar.obtenerEquipos()) {
+            for (String id : modificar.obtenerEquipos()) {
                 equipos.addItem(id);
             }
         } catch (RuntimeException e) {
@@ -105,8 +110,9 @@ public class MO_Juega {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (equipos.getSelectedItem() != null && Rol.getSelectedItem() != null) {
-                    Juega juega = new Juega((int) equipos.getSelectedItem(), idPartido, Rol.getSelectedItem().toString());
-                    modificar.Modificar_juega(juega, frameModificar);
+                    Juega juega = new Juega(modificar.obtener_ID_equipo(String.valueOf(equipos.getSelectedItem())), idPartido, Rol.getSelectedItem().toString());
+                    modificar.Modificar_juega(juega);
+                    JOptionPane.showMessageDialog(frameModificar, mensaje_confirmacion);
                 } else {
                     JOptionPane.showMessageDialog(frameModificar, "Seleccione un equipo y un rol.");
                 }

@@ -2,6 +2,7 @@ package Controlador.Controlador_Juega;
 
 import Controlador.Conexion;
 import Modelo.Juega;
+import Vista.Insertar.IN_Juega;
 
 import javax.swing.*;
 import java.sql.PreparedStatement;
@@ -11,19 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Anadir {
-    private Conexion conexion;
-
+    Conexion conexion;
+    IN_Juega inJuega=new IN_Juega();
     public Anadir() {
         conexion = new Conexion();
     }
 
-    public void Anadir_juega(Juega juega, JFrame frame) {
+    public void Anadir_juega(Juega juega) {
         try {
-            // Consulta que usare para verificar existencia del equipo en un partido
+            // Consulta que usaré para verificar existencia del equipo en un partido
             String consulta = "SELECT ID_eq, Rol FROM juega WHERE ID_partido = ?";
-            PreparedStatement stmt = conexion.prepared(consulta);
-            stmt.setInt(1, juega.getID_partido());
-            ResultSet resultSet = stmt.executeQuery();
+            PreparedStatement preparedStatement;
+            preparedStatement= conexion.prepared(consulta);
+            preparedStatement.setInt(1, juega.getID_partido());
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             boolean localExiste = false, visitanteExiste = false, equipoAsignado = false;
 
@@ -33,40 +35,46 @@ public class Anadir {
                 if (equipoExistente == juega.getID_equipo()) {
                     equipoAsignado = true;
                 }
-                if (rol.equals("Local")) localExiste = true;
-                if (rol.equals("Visitante")) visitanteExiste = true;
+                if (rol.equals("Local")){
+                    localExiste = true;
+                }
+                if (rol.equals("Visitante")){
+                    visitanteExiste = true;
+                }
             }
             resultSet.close();
-
+            preparedStatement.close();
             // Lanzo mensaje usando el frame de la interfaz
             if (localExiste && juega.getROL().equals("Local")) {
-                JOptionPane.showMessageDialog(frame, "Este partido ya tiene un equipo local registrado.");
+                inJuega.recogermensaje("Este partido ya tiene un equipo local registrado.");
             } else if (visitanteExiste && juega.getROL().equals("Visitante")) {
-                JOptionPane.showMessageDialog(frame, "Este partido ya tiene un equipo visitante registrado.");
+                inJuega.recogermensaje("Este partido ya tiene un equipo visitante registrado.");
             } else if (equipoAsignado) {
-                JOptionPane.showMessageDialog(frame, "Este equipo ya está asignado a este partido.");
+                inJuega.recogermensaje("Este equipo ya está asignado a este partido.");;
             } else {
                 // Inserto en la tabla juega los datos seleccionados por el usuario
                 try {
                     String insertar_juega = "INSERT INTO juega VALUES (?, ?, ?)";
-                    PreparedStatement preparedStatement = conexion.prepared(insertar_juega);
+                    preparedStatement = conexion.prepared(insertar_juega);
                     preparedStatement.setInt(1, juega.getID_equipo());
                     preparedStatement.setInt(2, juega.getID_partido());
                     preparedStatement.setString(3, juega.getROL());
                     int filas = preparedStatement.executeUpdate();
                     if (filas > 0) {
-                        JOptionPane.showMessageDialog(frame, "Añadido correctamente.");
+                        inJuega.recogermensaje("Añadido correctamente.");
+
                     }
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(frame, "Error al añadir equipo: " + ex.getMessage());
+                    inJuega.recogermensaje("Error al añadir equipo: " + ex.getMessage());
                 }
+                preparedStatement.close();
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(frame, "Error en la verificación de datos: " + ex.getMessage());
+            inJuega.recogermensaje("Error en la verificación de datos: " + ex.getMessage());
         }
     }
 
-    // Método para obtener los equipos
+    // Obtengo equipos y los meto a una lista que después metere a los JComboBox que tengo en la interfaz
     public List<Integer> obtenerEquipos() {
         List<Integer> equipos = new ArrayList<>();
         try {
@@ -81,7 +89,7 @@ public class Anadir {
         return equipos;
     }
 
-    // Método para obtener los partidos
+    // Obtengo partidos y los meto a una lista que despures metere a los Jcombobox que tengo en la interfaz
     public List<Integer> obtenerPartidos() {
         List<Integer> partidos = new ArrayList<>();
         try {
