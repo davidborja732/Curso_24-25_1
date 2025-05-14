@@ -1,14 +1,11 @@
 package Vista;
 
-import Controlador.Obtener_resolucion;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Interfaz_Arbitros {
-    Obtener_resolucion obtenerResolucion=new Obtener_resolucion();
     public Interfaz_Arbitros() {
     }
     public void Inicializar_Interfaz_Arbitro(){

@@ -1,7 +1,6 @@
 package Vista.Insertar;
 
 import Controlador.Controlador_Juega.Anadir;
-import Controlador.Obtener_resolucion;
 import Modelo.Juega;
 
 import javax.swing.*;
@@ -15,7 +14,6 @@ public class IN_Juega {
         mensaje_confirmacion=mensaje;
     }
     public IN_Juega() {
-
     }
     public void Iniciar_insercion() {
         Anadir anadir = new Anadir(); // Instancia de la clase Anadir
@@ -27,7 +25,7 @@ public class IN_Juega {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        JComboBox<Integer> equipos = new JComboBox<>();
+        JComboBox<String> equipos = new JComboBox<>();
         JComboBox<Integer> partidos = new JComboBox<>();
         JComboBox<String> Rol = new JComboBox<>();
         JButton boton_Anadir = new JButton("Añadir");
@@ -42,8 +40,8 @@ public class IN_Juega {
 
 
         try {
-            for (int id : anadir.obtenerEquipos()) {
-                equipos.addItem(id);
+            for (String nombre : anadir.obtenerEquipos()) {
+                equipos.addItem(nombre);
             }
             for (int id : anadir.obtenerPartidos()) {
                 partidos.addItem(id);
@@ -62,7 +60,8 @@ public class IN_Juega {
         boton_Anadir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Juega juega = new Juega(Integer.parseInt(String.valueOf(equipos.getSelectedItem())), Integer.parseInt(String.valueOf(partidos.getSelectedItem())), String.valueOf(Rol.getSelectedItem()));
+                System.out.print(anadir.obtener_ID_equipo(String.valueOf(equipos.getSelectedItem())));
+                Juega juega = new Juega(anadir.obtener_ID_equipo(String.valueOf(equipos.getSelectedItem())), Integer.parseInt(String.valueOf(partidos.getSelectedItem())), String.valueOf(Rol.getSelectedItem()));
                 anadir.Anadir_juega(juega);
                 JOptionPane.showMessageDialog(frame,mensaje_confirmacion);
             }

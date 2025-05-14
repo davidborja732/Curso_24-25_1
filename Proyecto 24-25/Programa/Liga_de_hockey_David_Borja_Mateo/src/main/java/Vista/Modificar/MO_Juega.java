@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MO_Juega {
-    private int ancho;
-    private int alto;
+    private final int ancho;
+    private final int alto;
     Conexion conexion=new Conexion();
     Modificar modificar=new Modificar();
     private static String mensaje_confirmacion;

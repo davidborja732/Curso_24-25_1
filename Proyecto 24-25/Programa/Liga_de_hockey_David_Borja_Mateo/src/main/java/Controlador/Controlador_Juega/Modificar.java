@@ -3,8 +3,6 @@ package Controlador.Controlador_Juega;
 import Controlador.Conexion;
 import Modelo.Juega;
 import Vista.Modificar.MO_Juega;
-
-import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -52,7 +50,7 @@ public class Modificar {
         }
     }
 
-    // Método para obtener los equipos
+    // Metodo con el que obtengo los equipos para poder usarlos en el JComboBox
     public List<String> obtenerEquipos() {
         List<String> equipos = new ArrayList<>();
         try {
@@ -66,7 +64,7 @@ public class Modificar {
         return equipos;
     }
 
-    // Método para obtener los partidos
+    // Metodo con el que obtengo los partidos para poder usarlos en el JComboBox
     public List<Integer> obtenerPartidos() {
         List<Integer> partidos = new ArrayList<>();
         try {

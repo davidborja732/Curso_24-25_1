@@ -1,7 +1,6 @@
 package Vista.Ver;
 
 import Controlador.Controlador_Juega.Eliminar; // Se mantiene para cargar los datos
-import Controlador.Obtener_resolucion;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

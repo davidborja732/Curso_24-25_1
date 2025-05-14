@@ -1,7 +1,5 @@
 package Vista;
 
-import Controlador.Obtener_resolucion;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;

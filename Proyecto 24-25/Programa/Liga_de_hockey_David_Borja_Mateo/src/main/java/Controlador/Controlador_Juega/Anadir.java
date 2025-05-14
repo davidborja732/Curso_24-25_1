@@ -4,7 +4,6 @@ import Controlador.Conexion;
 import Modelo.Juega;
 import Vista.Insertar.IN_Juega;
 
-import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,11 +12,23 @@ import java.util.List;
 
 public class Anadir {
     Conexion conexion;
-    IN_Juega inJuega=new IN_Juega();
+    IN_Juega inJuega;
     public Anadir() {
         conexion = new Conexion();
+        inJuega = new IN_Juega();
     }
-
+    public int obtener_ID_equipo(String nombre){
+        int id_equipo=0;
+        try {
+            ResultSet resultSet = conexion.resultSet("SELECT ID_eq FROM equipo WHERE Nombre='"+nombre+"'");
+            while (resultSet.next()) {
+                id_equipo=resultSet.getInt("ID_eq");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return id_equipo;
+    }
     public void Anadir_juega(Juega juega) {
         try {
             // Consulta que usaré para verificar existencia del equipo en un partido
@@ -44,7 +55,7 @@ public class Anadir {
             }
             resultSet.close();
             preparedStatement.close();
-            // Lanzo mensaje usando el frame de la interfaz
+
             if (localExiste && juega.getROL().equals("Local")) {
                 inJuega.recogermensaje("Este partido ya tiene un equipo local registrado.");
             } else if (visitanteExiste && juega.getROL().equals("Visitante")) {
@@ -56,7 +67,7 @@ public class Anadir {
                 try {
                     String insertar_juega = "INSERT INTO juega VALUES (?, ?, ?)";
                     preparedStatement = conexion.prepared(insertar_juega);
-                    preparedStatement.setInt(1, juega.getID_equipo());
+                    preparedStatement.setInt(1,juega.getID_equipo());
                     preparedStatement.setInt(2, juega.getID_partido());
                     preparedStatement.setString(3, juega.getROL());
                     int filas = preparedStatement.executeUpdate();
@@ -75,12 +86,12 @@ public class Anadir {
     }
 
     // Obtengo equipos y los meto a una lista que después metere a los JComboBox que tengo en la interfaz
-    public List<Integer> obtenerEquipos() {
-        List<Integer> equipos = new ArrayList<>();
+    public List<String> obtenerEquipos() {
+        List<String> equipos = new ArrayList<>();
         try {
-            ResultSet resultSet = conexion.resultSet("SELECT ID_eq FROM equipo");
+            ResultSet resultSet = conexion.resultSet("SELECT Nombre FROM equipo");
             while (resultSet.next()) {
-                equipos.add(resultSet.getInt("ID_eq"));
+                equipos.add(resultSet.getString("Nombre"));
             }
             resultSet.close();
         } catch (SQLException e) {
@@ -89,7 +100,7 @@ public class Anadir {
         return equipos;
     }
 
-    // Obtengo partidos y los meto a una lista que despures metere a los Jcombobox que tengo en la interfaz
+    // Obtengo partidos y los meto a una lista que después metere a los Jcombobox que tengo en la interfaz
     public List<Integer> obtenerPartidos() {
         List<Integer> partidos = new ArrayList<>();
         try {

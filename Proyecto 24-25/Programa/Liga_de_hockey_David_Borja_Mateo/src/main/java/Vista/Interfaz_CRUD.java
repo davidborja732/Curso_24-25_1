@@ -1,6 +1,5 @@
 package Vista;
 
-import Controlador.Obtener_resolucion;
 import Vista.Borrar.BO_Juega;
 import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
@@ -13,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Interfaz_CRUD {
+    public void cerrar_interfaz(Frame frame){
+        frame.dispose();
+    }
     public Interfaz_CRUD() {
 
     }
@@ -37,15 +39,18 @@ public class Interfaz_CRUD {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
+                    cerrar_interfaz(frame);
                     IN_Equipo inEquipo=new IN_Equipo();
                     inEquipo.Iniciar_insercion();
                 } else if (opcion==2) {
+                    cerrar_interfaz(frame);
                     IN_Juega inJuega=new IN_Juega();
                     inJuega.Iniciar_insercion();
                 } else if (opcion==3) {
+                    cerrar_interfaz(frame);
 
                 } else if (opcion==4) {
-
+                    cerrar_interfaz(frame);
                 }
             }
         });
@@ -55,6 +60,7 @@ public class Interfaz_CRUD {
                 if (opcion == 1) {
 
                 } else if (opcion==2) {
+                    cerrar_interfaz(frame);
                     BO_Juega boJuega=new BO_Juega();
                     boJuega.Iniciar_Borrado();
                 } else if (opcion==3) {
@@ -68,14 +74,16 @@ public class Interfaz_CRUD {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
-
+                    cerrar_interfaz(frame);
                 } else if (opcion==2) {
+                    cerrar_interfaz(frame);
                     MO_Juega moJuega=new MO_Juega();
                     moJuega.Iniciar_Modificacion();
+
                 } else if (opcion==3) {
-
+                    cerrar_interfaz(frame);
                 } else if (opcion==4) {
-
+                    cerrar_interfaz(frame);
                 }
             }
         });
@@ -83,14 +91,15 @@ public class Interfaz_CRUD {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
-
+                    cerrar_interfaz(frame);
                 } else if (opcion==2) {
+                    cerrar_interfaz(frame);
                     VR_Juega vrJuega=new VR_Juega();
                     vrJuega.Iniciar_Vista();
                 } else if (opcion==3) {
-
+                    cerrar_interfaz(frame);
                 } else if (opcion==4) {
-
+                    cerrar_interfaz(frame);
                 }
             }
         });

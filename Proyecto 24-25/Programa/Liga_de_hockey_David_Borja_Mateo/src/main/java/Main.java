@@ -1,4 +1,6 @@
+import Controlador.Conexion;
 import Vista.Borrar.BO_Juega;
+import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
 import Vista.Interfaz_Inicial;
 import Vista.Modificar.MO_Juega;
@@ -14,5 +16,7 @@ public class Main {
         inJuega.Iniciar_insercion();*/
         /*VR_Juega moJuega=new VR_Juega();
         moJuega.Iniciar_Vista();*/
+        //IN_Equipo inEquipo=new IN_Equipo();
+        //inEquipo.Iniciar_insercion();
     }
 }

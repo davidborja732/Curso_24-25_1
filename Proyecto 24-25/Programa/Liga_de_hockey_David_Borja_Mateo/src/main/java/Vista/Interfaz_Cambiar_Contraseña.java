@@ -2,17 +2,18 @@ package Vista;
 
 import Controlador.Conexion;
 import Controlador.Controlador_Cambio_Contraseña.Cambio_Contraseña;
-import Controlador.Obtener_resolucion;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Interfaz_Cambiar_Contraseña {
+    private static String mensaje_confirmacion;
+
+    public void recogermensaje(String mensaje){
+        mensaje_confirmacion=mensaje;
+    }
     public Interfaz_Cambiar_Contraseña() {
     }
     public void Inicializar_Cambio(){
@@ -40,7 +41,8 @@ public class Interfaz_Cambiar_Contraseña {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Cambio_Contraseña cambioContraseña=new Cambio_Contraseña();
-                cambioContraseña.Inicializar_cambio(Contrasena_Actual.getText(),Contrasena_Nueva.getText(),frame);
+                cambioContraseña.Inicializar_cambio(Contrasena_Actual.getText(),Contrasena_Nueva.getText());
+                JOptionPane.showMessageDialog(frame,mensaje_confirmacion);
             }
         });
         boton_Cancelar.addActionListener(new ActionListener() {
