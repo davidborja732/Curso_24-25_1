@@ -68,7 +68,7 @@ CREATE TABLE Historial (
 );
 
 CREATE TABLE Partidos (
-    ID_partido INT,
+    ID_partido INT AUTO_INCREMENT,
     Fecha DATE,
     Ganador INT,
     ID_arbitro INT,
@@ -76,7 +76,7 @@ CREATE TABLE Partidos (
     CONSTRAINT FK_Partidos_Arbitro FOREIGN KEY (ID_arbitro) REFERENCES Arbitro(ID)
 );
 CREATE TABLE Informe (
-    ID_informe INT,
+    ID_informe INT AUTO_INCREMENT,
     N_Rojas INT,
     N_Amarillas INT,
     Id_arbitro INT,

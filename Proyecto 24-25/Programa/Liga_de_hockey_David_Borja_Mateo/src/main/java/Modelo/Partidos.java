@@ -8,6 +8,11 @@ public class Partidos {
     private int ID_partido;
     private int ID_arbitro;
 
+    public Partidos(Date fecha, int ID_arbitro) {
+        this.fecha = fecha;
+        this.ID_arbitro = ID_arbitro;
+    }
+
     public Partidos(Date fecha, int ganador, int ID_arbitro, int ID_partido) {
         this.fecha = fecha;
         Ganador = ganador;

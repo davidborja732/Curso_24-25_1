@@ -4,7 +4,6 @@ import Controlador.Conexion;
 import Modelo.Equipo;
 import Vista.Insertar.IN_Equipo;
 
-import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
