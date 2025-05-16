@@ -3,6 +3,7 @@ package Vista;
 import Vista.Borrar.BO_Juega;
 import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
+import Vista.Modificar.MO_Equipo;
 import Vista.Modificar.MO_Juega;
 import Vista.Ver.VR_Juega;
 
@@ -23,6 +24,7 @@ public class Interfaz_CRUD {
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame;
         frame=new JFrame("Seleccion tabla a ver");
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(2,2));
         frame.setLocationRelativeTo(null);
@@ -75,11 +77,12 @@ public class Interfaz_CRUD {
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
                     cerrar_interfaz(frame);
+                    MO_Equipo moEquipo=new MO_Equipo();
+                    moEquipo.Iniciar_Modificacion();
                 } else if (opcion==2) {
                     cerrar_interfaz(frame);
                     MO_Juega moJuega=new MO_Juega();
                     moJuega.Iniciar_Modificacion();
-
                 } else if (opcion==3) {
                     cerrar_interfaz(frame);
                 } else if (opcion==4) {

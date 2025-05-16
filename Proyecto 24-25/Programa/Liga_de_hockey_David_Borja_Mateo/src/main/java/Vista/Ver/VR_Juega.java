@@ -22,7 +22,7 @@ public class VR_Juega {
         frame = new JFrame("Ver equipos de partido");
         frame.setSize(ancho/4,alto/2);
         frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         // Crear la tabla y su modelo

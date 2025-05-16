@@ -30,7 +30,7 @@ public class BO_Juega {
         JTable tablaEquipos;
         DefaultTableModel modeloTabla;
         frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         // Creo la tabla con las columnas que va a tener

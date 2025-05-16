@@ -1,4 +1,4 @@
---
+-- 1
 CREATE PROCEDURE ventas.Ejercicio_1()
 BEGIN
 	DECLARE v_apellido_cliente VARCHAR(50);
@@ -22,7 +22,7 @@ BEGIN
 	-- cerramos cursor1
 	CLOSE cursor1;
 END
---
+-- 2
 CREATE PROCEDURE ventas.Ejercicio_2()
 BEGIN
 	DECLARE v_descripcion VARCHAR(50);
@@ -48,6 +48,7 @@ BEGIN
 END
 CREATE PROCEDURE ventas.Ejercicio_3()
 BEGIN 
+-- 3
 CREATE PROCEDURE ventas.eje3(apellido varchar(75))
 BEGIN
 	declare v_apellido varchar(50);
@@ -80,6 +81,7 @@ BEGIN
 	SELECT v_count;
 	close cursor1;
 END
+-- 4
 CREATE PROCEDURE ventas.Ejercicio_4()
 BEGIN
 	declare v_apellido varchar(50);
@@ -90,6 +92,7 @@ BEGIN
 		JOIN pedidos USING(id_cliente)
 		ORDER BY SUM(pedidos.precio_total);
 END
+-- 5
 CREATE PROCEDURE ventas.Ejercicio_5()
 BEGIN
 	DECLARE v_categoria INt;
@@ -129,6 +132,7 @@ BEGIN
 		END;
 	END LOOP bucle_categorias;
 END
+-- 6
 CREATE PROCEDURE ventas.Ejercicio_6(IN p_descripcion VARCHAR(75))
 BEGIN
 	DECLARE v_id_cat INT;
@@ -144,3 +148,102 @@ BEGIN
 		INSERT INTO categorias VALUES(v_id_cat,p_descripcion);
 	END IF;
 END
+-- 7
+CREATE PROCEDURE ventas.Ejercicio_7(IN u_numero_producto INT,IN u_nombre VARCHAR(75),IN u_descripcion VARCHAR(100),INT u_precio_venta DECIMAL(10,2),IN u_stock INT,INT u_id_categoria INT)
+BEGIN
+	INSERT INTO productos VALUES (u_numero_producto,u_nombre,u_descripcion,u_precio_venta,u_stock);	
+END
+-- 8
+CREATE PROCEDURE ventas.Ejercicio_8(IN u_id_categoria INT,IN aumento INT)
+BEGIN
+	UPDATE productos SET precio_venta=precio_venta*aumento WHERE id_categoria=u_id_categoria;
+END
+-- 9
+CREATE PROCEDURE ventas.Ejercicio_9()
+BEGIN
+	DECLARE v_precio_venta DECIMAL(10,2);
+	DECLARE v_numero_producto INT;
+	DECLARE v_id_categoria INT;
+	DECLARE v_precio_medio DECIMAL(10,2);
+	DECLARE v_precio_nuevo DECIMAL(10,2);
+	DECLARE v_precio_diferencia DECIMAL(10,2);
+
+	DECLARE fin_cursor_productos BOOL DEFAULT FALSE;
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+	DECLARE cursor_productos CURSOR FOR
+	SELECT Numero_producto,precio_venta,id_categoria FROM productos;
+	
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET fin_cursor_productos=TRUE;
+	OPEN cursor_productos;
+    WHILE NOT fin_cursor_productos DO 
+    	FETCH cursor_productos INTO v_numero_producto,v_precio_venta,v_id_categoria;
+		SELECT AVG(precio_venta) INTO v_precio_medio FROM productos 
+		WHERE id_categoria=v_id_categoria;
+	
+		IF v_precio_venta<v_precio_medio THEN
+			SET v_precio_diferencia=v_precio_venta - v_precio_medio;
+			SET v_precio_nuevo=v_precio_venta + v_precio_diferencia*0.50;
+			UPDATE productos SET precio_venta=v_precio_nuevo WHERE numero_producto=v_numero_producto;
+		END IF;
+	END WHILE;
+	CLOSE cursor_productos;
+	
+END
+-- 10
+DELIMITER //
+
+CREATE PROCEDURE ListarIngresos()
+BEGIN
+    SELECT
+        p.id AS 'Número de pedido',
+        c.apellidos AS 'Cliente',
+        e.apellidos AS 'Empleado que atendió',
+        p.fechaCreacion AS 'Fecha del pedido',
+        pr.nombre AS 'Nombre de producto',
+        lp.cantidad AS 'Unidades pedidas',
+        lp.precio_por_unidad AS 'Precio por unidad',
+        (SELECT COUNT(*) FROM LineaPedido WHERE pedido_id = p.id) AS 'Número de líneas del pedido',
+        SUM(lp.cantidad * lp.precio_por_unidad) AS 'Importe total del pedido'
+    FROM Pedido p
+    JOIN Cliente c ON p.cliente_id = c.id
+    JOIN Empleado e ON p.empleado_id = e.id
+    JOIN LineaPedido lp ON p.id = lp.pedido_id
+    JOIN Producto pr ON lp.producto_id = pr.id
+    GROUP BY p.id, c.apellidos, e.apellidos, p.fechaCreacion, pr.nombre, lp.cantidad, lp.precio_por_unidad;
+   
+    
+    SELECT
+        c.apellidos AS 'Cliente',
+        SUM(p.total) AS 'Importe total de pedidos del cliente'
+    FROM Pedido p
+    JOIN Cliente c ON p.cliente_id = c.id
+    GROUP BY c.apellidos;
+   
+    SELECT
+        SUM(total) AS 'Importe total de todos los pedidos'
+    FROM Pedido;
+END //
+
+DELIMITER ;
+
+
+-- 11
+DELIMITER //
+CREATE PROCEDURE Ejercicio_11()
+BEGIN
+    DELETE FROM T_INGRESOS;  
+    INSERT INTO T_INGRESOS (numero_pedido, cliente_apellidos, empleado_apellidos, fecha_pedido, importe_total)
+    SELECT 
+        p.id AS numero_pedido,
+        c.apellidos AS cliente_apellidos,
+        e.apellidos AS empleado_apellidos,
+        p.fechaCreacion AS fecha_pedido,
+        SUM(lp.cantidad * lp.precio_por_unidad) AS importe_total
+    FROM Pedido p
+    JOIN Cliente c ON p.cliente_id = c.id
+    JOIN Empleado e ON p.empleado_id = e.id
+    JOIN LineaPedido lp ON p.id = lp.pedido_id
+    GROUP BY p.id, c.apellidos, e.apellidos, p.fechaCreacion;    
+    SELECT 'Los ingresos han sido guardados correctamente en T_INGRESOS' AS mensaje;
+END //
+DELIMITER ;

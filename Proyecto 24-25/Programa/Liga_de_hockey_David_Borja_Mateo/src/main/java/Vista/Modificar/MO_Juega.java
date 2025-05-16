@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 public class MO_Juega {
     private final int ancho;
     private final int alto;
-    Conexion conexion=new Conexion();
     Modificar modificar=new Modificar();
     private static String mensaje_confirmacion;
     private JFrame frameSeleccion;
@@ -28,7 +27,7 @@ public class MO_Juega {
         frameSeleccion = new JFrame("Seleccionar partido");
         frameSeleccion.setSize(ancho/4,alto/2);
         frameSeleccion.setLayout(new GridLayout(2, 2));
-        frameSeleccion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frameSeleccion.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frameSeleccion.setLocationRelativeTo(null);
 
         partidos = new JComboBox<>();
@@ -76,7 +75,7 @@ public class MO_Juega {
         JFrame frameModificar = new JFrame("Modificar equipo de partido");
         frameModificar.setSize(ancho/4,alto/2);
         frameModificar.setLayout(new GridLayout(3, 2));
-        frameModificar.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frameModificar.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frameModificar.setLocationRelativeTo(null);
 
         JComboBox<String> equipos = new JComboBox<>();

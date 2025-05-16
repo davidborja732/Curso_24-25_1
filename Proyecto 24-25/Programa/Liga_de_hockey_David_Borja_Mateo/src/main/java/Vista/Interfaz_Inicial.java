@@ -33,7 +33,7 @@ public class Interfaz_Inicial {
         progressBar.setVisible(true);
         frame.add(new JLabel(imagenhockey),BorderLayout.CENTER);
         frame.add(progressBar,BorderLayout.SOUTH);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
         for (int i = 0; i <= 100; i++) {
             try {

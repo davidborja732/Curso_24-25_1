@@ -22,6 +22,7 @@ public class Interfaz_Arbitros {
         JButton informe=new JButton("Ver Informe");
         frame.add(equipos);
         frame.add(juega);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.add(partidos);
         frame.add(informe);
         frame.setVisible(true);

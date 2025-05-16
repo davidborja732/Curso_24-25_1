@@ -42,7 +42,7 @@ public class Anadir {
             throw new RuntimeException(e);
         }
     }
-    // Obtengo entrenadores y los meto en una lista para el JComboBox en la interfaz externa
+    // Obtengo entrenadores y los meto en una lista para el JComboBox de la interfaz externa
     public List<String> obtenerEntrenadores() {
         List<String> entrenadores = new ArrayList<>();
         try {

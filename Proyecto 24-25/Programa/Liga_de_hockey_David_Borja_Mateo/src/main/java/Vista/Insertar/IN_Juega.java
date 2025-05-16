@@ -22,7 +22,7 @@ public class IN_Juega {
         JFrame frame = new JFrame("Asignar equipo a partido");
         frame.setSize(ancho/4, alto/2);
         frame.setLayout(new GridLayout(4, 2));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
         JComboBox<String> equipos = new JComboBox<>();

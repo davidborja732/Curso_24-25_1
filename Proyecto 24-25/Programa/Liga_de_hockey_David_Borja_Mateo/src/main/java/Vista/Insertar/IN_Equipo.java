@@ -29,7 +29,7 @@ public class IN_Equipo {
         frame=new JFrame("Insertar equipo");
         frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(5,2));
-        //frame.setDefaultCloseOperation();
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         JComboBox<String> DNI_entrenador=new JComboBox<>();
         JTextField Estadio=new JTextField();

@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Modificar {
-    private Conexion conexion = new Conexion();
+    private final Conexion conexion = new Conexion();
 
     public Modificar() {
 
@@ -31,7 +31,7 @@ public class Modificar {
         return id_equipo;
     }
 
-    public void modificarEquipo(Equipo equipo) {
+    public void modificarEquipo(Equipo equipo,int id_eq_seleccionado) {
         MO_Equipo moEquipo = new MO_Equipo();
         try {
             // Modifico en la tabla equipo los datos seleccionados por el usuario
@@ -39,8 +39,9 @@ public class Modificar {
             PreparedStatement preparedStatement = conexion.prepared(modificar_equipo);
             preparedStatement.setString(1, equipo.getNombre());
             preparedStatement.setInt(2, equipo.getN_trofeos());
-            preparedStatement.setString(3, equipo.getEstadio()); // Se añade el campo Estadio
-            //preparedStatement.setInt(4, equipo.getDni_Entrenador());
+            preparedStatement.setString(3, equipo.getEstadio());
+            preparedStatement.setString(4, equipo.getDni_Entrenador());
+            preparedStatement.setInt(5,id_eq_seleccionado);
 
             int filas = preparedStatement.executeUpdate();
             if (filas > 0) {
@@ -53,7 +54,7 @@ public class Modificar {
         }
     }
 
-    // Método con el que obtengo los equipos para poder usarlos en el JComboBox
+    // Metodo con el que obtengo los equipos para poder usarlos en el JComboBox
     public List<String> obtenerEquipos() {
         List<String> equipos = new ArrayList<>();
         try {
@@ -61,10 +62,26 @@ public class Modificar {
             while (resultSet.next()) {
                 equipos.add(resultSet.getString("Nombre"));
             }
+            Collections.sort(equipos);
         } catch (SQLException e) {
             throw new RuntimeException("Error al obtener equipos: " + e.getMessage());
         }
         return equipos;
+    }
+    public List<String> obtenerEntrenadores() {
+        List<String> entrenadores = new ArrayList<>();
+        try {
+            String consulta = "SELECT DNI,Nombre, Apellidos FROM persona WHERE DNI IN (SELECT DNI FROM entrenador WHERE DNI NOT IN (SELECT DNI_Entrenador FROM equipo))";
+            ResultSet resultSet = conexion.resultSet(consulta);
+            while (resultSet.next()) {
+                String nombreCompleto =resultSet.getString("DNI")+" "+ resultSet.getString("Nombre") + " " + resultSet.getString("Apellidos");
+                entrenadores.add(nombreCompleto);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al obtener entrenadores: " + e.getMessage());
+        }
+        return entrenadores;
     }
 
 }

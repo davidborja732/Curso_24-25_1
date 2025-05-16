@@ -1,6 +1,6 @@
 package Vista.Modificar;
 
-import Controlador.Controlador_Equipos.Anadir;
+import Controlador.Controlador_Equipos.Modificar;
 import Modelo.Equipo;
 
 import javax.swing.*;
@@ -12,9 +12,9 @@ import java.util.List;
 public class MO_Equipo {
     private final int ancho;
     private final int alto;
-    Controlador.Controlador_Equipos.Modificar modificar=new Controlador.Controlador_Equipos.Modificar();
+    private String equipo_elegido;
+    Modificar modificar=new Controlador.Controlador_Equipos.Modificar();
     private static String mensaje_confirmacion;
-    private JFrame frameSeleccion;
     private JComboBox<String> equipos;
 
     public MO_Equipo() {
@@ -27,20 +27,21 @@ public class MO_Equipo {
     }
 
     public void Iniciar_Modificacion() {
-        frameSeleccion = new JFrame("Seleccionar equipo");
-        frameSeleccion.setSize(ancho / 4, alto / 2);
-        frameSeleccion.setLayout(new GridLayout(2, 2));
-        frameSeleccion.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frameSeleccion.setLocationRelativeTo(null);
+        JFrame frame = new JFrame("Seleccionar equipo");
+        frame.setSize(ancho / 4, alto / 2);
+        frame.setLayout(new GridLayout(2, 2));
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         equipos = new JComboBox<>();
         JButton botonModificar = new JButton("Modificar");
         JButton botonCancelar = new JButton("Cancelar");
 
-        frameSeleccion.add(new JLabel("Seleccione equipo"));
-        frameSeleccion.add(equipos);
-        frameSeleccion.add(botonModificar);
-        frameSeleccion.add(botonCancelar);
+        frame.add(new JLabel("Seleccione equipo"));
+        frame.add(equipos);
+        frame.add(botonModificar);
+        frame.add(botonCancelar);
+        frame.setVisible(true);
 
         // Cargar los equipos en el JComboBox
         try {
@@ -48,10 +49,9 @@ public class MO_Equipo {
                 equipos.addItem(nombre);
             }
         } catch (RuntimeException e) {
-            JOptionPane.showMessageDialog(frameSeleccion, "Error al cargar equipos: " + e.getMessage());
+            JOptionPane.showMessageDialog(frame, "Error al cargar equipos: " + e.getMessage());
         }
 
-        frameSeleccion.setVisible(true);
 
         // Acción al presionar "Modificar"
         botonModificar.addActionListener(new ActionListener() {
@@ -59,9 +59,9 @@ public class MO_Equipo {
             public void actionPerformed(ActionEvent e) {
                 if (equipos.getSelectedItem() != null) {
                     String nombreEquipoSeleccionado = (String) equipos.getSelectedItem();
-                    AbrirFormularioModificacion(nombreEquipoSeleccionado);
+                    AbrirFormularioModificacion(nombreEquipoSeleccionado,modificar.obtener_ID_equipo(nombreEquipoSeleccionado));
                 } else {
-                    JOptionPane.showMessageDialog(frameSeleccion, "Seleccione un equipo para modificar.");
+                    JOptionPane.showMessageDialog(frame, "Seleccione un equipo para modificar.");
                 }
             }
         });
@@ -69,42 +69,42 @@ public class MO_Equipo {
         botonCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frameSeleccion.dispose();
+                frame.dispose();
             }
         });
     }
 
-    private void AbrirFormularioModificacion(String nombreEquipo) {
-        Anadir anadir=new Anadir();
-        JFrame frameModificar = new JFrame("Modificar equipo");
-        frameModificar.setSize(ancho / 4, alto / 2);
-        frameModificar.setLayout(new GridLayout(5, 2));
-        frameModificar.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frameModificar.setLocationRelativeTo(null);
+    private void AbrirFormularioModificacion(String nombreEquipo,int id_eq_seleccionado) {
+        JFrame frame = new JFrame("Modificar equipo");
+        frame.setSize(ancho / 4, alto / 2);
+        frame.setLayout(new GridLayout(5, 2));
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         JTextField nuevoNombre = new JTextField();
         JTextField numeroTitulos = new JTextField();
+        numeroTitulos.setText("0");
         JTextField estadio = new JTextField();
         JComboBox<String> nuevoentrenador=new JComboBox<>();
-        List<String> entrenadores = anadir.obtenerEntrenadores();
+        List<String> entrenadores = modificar.obtenerEntrenadores();
         for (String entrenador : entrenadores) {
-            nuevoentrenador.addItem(entrenador); // Añadir el nombre del entrenador
+            nuevoentrenador.addItem(entrenador);
         }
         JButton botonGuardar = new JButton("Guardar");
         JButton botonCancelar = new JButton("Cancelar");
 
-        frameModificar.add(new JLabel("Nuevo Nombre"));
-        frameModificar.add(nuevoNombre);
-        frameModificar.add(new JLabel("Número de Títulos"));
-        frameModificar.add(numeroTitulos);
-        frameModificar.add(new JLabel("Estadio"));
-        frameModificar.add(estadio);
-        frameModificar.add(new JLabel("Nuevo entrenador"));
-        frameModificar.add(nuevoentrenador);
-        frameModificar.add(botonGuardar);
-        frameModificar.add(botonCancelar);
+        frame.add(new JLabel("Nuevo Nombre"));
+        frame.add(nuevoNombre);
+        frame.add(new JLabel("Número de Títulos"));
+        frame.add(numeroTitulos);
+        frame.add(new JLabel("Estadio"));
+        frame.add(estadio);
+        frame.add(new JLabel("Nuevo entrenador"));
+        frame.add(nuevoentrenador);
+        frame.add(botonGuardar);
+        frame.add(botonCancelar);
 
-        frameModificar.setVisible(true);
+        frame.setVisible(true);
 
         botonGuardar.addActionListener(new ActionListener() {
             @Override
@@ -113,10 +113,10 @@ public class MO_Equipo {
                     String seleccionado = (String) nuevoentrenador.getSelectedItem(); // Obtiene el valor seleccionado
                     String[] nombre_apellido = seleccionado.split(" ");
                     Equipo equipo=new Equipo(nombre_apellido[0],estadio.getText(),Integer.parseInt(numeroTitulos.getText().replace(" ","_")),nuevoNombre.getText().replace(" ","_"));
-                    modificar.modificarEquipo(equipo);
-                    JOptionPane.showMessageDialog(frameModificar, mensaje_confirmacion);
+                    modificar.modificarEquipo(equipo,id_eq_seleccionado);
+                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
                 } else {
-                    JOptionPane.showMessageDialog(frameModificar, "Complete todos los campos.");
+                    JOptionPane.showMessageDialog(frame, "Complete todos los campos.");
                 }
             }
         });
@@ -124,7 +124,7 @@ public class MO_Equipo {
         botonCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frameModificar.dispose();
+                frame.dispose();
             }
         });
     }

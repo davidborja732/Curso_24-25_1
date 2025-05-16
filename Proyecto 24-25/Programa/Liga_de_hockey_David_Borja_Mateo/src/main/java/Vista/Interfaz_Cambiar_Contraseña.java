@@ -25,7 +25,7 @@ public class Interfaz_Cambiar_Contraseña {
         frame=new JFrame("Cambiar contraseña");
         frame.setSize(ancho/4,alto/2);
         frame.setLayout(new GridLayout(3,2));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         JTextField Contrasena_Nueva=new JTextField();
         JPasswordField Contrasena_Actual=new JPasswordField();

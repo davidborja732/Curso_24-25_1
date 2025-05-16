@@ -9,8 +9,8 @@ import Vista.Ver.VR_Juega;
 
 public class Main {
     public static void main(String[] args) {
-        /*Interfaz_Inicial interfaz=new Interfaz_Inicial();
-        interfaz.Inicializar_Interfaz_inicial();*/
+        Interfaz_Inicial interfaz=new Interfaz_Inicial();
+        interfaz.Inicializar_Interfaz_inicial();
         /*Conexion conexion=new Conexion();
         System.out.printf(conexion.toString());*/
         /*IN_Juega inJuega=new IN_Juega();
@@ -19,7 +19,7 @@ public class Main {
         moJuega.Iniciar_Vista();*/
         //IN_Equipo inEquipo=new IN_Equipo();
         //inEquipo.Iniciar_insercion();
-        MO_Equipo moEquipo=new MO_Equipo();
-        moEquipo.Iniciar_Modificacion();
+        /*MO_Equipo moEquipo=new MO_Equipo();
+        moEquipo.Iniciar_Modificacion();*/
     }
 }
