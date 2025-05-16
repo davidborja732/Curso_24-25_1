@@ -1,10 +1,12 @@
 package Vista;
 
+import Vista.Borrar.BO_Equipo;
 import Vista.Borrar.BO_Juega;
 import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
 import Vista.Modificar.MO_Equipo;
 import Vista.Modificar.MO_Juega;
+import Vista.Ver.VR_Equipo;
 import Vista.Ver.VR_Juega;
 
 import javax.swing.*;
@@ -60,7 +62,9 @@ public class Interfaz_CRUD {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
-
+                    cerrar_interfaz(frame);
+                    BO_Equipo boEquipo=new BO_Equipo();
+                    boEquipo.Iniciar_Borrado();
                 } else if (opcion==2) {
                     cerrar_interfaz(frame);
                     BO_Juega boJuega=new BO_Juega();
@@ -95,6 +99,8 @@ public class Interfaz_CRUD {
             public void actionPerformed(ActionEvent e) {
                 if (opcion == 1) {
                     cerrar_interfaz(frame);
+                    VR_Equipo vrEquipo=new VR_Equipo();
+                    vrEquipo.Iniciar_Vista();
                 } else if (opcion==2) {
                     cerrar_interfaz(frame);
                     VR_Juega vrJuega=new VR_Juega();

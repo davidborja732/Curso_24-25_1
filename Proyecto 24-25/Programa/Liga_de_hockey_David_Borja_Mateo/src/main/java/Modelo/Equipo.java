@@ -9,11 +9,23 @@ public class Equipo {
     public Equipo() {
     }
 
+    public Equipo(int id_eq) {
+        this.id_eq = id_eq;
+    }
+
     public Equipo(String dni_Entrenador, String estadio, int n_trofeos, String nombre) {
         this.dni_Entrenador = dni_Entrenador;
         this.estadio = estadio;
         this.n_trofeos = n_trofeos;
         this.nombre = nombre;
+    }
+
+    public Equipo(String nombre, int n_trofeos, String dni_Entrenador, int id_eq, String estadio) {
+        this.nombre = nombre;
+        this.n_trofeos = n_trofeos;
+        this.dni_Entrenador = dni_Entrenador;
+        this.id_eq = id_eq;
+        this.estadio = estadio;
     }
 
     public String getNombre() {
