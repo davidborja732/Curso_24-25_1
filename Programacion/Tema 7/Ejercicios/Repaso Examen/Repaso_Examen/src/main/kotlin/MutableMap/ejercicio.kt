@@ -6,5 +6,5 @@ fun main() {
         conteo[numero] = conteo.getOrDefault(numero, 0) + 1
     }
 
-    println("Conteo de repeticiones: $conteo")
+    println("Conteo de repeticiones: ${conteo.maxOf { it.value }}")
 }
