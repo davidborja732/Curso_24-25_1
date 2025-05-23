@@ -2,7 +2,7 @@ fun main() {
     val listaproductos= mutableListOf<producto>()
     val producto1=producto("Reloj",21.00,456)
     val producto2=producto("Almohada",12.00,0)
-    val producto3=producto("Monitor",210.00,45)
+    val producto3=producto("Monitor",210.00,0)
     val producto4=producto("Teclado",56.50,78)
     listaproductos.add(producto1)
     listaproductos.add(producto2)

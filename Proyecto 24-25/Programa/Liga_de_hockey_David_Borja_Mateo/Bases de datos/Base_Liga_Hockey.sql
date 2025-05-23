@@ -1,6 +1,6 @@
-DROP DATABASE Liga_Hockey
-CREATE DATABASE Liga_Hockey;
-USE Liga_Hockey;
+DROP DATABASE liga_hockey;
+CREATE DATABASE liga_hockey;
+USE liga_hockey;
 CREATE TABLE usuario(
 usuario VARCHAR(30),
 contraseña CHAR(10)
@@ -45,8 +45,8 @@ CREATE TABLE Jugador (
     Transferible BOOLEAN DEFAULT FALSE,
     Salario DECIMAL(10, 2),
     CONSTRAINT PK_Jugador PRIMARY KEY (DNI),
-    CONSTRAINT FK_Jugador_Persona FOREIGN KEY (DNI) REFERENCES Persona(DNI) ON DELETE CASCADE,
-    CONSTRAINT FK_Jugador_Equipo FOREIGN KEY (ID_eq) REFERENCES Equipo(ID_eq) ON DELETE CASCADE
+    CONSTRAINT FK_Jugador_Persona FOREIGN KEY (DNI) REFERENCES Persona(DNI),
+    CONSTRAINT FK_Jugador_Equipo FOREIGN KEY (ID_eq) REFERENCES Equipo(ID_eq)
 );
 
 
@@ -85,6 +85,9 @@ CREATE TABLE Informe (
     CONSTRAINT FK_Informe_Arbitro FOREIGN KEY (Id_arbitro) REFERENCES Arbitro(ID),
     CONSTRAINT FK_Informe_Partido FOREIGN KEY (Id_partido) REFERENCES Partidos(ID_partido)
 );
+ALTER TABLE Informe DROP FOREIGN KEY FK_Informe_Partido;
+ALTER TABLE Informe ADD CONSTRAINT FK_Informe_Partido FOREIGN KEY (Id_partido) REFERENCES Partidos(ID_partido) ON DELETE CASCADE;
+
 CREATE TABLE Juega (
     ID_eq INT,
     ID_partido INT,
@@ -92,7 +95,12 @@ CREATE TABLE Juega (
     CONSTRAINT PK_Juega_Equipo PRIMARY KEY (ID_eq, ID_partido),
     CONSTRAINT FK_Juega_Equipo_Partido FOREIGN KEY (ID_partido) REFERENCES Partidos(ID_partido),
     CONSTRAINT CK_Rol CHECK (Rol IN ('Local', 'Visitante'))
-);
+);ALTER TABLE Juega DROP FOREIGN KEY FK_Juega_Equipo_Partido;
+  ALTER TABLE Juega ADD CONSTRAINT FK_Juega_Equipo_Partido FOREIGN KEY (ID_partido) REFERENCES Partidos(ID_partido) ON DELETE CASCADE;
+
+  ALTER TABLE Juega DROP FOREIGN KEY FK_Juega_Equipo;
+  ALTER TABLE Juega ADD CONSTRAINT FK_Juega_Equipo FOREIGN KEY (ID_eq) REFERENCES Equipo(ID_eq) ON DELETE CASCADE;
+
 -- Inserts para Persona
 INSERT INTO Persona (DNI, Direccion, Nombre, Apellidos, F_nacimiento, Telefono) VALUES
 ('12345678A', 'Calle Mayor 12', 'Carlos', 'Martínez', '1995-06-10', '600123456'),

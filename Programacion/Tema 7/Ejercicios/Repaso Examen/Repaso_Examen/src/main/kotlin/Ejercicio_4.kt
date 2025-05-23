@@ -1,9 +1,19 @@
+import java.math.BigInteger
+import kotlin.random.Random
+
 fun main() {
+    /*
     println("Dime un numero")
     val numero= readLine()?.toInt()
     esprimo(numero)
+    */
+    val numero= 9
+    println(numero.toBigInteger().isProbablePrime(Random.nextInt(1,101)))
+
+
 }
 fun esprimo(numero: Int?){
+    /*
     var numerotemporal= numero
     var primo=false;
     if (numero==1){
@@ -25,4 +35,5 @@ fun esprimo(numero: Int?){
         }
     }
     println("El numnero es primo "+primo)
+    */
 }

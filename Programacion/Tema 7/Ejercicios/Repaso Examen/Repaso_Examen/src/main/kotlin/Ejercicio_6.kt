@@ -1,5 +1,5 @@
 fun main() {
-    val listaletras= CharRange('a','z').toMutableList()
+    val listaletras= CharRange('a','z').toList()
     println("Dime una palabra ")
     val palabra= readlnOrNull()
     val caracterespalabra : List<Char> = palabra!!.toCharArray().toList()

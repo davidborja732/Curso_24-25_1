@@ -3,16 +3,22 @@ package interfaz
 import java.time.LocalDate
 
 fun main() {
-    while (true) {
+    val opcion="sdvsd"
+    when (opcion) {
+        "Hola" -> println("Adios")
+        "Adios" -> println("hola")
+        else -> println("desconocido")
+    }
+    /*while (true) {
         println("\nMenú Interactivo:")
         println("1. Saludar")
         println("2. Dia semana")
         println("3. Salir")
         print("Selecciona una opción: ")
 
-        val opcion = readLine()?.toIntOrNull()
+        //val opcion = readLine()?.toIntOrNull()
 
-        when (opcion) {
+        /*when (opcion) {
             1 -> println("¡Hola! ¿Cómo estás?")
             2 -> println("La hora actual es: ${LocalDate.now().dayOfWeek}")
             3 -> {
@@ -20,6 +26,12 @@ fun main() {
                 break
             }
             else -> println("Opción inválida, intenta de nuevo.")
+        }*/
+        val opcion="hola"
+        when (opcion) {
+            "Hola" -> println("Adios")
+            "Adios" -> println("hola")
+            else -> println("desconocido")
         }
-    }
+    }*/
 }

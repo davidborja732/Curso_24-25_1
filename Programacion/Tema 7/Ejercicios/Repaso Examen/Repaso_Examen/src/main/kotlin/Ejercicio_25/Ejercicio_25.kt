@@ -8,11 +8,15 @@ fun main() {
     listalibros.add(libro1)
     listalibros.add(libro2)
     listalibros.add(libro3)
-    println(listalibros.forEach { println(it.toString()) })
+    listalibros.forEach {
+        println(it.toString())
+    }
     ordenarlista(listalibros)
 
 }
 fun ordenarlista(list: List<libro>){
     val listaordenada=list.sortedBy{it.añoPublicacion}
-    return listaordenada.forEach { println(it.toString()) }
+    return listaordenada.forEach {
+        println(it.toString())
+    }
 }

@@ -1,5 +1,10 @@
 package Vista;
 
+import Vista.Ver.VR_Equipo;
+import Vista.Ver.VR_Informe;
+import Vista.Ver.VR_Juega;
+import Vista.Ver.VR_Partido;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,25 +34,29 @@ public class Interfaz_Arbitros {
         equipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                VR_Equipo vrEquipo=new VR_Equipo();
+                vrEquipo.Iniciar_Vista();
             }
         });
         juega.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                VR_Juega vrJuega=new VR_Juega();
+                vrJuega.Iniciar_Vista();
             }
         });
         partidos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                VR_Partido vrPartido=new VR_Partido();
+                vrPartido.Iniciar_Vista();
             }
         });
         informe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                VR_Informe vrInforme=new VR_Informe();
+                vrInforme.Iniciar_Vista();
             }
         });
     }

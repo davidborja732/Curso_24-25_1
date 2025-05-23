@@ -1,6 +1,7 @@
 class cuentabancaria(val numero_cuenta:Int, val propietario: String, var saldo:Int){
-    fun depositar(cantidad: Int){
+    fun depositar(cantidad: Int): Int {
         saldo+=cantidad
+        return saldo
     }
     fun retirar(cantidad: Int): String {
         if (cantidad>saldo){

@@ -7,6 +7,16 @@ public class Informe {
     private int ID_partido;
     private int ID_arbitro;
 
+    public Informe(int id_informe) {
+        Id_informe = id_informe;
+    }
+
+    public Informe(int id_informe, int n_rojas, int n_amarillas) {
+        Id_informe = id_informe;
+        N_rojas = n_rojas;
+        N_amarillas = n_amarillas;
+    }
+
     public Informe(int ID_arbitro, int ID_partido, int n_amarillas, int n_rojas) {
         this.ID_arbitro = ID_arbitro;
         this.ID_partido = ID_partido;

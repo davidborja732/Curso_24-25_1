@@ -4,4 +4,6 @@ fun main() {
     println(cuenta1)
     println(cuenta1.retirar(200))
     println(cuenta1.consultar())
+    println(cuenta2.depositar(400))
+    println(cuenta2.consultar())
 }

@@ -1,30 +1,33 @@
 package Modelo;
 
-import java.util.Date;
-
 public class Partidos {
-    private Date fecha;
+    private String fecha;
     private int Ganador;
     private int ID_partido;
     private int ID_arbitro;
 
-    public Partidos(Date fecha, int ID_arbitro) {
+    public Partidos(int ID_partido) {
+        this.ID_partido = ID_partido;
+    }
+
+    public Partidos(int ID_partido, String fecha, int ID_arbitro) {
+        this.ID_partido=ID_partido;
         this.fecha = fecha;
         this.ID_arbitro = ID_arbitro;
     }
 
-    public Partidos(Date fecha, int ganador, int ID_arbitro, int ID_partido) {
+    public Partidos(String fecha, int ganador, int ID_arbitro, int ID_partido) {
         this.fecha = fecha;
         Ganador = ganador;
         this.ID_arbitro = ID_arbitro;
         this.ID_partido = ID_partido;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

@@ -1,13 +1,21 @@
 package Vista;
 
 import Vista.Borrar.BO_Equipo;
+import Vista.Borrar.BO_Informe;
 import Vista.Borrar.BO_Juega;
+import Vista.Borrar.BO_Partido;
 import Vista.Insertar.IN_Equipo;
 import Vista.Insertar.IN_Juega;
+import Vista.Insertar.IN_Partido;
+import Vista.Insertar.IN_informe;
 import Vista.Modificar.MO_Equipo;
+import Vista.Modificar.MO_Informe;
 import Vista.Modificar.MO_Juega;
+import Vista.Modificar.MO_Partido;
 import Vista.Ver.VR_Equipo;
+import Vista.Ver.VR_Informe;
 import Vista.Ver.VR_Juega;
+import Vista.Ver.VR_Partido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,9 +60,12 @@ public class Interfaz_CRUD {
                     inJuega.Iniciar_insercion();
                 } else if (opcion==3) {
                     cerrar_interfaz(frame);
-
+                    IN_Partido inPartido=new IN_Partido();
+                    inPartido.Iniciar_insercion();
                 } else if (opcion==4) {
                     cerrar_interfaz(frame);
+                    IN_informe inInforme=new IN_informe();
+                    inInforme.Iniciar_insercion();
                 }
             }
         });
@@ -70,9 +81,13 @@ public class Interfaz_CRUD {
                     BO_Juega boJuega=new BO_Juega();
                     boJuega.Iniciar_Borrado();
                 } else if (opcion==3) {
-
+                    cerrar_interfaz(frame);
+                    BO_Partido boPartido=new BO_Partido();
+                    boPartido.Iniciar_Borrado();
                 } else if (opcion==4) {
-
+                    cerrar_interfaz(frame);
+                    BO_Informe boInforme=new BO_Informe();
+                    boInforme.Iniciar_Borrado();
                 }
             }
         });
@@ -89,8 +104,12 @@ public class Interfaz_CRUD {
                     moJuega.Iniciar_Modificacion();
                 } else if (opcion==3) {
                     cerrar_interfaz(frame);
+                    MO_Partido moPartido=new MO_Partido();
+                    moPartido.Iniciar_Modificacion();
                 } else if (opcion==4) {
                     cerrar_interfaz(frame);
+                    MO_Informe moInforme=new MO_Informe();
+                    moInforme.Iniciar_Modificacion();
                 }
             }
         });
@@ -107,8 +126,12 @@ public class Interfaz_CRUD {
                     vrJuega.Iniciar_Vista();
                 } else if (opcion==3) {
                     cerrar_interfaz(frame);
+                    VR_Partido vrPartido=new VR_Partido();
+                    vrPartido.Iniciar_Vista();
                 } else if (opcion==4) {
                     cerrar_interfaz(frame);
+                    VR_Informe vrInforme=new VR_Informe();
+                    vrInforme.Iniciar_Vista();
                 }
             }
         });

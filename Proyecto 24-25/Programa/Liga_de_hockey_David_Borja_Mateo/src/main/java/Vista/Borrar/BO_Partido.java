@@ -1,7 +1,7 @@
 package Vista.Borrar;
 
-import Controlador.Controlador_Equipos.Eliminar;
-import Modelo.Equipo;
+import Controlador.Controlador_Partidos.Eliminar;
+import Modelo.Partidos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BO_Equipo {
+public class BO_Partido {
     Eliminar eliminar;
     private static String mensaje_confirmacion;
 
@@ -17,7 +17,7 @@ public class BO_Equipo {
         mensaje_confirmacion = mensaje;
     }
 
-    public BO_Equipo() {
+    public BO_Partido() {
 
     }
 
@@ -26,9 +26,9 @@ public class BO_Equipo {
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         Eliminar eliminar = new Eliminar();
         JFrame frame;
-        frame = new JFrame("Eliminar equipo");
+        frame = new JFrame("Eliminar partido");
         frame.setSize(ancho / 4, alto / 2);
-        JTable tablaEquipos;
+        JTable tablaPartidos;
         DefaultTableModel modeloTabla;
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -36,14 +36,12 @@ public class BO_Equipo {
 
         // Creo la tabla con las columnas que va a tener
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("ID_eq");
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("N_Titulos");
-        modeloTabla.addColumn("Estadio");
-        modeloTabla.addColumn("DNI_entrenador");
+        modeloTabla.addColumn("ID_partido");
+        modeloTabla.addColumn("Ganador");
+        modeloTabla.addColumn("Fecha");
 
-        tablaEquipos = new JTable(modeloTabla);
-        JScrollPane scrollPane = new JScrollPane(tablaEquipos);
+        tablaPartidos = new JTable(modeloTabla);
+        JScrollPane scrollPane = new JScrollPane(tablaPartidos);
         frame.add(scrollPane, BorderLayout.CENTER);
 
         JButton botonBorrar = new JButton("Borrar");
@@ -58,17 +56,18 @@ public class BO_Equipo {
         botonBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int filaSeleccionada = tablaEquipos.getSelectedRow();
+                int filaSeleccionada = tablaPartidos.getSelectedRow();
                 if (filaSeleccionada != -1) {
-                    int idequipo = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
-                    Equipo equipo= new Equipo(idequipo);
-                    eliminar.Eliminar_juega(equipo, modeloTabla);
+                    int idPartido = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+                    Partidos partido = new Partidos(idPartido);
+                    eliminar.eliminarPartido(partido, modeloTabla);
                     JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
 
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Seleccione un dato para borrar.");
+                    JOptionPane.showMessageDialog(frame, "Seleccione un partido para borrar.");
                 }
             }
         });
     }
 }
+

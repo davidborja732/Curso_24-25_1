@@ -1,7 +1,7 @@
 sealed class EstadoHttp {
     object Cargando : EstadoHttp()
-    data class Exito<T>(val datos: T) : EstadoHttp()
-    data class Error(val mensaje: String) : EstadoHttp()
+    class Exito<T>(val datos: T) : EstadoHttp()
+    class Error(val mensaje: String) : EstadoHttp()
 }
 
 fun manejarSolicitud(estado: EstadoHttp) {
@@ -13,9 +13,9 @@ fun manejarSolicitud(estado: EstadoHttp) {
 }
 
 fun main() {
-    val estado1: EstadoHttp = EstadoHttp.Cargando
-    val estado2: EstadoHttp = EstadoHttp.Exito("Datos recibidos correctamente")
-    val estado3: EstadoHttp = EstadoHttp.Error("Error de conexión")
+    val estado1= EstadoHttp.Cargando
+    val estado2 = EstadoHttp.Exito("Datos recibidos correctamente")
+    val estado3= EstadoHttp.Error("Error de conexión")
 
     manejarSolicitud(estado1)
     manejarSolicitud(estado2)

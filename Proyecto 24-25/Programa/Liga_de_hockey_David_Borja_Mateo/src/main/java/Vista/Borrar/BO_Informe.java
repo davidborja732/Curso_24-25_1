@@ -1,7 +1,7 @@
 package Vista.Borrar;
 
-import Controlador.Controlador_Equipos.Eliminar;
-import Modelo.Equipo;
+import Controlador.Controlador_Informe.Eliminar;
+import Modelo.Informe;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BO_Equipo {
+public class BO_Informe {
     Eliminar eliminar;
     private static String mensaje_confirmacion;
 
@@ -17,7 +17,7 @@ public class BO_Equipo {
         mensaje_confirmacion = mensaje;
     }
 
-    public BO_Equipo() {
+    public BO_Informe() {
 
     }
 
@@ -26,9 +26,9 @@ public class BO_Equipo {
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         Eliminar eliminar = new Eliminar();
         JFrame frame;
-        frame = new JFrame("Eliminar equipo");
+        frame = new JFrame("Eliminar informe");
         frame.setSize(ancho / 4, alto / 2);
-        JTable tablaEquipos;
+        JTable tablaInformes;
         DefaultTableModel modeloTabla;
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -36,14 +36,14 @@ public class BO_Equipo {
 
         // Creo la tabla con las columnas que va a tener
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("ID_eq");
-        modeloTabla.addColumn("Nombre");
-        modeloTabla.addColumn("N_Titulos");
-        modeloTabla.addColumn("Estadio");
-        modeloTabla.addColumn("DNI_entrenador");
+        modeloTabla.addColumn("ID_informe");
+        modeloTabla.addColumn("Nombre Árbitro");
+        modeloTabla.addColumn("N_Rojas");
+        modeloTabla.addColumn("N_Amarillas");
+        modeloTabla.addColumn("ID_partido");
 
-        tablaEquipos = new JTable(modeloTabla);
-        JScrollPane scrollPane = new JScrollPane(tablaEquipos);
+        tablaInformes = new JTable(modeloTabla);
+        JScrollPane scrollPane = new JScrollPane(tablaInformes);
         frame.add(scrollPane, BorderLayout.CENTER);
 
         JButton botonBorrar = new JButton("Borrar");
@@ -58,17 +58,18 @@ public class BO_Equipo {
         botonBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int filaSeleccionada = tablaEquipos.getSelectedRow();
+                int filaSeleccionada = tablaInformes.getSelectedRow();
                 if (filaSeleccionada != -1) {
-                    int idequipo = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
-                    Equipo equipo= new Equipo(idequipo);
-                    eliminar.Eliminar_juega(equipo, modeloTabla);
+                    int idInforme = (int) modeloTabla.getValueAt(filaSeleccionada, 0);
+                    Informe informe = new Informe(idInforme);
+                    eliminar.eliminarInforme(informe, modeloTabla);
                     JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
 
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Seleccione un dato para borrar.");
+                    JOptionPane.showMessageDialog(frame, "Seleccione un informe para borrar.");
                 }
             }
         });
     }
 }
+

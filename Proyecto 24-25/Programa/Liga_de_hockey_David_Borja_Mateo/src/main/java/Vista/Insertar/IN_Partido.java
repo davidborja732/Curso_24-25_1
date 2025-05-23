@@ -26,18 +26,24 @@ public class IN_Partido {
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame = new JFrame("Añadir partido");
         frame.setSize(ancho/4, alto/2);
-        frame.setLayout(new GridLayout(3, 2));
+        frame.setLayout(new GridLayout(4, 2));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+
+        JTextPane ID_eq=new JTextPane();
         JDateChooser fecha_partido = new JDateChooser();
         fecha_partido.setDateFormatString("yyyy-MM-dd");
         JComboBox<String> arbitros=new JComboBox<>();
         JButton boton_Anadir = new JButton("Añadir");
         JButton boton_Cancelar = new JButton("Cancelar");
+        frame.add(new JLabel("ID del partido (Solo informativo)"));
+        frame.add(ID_eq);
         frame.add(new JLabel("Fecha= "));
         frame.add(fecha_partido);
         frame.add(new JLabel("ID_arbitro"));
         frame.add(arbitros);
+        ID_eq.setText(String.valueOf(anadir.obtener_id_partido()));
+        ID_eq.setEditable(false);
         try {
             for (String nombre : anadir.obtenerarbitros()) {
                 arbitros.addItem(nombre);
@@ -59,10 +65,10 @@ public class IN_Partido {
                 SimpleDateFormat formato_fecha = new SimpleDateFormat("yyyy-MM-dd");
                 if (fecha != null) {
                     String fecha_sola=formato_fecha.format(fecha_partido.getDate());
-                    System.out.println(fecha_sola+" "+Integer.parseInt(id_arbitro[0]));
-                    //Partidos partido= new Partidos(Date.parse(fecha_sola),Integer.parseInt(id_arbitro[0]));
-                    //anadir.Anadir_Partido(partido);
+                    Partidos partido= new Partidos(Integer.parseInt(ID_eq.getText()), fecha_sola,Integer.parseInt(id_arbitro[0]));
+                    anadir.Anadir_Partido(partido);
                     JOptionPane.showMessageDialog(frame,mensaje_confirmacion);
+                    ID_eq.setText(String.valueOf(anadir.obtener_id_partido()));
                 }else {
                     JOptionPane.showMessageDialog(frame,"La fecha no puede estar vacia");
                 }
