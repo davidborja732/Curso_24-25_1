@@ -36,7 +36,7 @@ public class Modificar {
             PreparedStatement preparedStatement = conexion.prepared(modificar_juega);
             preparedStatement.setInt(1, juega.getID_equipo());
             preparedStatement.setInt(2, juega.getID_partido());
-            preparedStatement.setString(3, juega.getROL()); // Se agrega la condición del Rol
+            preparedStatement.setString(3, juega.getROL());
 
             int filas = preparedStatement.executeUpdate();
             if (filas > 0) {

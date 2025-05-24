@@ -41,9 +41,7 @@ public class Eliminar {
     public void cargarDatos(DefaultTableModel modeloTabla) {
         modeloTabla.setRowCount(0); // Limpiar tabla antes de actualizar
         try {
-            ResultSet resultSet = conexion.resultSet("SELECT p.ID_partido, e.Nombre AS Ganador, p.Fecha " +
-                    "FROM partidos p " +
-                    "JOIN equipo e ON p.Ganador = e.ID_eq");
+            ResultSet resultSet = conexion.resultSet("SELECT p.ID_partido, e.Nombre AS Ganador, p.Fecha FROM partidos p LEFT JOIN equipo e ON p.Ganador = e.ID_eq");
             while (resultSet.next()) {
                 modeloTabla.addRow(new Object[]{
                         resultSet.getInt("ID_partido"),

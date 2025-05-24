@@ -1,39 +1,40 @@
 package Vista.Insertar;
 
 import Controlador.Controlador_Partidos.Anadir;
+import Modelo.Partidos;
+import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-
-import Modelo.Partidos;
-import com.toedter.calendar.JDateChooser;
 
 public class IN_Partido {
     private static String mensaje_confirmacion;
-    public void recogermensaje(String mensaje){
-        mensaje_confirmacion=mensaje;
-    }
+
     public IN_Partido() {
     }
+
+    public void recogermensaje(String mensaje) {
+        mensaje_confirmacion = mensaje;
+    }
+
     public void Iniciar_insercion() {
         Anadir anadir = new Anadir(); // Instancia de la clase Anadir
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         JFrame frame = new JFrame("Añadir partido");
-        frame.setSize(ancho/4, alto/2);
+        frame.setSize(ancho / 4, alto / 2);
         frame.setLayout(new GridLayout(4, 2));
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
-        JTextPane ID_eq=new JTextPane();
+        JTextPane ID_eq = new JTextPane();
         JDateChooser fecha_partido = new JDateChooser();
         fecha_partido.setDateFormatString("yyyy-MM-dd");
-        JComboBox<String> arbitros=new JComboBox<>();
+        JComboBox<String> arbitros = new JComboBox<>();
         JButton boton_Anadir = new JButton("Añadir");
         JButton boton_Cancelar = new JButton("Cancelar");
         frame.add(new JLabel("ID del partido (Solo informativo)"));
@@ -64,13 +65,13 @@ public class IN_Partido {
                 Date fecha = fecha_partido.getDate();
                 SimpleDateFormat formato_fecha = new SimpleDateFormat("yyyy-MM-dd");
                 if (fecha != null) {
-                    String fecha_sola=formato_fecha.format(fecha_partido.getDate());
-                    Partidos partido= new Partidos(Integer.parseInt(ID_eq.getText()), fecha_sola,Integer.parseInt(id_arbitro[0]));
+                    String fecha_sola = formato_fecha.format(fecha_partido.getDate());
+                    Partidos partido = new Partidos(Integer.parseInt(ID_eq.getText()), fecha_sola, Integer.parseInt(id_arbitro[0]));
                     anadir.Anadir_Partido(partido);
-                    JOptionPane.showMessageDialog(frame,mensaje_confirmacion);
+                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
                     ID_eq.setText(String.valueOf(anadir.obtener_id_partido()));
-                }else {
-                    JOptionPane.showMessageDialog(frame,"La fecha no puede estar vacia");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "La fecha no puede estar vacia");
                 }
             }
         });

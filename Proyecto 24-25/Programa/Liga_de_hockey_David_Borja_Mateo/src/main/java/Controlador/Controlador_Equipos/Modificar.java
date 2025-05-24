@@ -83,6 +83,5 @@ public class Modificar {
         }
         return entrenadores;
     }
-
 }
 

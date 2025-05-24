@@ -1,7 +1,6 @@
 package Vista.Modificar;
 
-import Controlador.Conexion;
-import Controlador.Controlador_Juega.Modificar; // Cambiado a Modificar en vez de Anadir
+import Controlador.Controlador_Juega.Modificar;
 import Modelo.Juega;
 
 import javax.swing.*;
@@ -110,6 +109,9 @@ public class MO_Juega {
             public void actionPerformed(ActionEvent e) {
                 if (equipos.getSelectedItem() != null && Rol.getSelectedItem() != null) {
                     Juega juega = new Juega(modificar.obtener_ID_equipo(String.valueOf(equipos.getSelectedItem())), idPartido, Rol.getSelectedItem().toString());
+                    System.out.println(juega.getID_equipo());
+                    System.out.println(juega.getID_partido());
+                    System.out.println(juega.getROL());
                     modificar.Modificar_juega(juega);
                     JOptionPane.showMessageDialog(frameModificar, mensaje_confirmacion);
                 } else {

@@ -96,9 +96,25 @@ public class Modificar {
         } catch (SQLException ex) {
             moPartido.recogermensaje("Error al modificar partido: " + ex.getMessage());
         }
-
     }
+    public boolean equipoEsLocalYVisitante(int idpartido) {
+        boolean esLocalYVisitante = false;
+        try {
+            PreparedStatement preparedStatement = conexion.prepared("SELECT COUNT(*) as contador FROM juega WHERE ROL = 'Local' OR ROL = 'Visitante' GROUP BY ID_partido HAVING ID_partido=?");
+            preparedStatement.setInt(1,idpartido);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
+            while (resultSet.next()){
+                if (resultSet.getInt(("contador"))==2){
+                    esLocalYVisitante = true;
+                }
 
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al comprobar si el equipo es local y visitante: " + e.getMessage());
+        }
+        return esLocalYVisitante;
+    }
 }
 

@@ -2,14 +2,13 @@ package Vista.Modificar;
 
 import Controlador.Controlador_Partidos.Modificar;
 import Modelo.Partidos;
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.List;
-
-import com.toedter.calendar.JDateChooser;
 
 public class MO_Partido {
     private JFrame frame;
@@ -86,7 +85,9 @@ public class MO_Partido {
 
                     JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
                     frame.dispose();
-                    Modificar_ganador(partidoSeleccionado);
+                    if (modificar.equipoEsLocalYVisitante(partidoSeleccionado)) {
+                        Modificar_ganador(partidoSeleccionado);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(frame, "Seleccione un partido y una fecha para modificar.");
                 }
@@ -127,9 +128,16 @@ public class MO_Partido {
                 String[] id_equipo_seleccionado=equipos_juegan.getSelectedItem().toString().split(" ");
                 modificar.modificarganador(Integer.parseInt(id_equipo_seleccionado[0]),id_partido);
                 JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
+                frame.dispose();
             }
         });
-
+        boton_Cancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                JOptionPane.showMessageDialog(frame,"No se modificara el ganador");
+            }
+        });
     }
 }
 

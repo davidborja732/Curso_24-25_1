@@ -13,7 +13,7 @@ public class Interfaz_login {
     public Interfaz_login() {
     }
 
-    public void Inicializar_Login(){
+    public void Inicializar_Login() {
         Conexion conexion = new Conexion();
         Ficheros ficheros = new Ficheros();
         Interfaz_Seleccion_Tablas interfazSeleccionTablas = new Interfaz_Seleccion_Tablas();
@@ -42,13 +42,13 @@ public class Interfaz_login {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Revisar_Contraseña revisarContraseña = new Revisar_Contraseña();
-                revisarContraseña.Inicializar_Revision(String.valueOf(usuario.getSelectedItem()),contrasena.getText(),frame);
+                revisarContraseña.Inicializar_Revision(String.valueOf(usuario.getSelectedItem()), contrasena.getText(), frame);
             }
         });
         boton_Cambiar_Contraseña.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Interfaz_Cambiar_Contraseña interfazCambiarContraseña=new Interfaz_Cambiar_Contraseña();
+                Interfaz_Cambiar_Contraseña interfazCambiarContraseña = new Interfaz_Cambiar_Contraseña();
                 frame.dispose();
                 interfazCambiarContraseña.Inicializar_Cambio();
             }

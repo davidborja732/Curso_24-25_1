@@ -60,6 +60,7 @@ public class MO_Equipo {
                 if (equipos.getSelectedItem() != null) {
                     String nombreEquipoSeleccionado = (String) equipos.getSelectedItem();
                     AbrirFormularioModificacion(nombreEquipoSeleccionado,modificar.obtener_ID_equipo(nombreEquipoSeleccionado));
+                    System.out.println(nombreEquipoSeleccionado);
                 } else {
                     JOptionPane.showMessageDialog(frame, "Seleccione un equipo para modificar.");
                 }
@@ -109,17 +110,37 @@ public class MO_Equipo {
         botonGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!nuevoNombre.getText().isEmpty() && !numeroTitulos.getText().isEmpty() && !estadio.getText().isEmpty()) {
-                    String seleccionado = (String) nuevoentrenador.getSelectedItem(); // Obtiene el valor seleccionado
-                    String[] nombre_apellido = seleccionado.split(" ");
-                    Equipo equipo=new Equipo(nombre_apellido[0],estadio.getText(),Integer.parseInt(numeroTitulos.getText().replace(" ","_")),nuevoNombre.getText().replace(" ","_"));
-                    modificar.modificarEquipo(equipo,id_eq_seleccionado);
-                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
+                String nombreEquipo = nuevoNombre.getText().trim();
+                String Nombreestadio = estadio.getText().trim();
+                String nTrofeos = numeroTitulos.getText().trim();
+                String seleccionado = (String) nuevoentrenador.getSelectedItem();
+
+                if (nombreEquipo.isEmpty() || Nombreestadio.isEmpty() || nTrofeos.isEmpty() || seleccionado == null || seleccionado.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "Todos los campos deben estar completos.");
+                } else if (!nTrofeos.matches("\\d+")) { // Verifica que el número de trofeos sea un número válido
+                    JOptionPane.showMessageDialog(frame, "El número de títulos debe ser un número entero válido.");
+                } else if (nombreEquipo.length() > 50 || Nombreestadio.length() > 50) {
+                    JOptionPane.showMessageDialog(frame, "El nombre del equipo o el estadio no pueden tener más de 50 caracteres.");
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Complete todos los campos.");
+                    // Separo nombre y apellido del entrenador
+                    String[] nombreApellido = seleccionado.split(" ");
+                    int trofeos = Integer.parseInt(nTrofeos);
+
+                    // Creo instancia del equipo e insertarlo en la base de datos
+                    Equipo equipo = new Equipo(nombreApellido[0], Nombreestadio, trofeos, nombreEquipo);
+                    modificar.modificarEquipo(equipo, id_eq_seleccionado);
+                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion);
+
+                    // Actualizar la lista de entrenadores en el JComboBox
+                    nuevoentrenador.removeAllItems();
+                    List<String> entrenadores = modificar.obtenerEntrenadores();
+                    for (String entrenador : entrenadores) {
+                        nuevoentrenador.addItem(entrenador);
+                    }
                 }
             }
         });
+
 
         botonCancelar.addActionListener(new ActionListener() {
             @Override

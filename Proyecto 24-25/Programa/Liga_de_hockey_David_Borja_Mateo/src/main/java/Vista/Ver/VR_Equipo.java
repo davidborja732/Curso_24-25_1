@@ -9,7 +9,8 @@ import java.awt.*;
 public class VR_Equipo {
     public VR_Equipo() {
     }
-    public void Iniciar_Vista(){
+
+    public void Iniciar_Vista() {
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
         Eliminar eliminar = new Eliminar();
