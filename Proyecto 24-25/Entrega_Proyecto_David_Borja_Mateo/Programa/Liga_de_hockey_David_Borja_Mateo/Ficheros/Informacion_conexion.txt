@@ -1,0 +1,3 @@
+jdbc:mysql://localhost:3306/liga_hockey
+root
+1234
