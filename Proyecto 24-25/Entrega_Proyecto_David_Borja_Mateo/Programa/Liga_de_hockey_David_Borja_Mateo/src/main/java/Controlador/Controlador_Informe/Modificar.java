@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Modificar {
@@ -48,6 +49,7 @@ public class Modificar {
     /* Metodo para obtener la lista de informes y usarlos en el JComboBox */
     public List<Integer> obtenerInformes() {
         List<Integer> informes = new ArrayList<>();
+        Collections.sort(informes);
         try {
             /* Se realiza la consulta para obtener los IDs de los informes */
             ResultSet resultSet = conexion.resultSet("SELECT ID_informe FROM informe");

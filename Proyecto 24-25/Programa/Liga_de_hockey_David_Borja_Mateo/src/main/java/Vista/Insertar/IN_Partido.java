@@ -87,9 +87,15 @@ public class IN_Partido {
                 Date fecha = fecha_partido.getDate();
                 SimpleDateFormat formato_fecha = new SimpleDateFormat("yyyy-MM-dd");
 
-                /* Se verifica que la fecha no este vacia */
+                /* Se verifica que la fecha no esté vacía */
                 if (fecha != null) {
-                    String fecha_sola = formato_fecha.format(fecha_partido.getDate());
+                    /* Se verifica que la fecha no sea superior a la actual */
+                    if (fecha.after(new Date())) {
+                        JOptionPane.showMessageDialog(frame, "La fecha debe ser la actual o fechas anteriores");
+                        return;
+                    }
+
+                    String fecha_sola = formato_fecha.format(fecha);
 
                     /* Se crea el objeto Partidos con los datos seleccionados */
                     Partidos partido = new Partidos(Integer.parseInt(ID_eq.getText()), fecha_sola, Integer.parseInt(id_arbitro[0]));
@@ -103,7 +109,7 @@ public class IN_Partido {
                     /* Se actualiza el ID del partido en el campo de texto */
                     ID_eq.setText(String.valueOf(anadir.obtener_id_partido()));
                 } else {
-                    JOptionPane.showMessageDialog(frame, "La fecha no puede estar vacia");
+                    JOptionPane.showMessageDialog(frame, "La fecha no puede estar vacía");
                 }
             }
         });
@@ -117,3 +123,4 @@ public class IN_Partido {
         });
     }
 }
+

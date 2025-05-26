@@ -58,8 +58,9 @@ public class Interfaz_login {
             public void actionPerformed(ActionEvent e) {
                 Revisar_Contraseña revisarContraseña = new Revisar_Contraseña(); // Instancia de la clase Revisar_Contraseña
                 revisarContraseña.Inicializar_Revision(String.valueOf(usuario.getSelectedItem()), contrasena.getText());
-
-                if ("Registro correcto".equals(mensaje_confirmacion)) {
+                if (contrasena.getText().isBlank()){
+                    JOptionPane.showMessageDialog(frame, "EL campo no puede estar vacio");
+                }else if ("Registro correcto".equals(mensaje_confirmacion)) {
                     frame.dispose(); // Cierra la interfaz después de mostrar el mensaje
                     JOptionPane.showMessageDialog(frame, "Inicio de sesión exitoso.");
                 } else {

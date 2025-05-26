@@ -41,7 +41,7 @@ public class Interfaz_CRUD {
 
         /* Se crea la ventana principal */
         JFrame frame;
-        frame = new JFrame("Seleccion tabla a ver"); /* Se establece el titulo de la ventana */
+        frame = new JFrame("Seleccion tabla a trabajar"); /* Se establece el titulo de la ventana */
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); /* Se establece que se cierre solo esta ventana */
         frame.setSize(ancho / 4, alto / 2); /* Se ajusta el tamaño de la ventana */
         frame.setLayout(new GridLayout(2, 2)); /* Se define un diseño de cuadrícula */

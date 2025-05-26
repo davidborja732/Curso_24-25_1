@@ -175,3 +175,24 @@ Registro Administrador 2025-05-25T18:00:55.715880900
 Registro Administrador 2025-05-25T18:02:37.137045300
 Registro Administrador 2025-05-25T18:03:13.296323
 Registro Arbitro 2025-05-25T18:03:28.547408
+Registro Administrador 2025-05-26T11:02:26.571953900
+Registro Administrador 2025-05-26T11:09:58.665877600
+Registro Administrador 2025-05-26T11:15:21.051093200
+Sesión cerrada por administrador 2025-05-26 11:15:28
+Registro Arbitro 2025-05-26T11:19:34.486922900
+Sesión cerrada por árbitro 2025-05-26 11:19:43
+Registro Administrador 2025-05-26T11:32:57.516616600
+Sesión cerrada por administrador 2025-05-26 11:34:53
+Registro Administrador 2025-05-26T11:39:17.350784600
+Sesión cerrada por administrador 2025-05-26 11:59:13
+Registro Administrador 2025-05-26T12:37:28.539013800
+Sesión cerrada por administrador 2025-05-26 12:41:28
+Registro Administrador 2025-05-26T12:43:10.067551
+Sesión cerrada por administrador 2025-05-26 12:46:26
+Registro Arbitro 2025-05-26T12:49:59.001172900
+Sesión cerrada por árbitro 2025-05-26 12:50:04
+Registro Administrador 2025-05-26T12:50:47.833593300
+Sesión cerrada por administrador 2025-05-26 12:51:22
+Registro Administrador 2025-05-26T12:56:36.231350400
+Registro Administrador 2025-05-26T13:03:01.603315100
+Sesión cerrada por administrador 2025-05-26 13:03:36

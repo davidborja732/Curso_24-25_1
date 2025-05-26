@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 
 public class MO_Informe {
 
@@ -71,7 +72,9 @@ public class MO_Informe {
         try {
             for (int id_informe : modificar.obtenerInformes()) {
                 informes.addItem(id_informe);
+
             }
+
         } catch (RuntimeException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar datos: " + e.getMessage());
         }
