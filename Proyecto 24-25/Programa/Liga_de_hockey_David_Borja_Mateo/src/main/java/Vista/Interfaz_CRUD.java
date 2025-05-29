@@ -2,19 +2,15 @@ package Vista;
 
 import Vista.Borrar.BO_Equipo;
 import Vista.Borrar.BO_Informe;
-import Vista.Borrar.BO_Juega;
 import Vista.Borrar.BO_Partido;
 import Vista.Insertar.IN_Equipo;
-import Vista.Insertar.IN_Juega;
 import Vista.Insertar.IN_Partido;
 import Vista.Insertar.IN_informe;
 import Vista.Modificar.MO_Equipo;
 import Vista.Modificar.MO_Informe;
-import Vista.Modificar.MO_Juega;
 import Vista.Modificar.MO_Partido;
 import Vista.Ver.VR_Equipo;
 import Vista.Ver.VR_Informe;
-import Vista.Ver.VR_Juega;
 import Vista.Ver.VR_Partido;
 
 import javax.swing.*;
@@ -70,8 +66,8 @@ public class Interfaz_CRUD {
                     IN_Equipo inEquipo = new IN_Equipo();
                     inEquipo.Iniciar_insercion(); /* Se inicia la insercion en la tabla Equipos */
                 } else if (opcion == 2) {
-                    IN_Juega inJuega = new IN_Juega();
-                    inJuega.Iniciar_insercion(); /* Se inicia la insercion en la tabla Juegan */
+                    //IN_Juega inJuega = new IN_Juega();
+                    //inJuega.Iniciar_insercion(); /* Se inicia la insercion en la tabla Juegan */
                 } else if (opcion == 3) {
                     IN_Partido inPartido = new IN_Partido();
                     inPartido.Iniciar_insercion(); /* Se inicia la insercion en la tabla Partidos */
@@ -91,8 +87,7 @@ public class Interfaz_CRUD {
                     BO_Equipo boEquipo = new BO_Equipo();
                     boEquipo.Iniciar_Borrado(); /* Se inicia el borrado en la tabla Equipos */
                 } else if (opcion == 2) {
-                    BO_Juega boJuega = new BO_Juega();
-                    boJuega.Iniciar_Borrado(); /* Se inicia el borrado en la tabla Juegan */
+
                 } else if (opcion == 3) {
                     BO_Partido boPartido = new BO_Partido();
                     boPartido.Iniciar_Borrado(); /* Se inicia el borrado en la tabla Partidos */
@@ -112,8 +107,6 @@ public class Interfaz_CRUD {
                     MO_Equipo moEquipo = new MO_Equipo();
                     moEquipo.Iniciar_Modificacion(); /* Se inicia la modificacion en la tabla Equipos */
                 } else if (opcion == 2) {
-                    MO_Juega moJuega = new MO_Juega();
-                    moJuega.Iniciar_Modificacion(); /* Se inicia la modificacion en la tabla Juegan */
                 } else if (opcion == 3) {
                     MO_Partido moPartido = new MO_Partido();
                     moPartido.Iniciar_Modificacion(); /* Se inicia la modificacion en la tabla Partidos */
@@ -133,8 +126,7 @@ public class Interfaz_CRUD {
                     VR_Equipo vrEquipo = new VR_Equipo();
                     vrEquipo.Iniciar_Vista(); /* Se inicia la visualizacion de la tabla Equipos */
                 } else if (opcion == 2) {
-                    VR_Juega vrJuega = new VR_Juega();
-                    vrJuega.Iniciar_Vista(); /* Se inicia la visualizacion de la tabla Juegan */
+
                 } else if (opcion == 3) {
                     VR_Partido vrPartido = new VR_Partido();
                     vrPartido.Iniciar_Vista(); /* Se inicia la visualizacion de la tabla Partidos */

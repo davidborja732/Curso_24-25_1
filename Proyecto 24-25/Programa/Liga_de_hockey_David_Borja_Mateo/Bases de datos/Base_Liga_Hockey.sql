@@ -24,7 +24,7 @@ CREATE TABLE Persona (
 
 -- Tabla de Entrenador
 CREATE TABLE Entrenador (
-    DNI VARCHAR(20) PRIMARY KEY,
+    DNI CHAR(9) PRIMARY KEY,
     N_Equipos_Entrenados INT,
     Años_exp INT,
     Palmarés INT DEFAULT 0,
@@ -37,7 +37,7 @@ CREATE TABLE Equipo (
     Nombre VARCHAR(50),
     N_Titulos INT,
     Estadio VARCHAR(50),
-    DNI_entrenador VARCHAR(20) NULL,
+    DNI_entrenador CHAR(9),
     FOREIGN KEY (DNI_entrenador) REFERENCES Entrenador(DNI) ON DELETE SET NULL
 );
 
@@ -59,16 +59,17 @@ CREATE TABLE Arbitro (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(50),
     ID_supervisor INT DEFAULT NULL,
-    FOREIGN KEY (ID_supervisor) REFERENCES Arbitro(ID)
+    FOREIGN KEY (ID_supervisor) REFERENCES Arbitro(ID) ON DELETE SET NULL
 );
 
 -- Tabla de Partidos
 CREATE TABLE Partidos (
     ID_partido INT AUTO_INCREMENT PRIMARY KEY,
     Fecha DATE,
-    Ganador INT,
-    ID_arbitro INT,
-    FOREIGN KEY (ID_arbitro) REFERENCES Arbitro(ID)
+    Equipo_Local VARCHAR(50),
+    Equipo_Visitante VARCHAR(50),
+    Ganador VARCHAR(50) DEFAULT 'Pendiente',
+    ID_arbitro int
 );
 
 -- Tabla de Informe
@@ -78,20 +79,14 @@ CREATE TABLE Informe (
     N_Amarillas INT,
     Id_arbitro INT,
     Id_partido INT,
+    Equipo_Local VARCHAR(50),
+    Equipo_Visitante VARCHAR(50),
     FOREIGN KEY (Id_arbitro) REFERENCES Arbitro(ID),
     FOREIGN KEY (Id_partido) REFERENCES Partidos(ID_partido) ON DELETE CASCADE
 );
 
--- Tabla de Juega
-CREATE TABLE Juega (
-    ID_eq INT,
-    ID_partido INT,
-    Rol VARCHAR(10) NOT NULL,
-    PRIMARY KEY (ID_eq, ID_partido),
-    FOREIGN KEY (ID_partido) REFERENCES Partidos(ID_partido) ON DELETE CASCADE,
-    FOREIGN KEY (ID_eq) REFERENCES Equipo(ID_eq) ON DELETE CASCADE,
-    CHECK (Rol IN ('Local', 'Visitante'))
-);
+
+-- Tabla de Historial
 CREATE TABLE Historial (
     Id_Historial INT PRIMARY KEY AUTO_INCREMENT,
     ID_arbitro INT,
@@ -101,6 +96,7 @@ CREATE TABLE Historial (
     Amarillas_sacadas INT DEFAULT 0,
     FOREIGN KEY (ID_arbitro) REFERENCES Arbitro(ID)
 );
+
 
 -- Inserciones en Persona (15 registros)
 INSERT INTO Persona (DNI, Direccion, Nombre, Apellidos, F_nacimiento, Telefono) VALUES
@@ -224,49 +220,38 @@ INSERT INTO Arbitro (Nombre) VALUES
 ('Beatriz Ortega'),
 ('Raúl Navarro');
 
-INSERT INTO Partidos VALUES
-(1,'2025-05-01',8,7),
-(2,'2025-05-02',4,2),
-(3,'2025-05-03',6,9),
-(4,'2025-05-04',7,4),
-(5,'2025-05-05',9,10),
-(6,'2025-05-06',2,6),
-(7,'2025-05-07',4,1),
-(8,'2025-05-08',5,8),
-(9,'2025-05-09',8,5),
-(10,'2025-05-10',10,3),
-(11, '2025-05-01', 3, 5),
-(12, '2025-05-05', 7, 9),
-(13, '2025-05-10', 11, 2),
-(14, '2025-05-15', 4, 14),
-(15, '2025-05-20', 8, 7);
-INSERT INTO Juega (ID_eq, ID_partido, Rol) VALUES
-(3,1,'Visitante'),
-(4,7,'Visitante'),
-(5,3,'Local'),
-(8,10,'Local'),
-(10,15,'Visitante'),
-(3, 11, 'Local'),
-(5, 11, 'Visitante'),
-(7, 12, 'Local'),
-(11, 12, 'Visitante'),
-(11, 13, 'Local'),
-(1, 13, 'Visitante'),
-(4, 14, 'Local'),
-(6, 14, 'Visitante'),
-(8, 15, 'Local'),
-(10, 5, 'Visitante');
-INSERT INTO informe VALUES
-(1,1,3,7,1),
-(2,0,5,2,2),
-(3,2,2,9,3),
-(4,1,4,4,4),
-(5,0,6,10,5),
-(6,3,1,6,6),
-(7,0,2,1,7),
-(8,2,3,8,8),
-(9,1,5,5,9),
-(10,0,4,3,10);
+INSERT INTO Partidos (Fecha, Equipo_Local, Equipo_Visitante, Ganador, ID_arbitro) VALUES
+('2025-05-01', 'prueba', 'Majadahonda HC', 'Majadahonda HC', 3),
+('2025-05-02', 'CH Txuri Urdin', 'CH Puigcerdá', 'CH Txuri Urdin', 7),
+('2025-05-03', 'Steel Acorns Valdemoro', 'Mileni Pirates', 'Steel Acorns Valdemoro', 12),
+('2025-05-04', 'Las Palmas HC', 'Granada Grizzlies', 'Granada Grizzlies', 9),
+('2025-05-05', 'Real Madrid Juvenil', 'Barcelona Sub-19', 'Real Madrid Juvenil', 2),
+('2025-05-06', 'Sevilla Juvenil', 'prueba', 'Sevilla Juvenil', 15),
+('2025-05-07', 'Majadahonda HC', 'CH Txuri Urdin', 'Majadahonda HC', 8),
+('2025-05-08', 'CH Puigcerdá', 'Steel Acorns Valdemoro', 'Steel Acorns Valdemoro', 6),
+('2025-05-09', 'Mileni Pirates', 'Las Palmas HC', 'Las Palmas HC', 11),
+('2025-05-10', 'Granada Grizzlies', 'Real Madrid Juvenil', 'Real Madrid Juvenil', 5),
+('2025-05-11', 'Barcelona Sub-19', 'Sevilla Juvenil', 'Sevilla Juvenil', 13),
+('2025-05-12', 'CH Txuri Urdin', 'Granada Grizzlies', 'CH Txuri Urdin', 4),
+('2025-05-13', 'Barcelona Sub-19', 'Steel Acorns Valdemoro', 'Steel Acorns Valdemoro', 10),
+('2025-05-14', 'Las Palmas HC', 'Real Madrid Juvenil', 'Real Madrid Juvenil', 14);
+
+INSERT INTO Informe (N_Rojas, N_Amarillas, Id_arbitro, Id_partido, Equipo_Local, Equipo_Visitante) VALUES
+(5, 12, 3, 1, 'prueba', 'Majadahonda HC'),
+(3, 8, 7, 2, 'CH Txuri Urdin', 'CH Puigcerdá'),
+(6, 9, 12, 3, 'Steel Acorns Valdemoro', 'Mileni Pirates'),
+(4, 7, 9, 4, 'Las Palmas HC', 'Granada Grizzlies'),
+(7, 10, 2, 5, 'Real Madrid Juvenil', 'Barcelona Sub-19'),
+(2, 5, 15, 6, 'Sevilla Juvenil', 'prueba'),
+(8, 14, 8, 7, 'Majadahonda HC', 'CH Txuri Urdin'),
+(3, 6, 6, 8, 'CH Puigcerdá', 'Steel Acorns Valdemoro'),
+(9, 11, 11, 9, 'Mileni Pirates', 'Las Palmas HC'),
+(1, 13, 5, 10, 'Granada Grizzlies', 'Real Madrid Juvenil'),
+(5, 7, 13, 11, 'Barcelona Sub-19', 'Sevilla Juvenil'),
+(10, 15, 4, 12, 'CH Txuri Urdin', 'Granada Grizzlies'),
+(7, 4, 10, 13, 'Barcelona Sub-19', 'Steel Acorns Valdemoro'),
+(3, 9, 14, 14, 'Las Palmas HC', 'Real Madrid Juvenil');
+
 ALTER TABLE jugador DROP FOREIGN KEY jugador_ibfk_2;
 ALTER TABLE jugador ADD CONSTRAINT jugador_ibfk_2 FOREIGN KEY (ID_eq) REFERENCES equipo(ID_eq) ON DELETE SET NULL;
 

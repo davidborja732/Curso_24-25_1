@@ -1,6 +1,6 @@
 package Vista.Borrar;
 
-import Controlador.Controlador_Equipos.Eliminar;
+import Controlador.Controlador_Equipos.CO_Equipos;
 import Modelo.Equipo;
 
 import javax.swing.*;
@@ -11,10 +11,10 @@ import java.awt.event.ActionListener;
 
 public class BO_Equipo {
     private static String mensaje_confirmacion; // Variable para almacenar el mensaje de confirmación
-    Eliminar eliminar; // Instancia de la clase Eliminar
+    CO_Equipos coEquipos; // Instancia de la clase CO_Equipos
 
     public BO_Equipo() {
-        // Constructor vacío
+        // Inicializar la instancia de CO_Equipos
     }
 
     // Método para establecer el mensaje de confirmación
@@ -24,54 +24,60 @@ public class BO_Equipo {
 
     // Método para iniciar el proceso de borrado
     public void Iniciar_Borrado() {
-        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width; // Obtiene el ancho de la pantalla
-        int alto = Toolkit.getDefaultToolkit().getScreenSize().height; // Obtiene el alto de la pantalla
-        Eliminar eliminar = new Eliminar(); // Crea una instancia de la clase Eliminar
-        JFrame frame;
-        frame = new JFrame("Eliminar equipo"); // Crea una ventana con título
-        frame.setSize(ancho / 4, alto / 2); // Define el tamaño de la ventana
+        coEquipos = new CO_Equipos();
+        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
+        JFrame frame = new JFrame("Eliminar equipo");
+        frame.setSize(ancho / 4, alto / 2);
         JTable tablaEquipos;
         DefaultTableModel modeloTabla;
-        frame.setLayout(new BorderLayout()); // Establece el diseño de la ventana
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // Define el comportamiento al cerrar la ventana
-        frame.setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
-        // Creo la tabla con las columnas que va a tener
+        // Creación de la tabla con las columnas correspondientes
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("ID_eq");
         modeloTabla.addColumn("Nombre");
         modeloTabla.addColumn("N_Titulos");
         modeloTabla.addColumn("Estadio");
         modeloTabla.addColumn("DNI_entrenador");
 
-        tablaEquipos = new JTable(modeloTabla); // Crea la tabla con el modelo de datos
-        JScrollPane scrollPane = new JScrollPane(tablaEquipos); // Agrega barra de desplazamiento a la tabla
-        frame.add(scrollPane, BorderLayout.CENTER); // Añade la tabla a la ventana
+        tablaEquipos = new JTable(modeloTabla);
+        JScrollPane scrollPane = new JScrollPane(tablaEquipos);
+        frame.add(scrollPane, BorderLayout.CENTER);
 
-        JButton botonBorrar = new JButton("Borrar"); // Botón para borrar registros
-        JPanel panelBotones = new JPanel(); // Panel para contener el botón
-        panelBotones.add(botonBorrar); // Añade el botón al panel
-        frame.add(panelBotones, BorderLayout.SOUTH); // Añade el panel a la ventana
+        JButton botonBorrar = new JButton("Borrar");
+        JPanel panelBotones = new JPanel();
+        panelBotones.add(botonBorrar);
+        frame.add(panelBotones, BorderLayout.SOUTH);
 
-        // Llamo a cargarDatos() para rellenar el JTable con los datos de la Base de datos
-        eliminar.cargarDatos(modeloTabla);
+        // Cargar los datos en la tabla desde la base de datos
+        coEquipos.cargarDatos(modeloTabla);
 
-        frame.setVisible(true); // Muestra la ventana
+        frame.setVisible(true);
 
         botonBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int filaSeleccionada = tablaEquipos.getSelectedRow(); // Obtiene la fila seleccionada
-                if (filaSeleccionada != -1) { // Verifica si se ha seleccionado alguna fila
-                    int idequipo = (int) modeloTabla.getValueAt(filaSeleccionada, 0); // Obtiene el ID del equipo seleccionado
-                    Equipo equipo = new Equipo(idequipo); // Crea una instancia de Equipo con el ID obtenido
-                    eliminar.Eliminar_juega(equipo, modeloTabla); // Llama al método para eliminar el equipo
-                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion); // Muestra el mensaje de confirmación
+                int filaSeleccionada = tablaEquipos.getSelectedRow();
+                if (filaSeleccionada != -1) {
+                    String nombre_Equipo = modeloTabla.getValueAt(filaSeleccionada, 0).toString();
+                    System.out.println(nombre_Equipo);
+                    System.out.println(coEquipos.obtenerIDEquipo(nombre_Equipo));
+                    // Mostrar mensaje de confirmación antes de eliminar
+                    int opcion = JOptionPane.showConfirmDialog(frame, "¿Seguro que deseas eliminar este equipo?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
+                    if (opcion == JOptionPane.YES_OPTION) {
+                        coEquipos.eliminarEquipo(coEquipos.obtenerIDEquipo(nombre_Equipo), modeloTabla);
+                        JOptionPane.showMessageDialog(frame, "Equipo Borrado"); // Mensaje de éxito
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Borrado cancelado"); // Mensaje de cancelación
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Seleccione un dato para borrar."); // Mensaje si no se ha seleccionado nada
+                    JOptionPane.showMessageDialog(frame, "Seleccione un dato para borrar.");
                 }
             }
         });
     }
 }
+

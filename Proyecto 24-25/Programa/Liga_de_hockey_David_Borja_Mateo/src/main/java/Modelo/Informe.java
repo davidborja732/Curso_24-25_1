@@ -2,26 +2,33 @@ package Modelo;
 
 public class Informe {
     private int N_rojas;
-    private  int N_amarillas;
+    private int N_amarillas;
     private int Id_informe;
     private int ID_partido;
     private int ID_arbitro;
+    private String equipoLocal;  // Nuevo campo
+    private String equipoVisitante;  // Nuevo campo
 
+    // Constructor para eliminar por ID
     public Informe(int id_informe) {
         Id_informe = id_informe;
     }
 
+    // Constructor para modificar informe
     public Informe(int id_informe, int n_rojas, int n_amarillas) {
         Id_informe = id_informe;
         N_rojas = n_rojas;
         N_amarillas = n_amarillas;
     }
 
-    public Informe(int ID_arbitro, int ID_partido, int n_amarillas, int n_rojas) {
+    // Constructor para añadir informe
+    public Informe(int ID_arbitro, int ID_partido, int n_amarillas, int n_rojas, String equipoLocal, String equipoVisitante) {
         this.ID_arbitro = ID_arbitro;
         this.ID_partido = ID_partido;
-        N_amarillas = n_amarillas;
-        N_rojas = n_rojas;
+        this.N_amarillas = n_amarillas;
+        this.N_rojas = n_rojas;
+        this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante;
     }
 
     public int getID_arbitro() {
@@ -63,4 +70,21 @@ public class Informe {
     public void setN_rojas(int n_rojas) {
         N_rojas = n_rojas;
     }
+
+    public String getEquipoLocal() {
+        return equipoLocal;
+    }
+
+    public void setEquipoLocal(String equipoLocal) {
+        this.equipoLocal = equipoLocal;
+    }
+
+    public String getEquipoVisitante() {
+        return equipoVisitante;
+    }
+
+    public void setEquipoVisitante(String equipoVisitante) {
+        this.equipoVisitante = equipoVisitante;
+    }
 }
+

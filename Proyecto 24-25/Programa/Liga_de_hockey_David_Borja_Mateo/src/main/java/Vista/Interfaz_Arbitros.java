@@ -3,7 +3,6 @@ package Vista;
 import Controlador.Ficheros;
 import Vista.Ver.VR_Equipo;
 import Vista.Ver.VR_Informe;
-import Vista.Ver.VR_Juega;
 import Vista.Ver.VR_Partido;
 
 import javax.swing.*;
@@ -82,8 +81,7 @@ public class Interfaz_Arbitros {
         juega.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VR_Juega vrJuega = new VR_Juega();
-                vrJuega.Iniciar_Vista(); /* Se muestra la vista de la tabla Juegan */
+
             }
         });
 

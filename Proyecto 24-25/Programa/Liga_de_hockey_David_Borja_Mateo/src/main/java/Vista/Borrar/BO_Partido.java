@@ -1,87 +1,96 @@
 package Vista.Borrar;
 
-import Controlador.Controlador_Partidos.Eliminar;
+import Controlador.Controlador_Partidos.CO_Partidos; // Usamos CO_Partidos en lugar de Eliminar
 import Modelo.Partidos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BO_Partido {
-    private static String mensaje_confirmacion; // Variable estática para almacenar el mensaje de confirmación
-    Eliminar eliminar; // Instancia de la clase Eliminar
+    private static String mensaje_confirmacion;
+    private CO_Partidos coPartidos; // Ahora utilizamos CO_Partidos
 
     public BO_Partido() {
-        // Constructor vacío
+        coPartidos = new CO_Partidos(); // Inicializamos la instancia
     }
 
-    // Método para recoger y almacenar el mensaje de confirmación
     public void recogermensaje(String mensaje) {
         mensaje_confirmacion = mensaje;
     }
 
-    // Método para iniciar el proceso de eliminación de partidos
     public void Iniciar_Borrado() {
-        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width; // Obtiene el ancho de la pantalla
-        int alto = Toolkit.getDefaultToolkit().getScreenSize().height; // Obtiene el alto de la pantalla
-        Eliminar eliminar = new Eliminar(); // Instancia de la clase Eliminar
-        JFrame frame = new JFrame("Eliminar partido"); // Ventana con el título correspondiente
-        frame.setSize(ancho / 4, alto / 2); // Define el tamaño de la ventana
+        int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
+        JFrame frame = new JFrame("Eliminar partido");
+        frame.setSize(ancho / 4, alto / 2);
         JTable tablaPartidos;
         DefaultTableModel modeloTabla;
-        frame.setLayout(new BorderLayout()); // Establece el diseño de la ventana
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // Define el comportamiento al cerrar la ventana
-        frame.setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
-        // Creación de la tabla con sus respectivas columnas
+        // Creación de la tabla con columnas correctas
         modeloTabla = new DefaultTableModel();
-        modeloTabla.addColumn("ID_partido"); // Identificador del partido
-        modeloTabla.addColumn("Ganador"); // Nombre del equipo ganador del partido
-        modeloTabla.addColumn("Fecha"); // Fecha en la que se celebró el partido
+        modeloTabla.addColumn("Fecha");
+        modeloTabla.addColumn("Equipo Local");
+        modeloTabla.addColumn("Equipo Visitante");
+        modeloTabla.addColumn("Ganador");
+        modeloTabla.addColumn("Árbitro");
 
-        tablaPartidos = new JTable(modeloTabla); // Creación de la tabla con el modelo de datos
-        JScrollPane scrollPane = new JScrollPane(tablaPartidos); // Agrega barra de desplazamiento a la tabla
-        frame.add(scrollPane, BorderLayout.CENTER); // Añade la tabla a la ventana
+        tablaPartidos = new JTable(modeloTabla);
+        JScrollPane scrollPane = new JScrollPane(tablaPartidos);
+        frame.add(scrollPane, BorderLayout.CENTER);
 
-        JButton botonBorrar = new JButton("Borrar"); // Botón para eliminar partidos
-        JPanel panelBotones = new JPanel(); // Panel que contendrá el botón de borrado
-        panelBotones.add(botonBorrar); // Añade el botón al panel
-        frame.add(panelBotones, BorderLayout.SOUTH); // Añade el panel de botones a la ventana
+        JButton botonBorrar = new JButton("Borrar");
+        JPanel panelBotones = new JPanel();
+        panelBotones.add(botonBorrar);
+        frame.add(panelBotones, BorderLayout.SOUTH);
 
-        // Llamo a cargarDatos() para rellenar el JTable con los datos de la Base de Datos
-        eliminar.cargarDatos(modeloTabla);
+        // Cargar datos iniciales en la tabla
+        cargarTabla(modeloTabla);
 
-        // Verifica si la columna "Ganador" está vacía y asigna "No establecido"
-        for (int i = 0; i < modeloTabla.getRowCount(); i++) {
-            Object valorGanador = modeloTabla.getValueAt(i, 1); // Segunda columna (Ganador)
-            // Comprobación más robusta para evitar posibles errores
-            if (valorGanador == null || valorGanador.toString().trim().isEmpty()) {
-                modeloTabla.setValueAt("No establecido", i, 1);
-            }
-        }
+        frame.setVisible(true);
 
+        // Acción para eliminar un partido y recargar la tabla
+        botonBorrar.addActionListener(e -> {
+            int filaSeleccionada = tablaPartidos.getSelectedRow();
+            if (filaSeleccionada != -1) {
+                int idPartido = coPartidos.obtenerIdPartido(modeloTabla.getValueAt(filaSeleccionada, 1).toString(),modeloTabla.getValueAt(filaSeleccionada, 2).toString());
 
-        frame.setVisible(true); // Muestra la ventana
+                // Mostrar mensaje de confirmación antes de eliminar
+                int opcion = JOptionPane.showConfirmDialog(frame, "¿Seguro que deseas eliminar este partido?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-        // Acción para eliminar un partido cuando se presiona el botón
-        botonBorrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int filaSeleccionada = tablaPartidos.getSelectedRow(); // Obtiene la fila seleccionada
-                if (filaSeleccionada != -1) { // Verifica si se ha seleccionado alguna fila
-                    int idPartido = (int) modeloTabla.getValueAt(filaSeleccionada, 0); // Obtiene el ID del partido seleccionado
-                    Partidos partido = new Partidos(idPartido); // Crea una instancia de Partidos con el ID obtenido
-                    eliminar.eliminarPartido(partido, modeloTabla); // Llama al metodo para eliminar el partido
+                if (opcion == JOptionPane.YES_OPTION) {
+                    coPartidos.eliminarPartido(idPartido);
+                    JOptionPane.showMessageDialog(frame, "Partido Borrado");
 
-                    JOptionPane.showMessageDialog(frame, mensaje_confirmacion); // Muestra el mensaje de confirmación
+                    // Recargar la tabla después de eliminar
+                    cargarTabla(modeloTabla);
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Seleccione un partido para borrar."); // Mensaje de advertencia si no se seleccionó ningún partido
+                    JOptionPane.showMessageDialog(frame, "Borrado cancelado");
                 }
+            } else {
+                JOptionPane.showMessageDialog(frame, "Seleccione un partido para borrar.");
             }
         });
     }
+
+    private void cargarTabla(DefaultTableModel modeloTabla) {
+        modeloTabla.setRowCount(0); // Limpiar tabla antes de actualizar
+        coPartidos.cargarDatos(modeloTabla);
+
+        // Verifica si la columna "Ganador" está vacía y asigna "Pendiente"
+        for (int i = 0; i < modeloTabla.getRowCount(); i++) {
+            Object valorGanador = modeloTabla.getValueAt(i, 4);
+            if (valorGanador == null || valorGanador.toString().trim().isEmpty()) {
+                modeloTabla.setValueAt("Pendiente", i, 4);
+            }
+        }
+    }
 }
+
+
+
 
 

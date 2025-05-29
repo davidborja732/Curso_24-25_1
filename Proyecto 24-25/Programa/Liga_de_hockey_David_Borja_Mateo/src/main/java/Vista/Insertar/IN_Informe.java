@@ -98,8 +98,8 @@ public class IN_informe {
                 int nAmarillas = Integer.parseInt(amarillasStr);
 
                 // Creación del objeto Informe con los datos obtenidos
-                Informe informe = new Informe(idPartido, idArbitro, nRojas, nAmarillas);
-                anadir.anadirInforme(informe); // Inserción del informe en la base de datos
+                //Informe informe = new Informe(idPartido, idArbitro, nRojas, nAmarillas);
+                //anadir.anadirInforme(informe); // Inserción del informe en la base de datos
                 JOptionPane.showMessageDialog(frame, mensaje_confirmacion); // Muestra mensaje de confirmación
             }
         });
