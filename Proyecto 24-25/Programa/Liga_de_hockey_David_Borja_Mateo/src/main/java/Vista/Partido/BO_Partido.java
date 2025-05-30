@@ -1,7 +1,6 @@
-package Vista.Borrar;
+package Vista.Partido;
 
 import Controlador.Controlador_Partidos.CO_Partidos; // Usamos CO_Partidos en lugar de Eliminar
-import Modelo.Partidos;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

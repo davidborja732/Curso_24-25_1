@@ -2,15 +2,14 @@ package Controlador.Controlador_Equipos;
 
 import Controlador.Conexion;
 import Modelo.Equipo;
-import Vista.Insertar.IN_Equipo;
-import Vista.Borrar.BO_Equipo;
-import Vista.Modificar.MO_Equipo;
+import Vista.Equipo.BO_Equipo;
+import Vista.Equipo.IN_Equipo;
+import Vista.Equipo.MO_Equipo;
 
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -193,6 +192,7 @@ public class CO_Equipos {
         }
         return false;
     }
+
     public List<String> obtener_Entrenadores_modificar(String nombre_equipo) {
         List<String> entrenadores = new ArrayList<>();
         String consulta = "SELECT DNI, Nombre, Apellidos FROM persona WHERE DNI IN (" +

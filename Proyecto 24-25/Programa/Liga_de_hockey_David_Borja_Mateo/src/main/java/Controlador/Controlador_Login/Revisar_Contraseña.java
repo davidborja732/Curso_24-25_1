@@ -2,9 +2,9 @@ package Controlador.Controlador_Login;
 
 import Controlador.Conexion;
 import Controlador.Ficheros;
-import Vista.Interfaz_Arbitros;
-import Vista.Interfaz_Seleccion_Tablas;
-import Vista.Interfaz_login;
+import Vista.Vistas_Generales.Interfaz_Arbitros;
+import Vista.Vistas_Generales.Interfaz_Seleccion_Tablas;
+import Vista.Vistas_Generales.Interfaz_login;
 
 import java.io.File;
 import java.sql.ResultSet;

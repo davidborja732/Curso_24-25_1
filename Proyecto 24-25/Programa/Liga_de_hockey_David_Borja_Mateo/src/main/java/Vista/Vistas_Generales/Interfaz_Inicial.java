@@ -1,4 +1,4 @@
-package Vista;
+package Vista.Vistas_Generales;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

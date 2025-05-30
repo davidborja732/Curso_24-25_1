@@ -1,6 +1,9 @@
-package Vista;
+package Vista.Vistas_Generales;
 
 import Controlador.Ficheros;
+import Vista.Equipo.VR_Equipo;
+import Vista.Informe.VR_Informe;
+import Vista.Partido.VR_Partido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +13,10 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Interfaz_Seleccion_Tablas {
+public class Interfaz_Arbitros {
 
-    /* Constructor de la clase, vacio porque no se necesita inicializacion especial */
-    public Interfaz_Seleccion_Tablas() {
+    /* Constructor vacio de la clase */
+    public Interfaz_Arbitros() {
     }
 
     /* Metodo para cerrar la interfaz con confirmación */
@@ -34,31 +37,29 @@ public class Interfaz_Seleccion_Tablas {
             /* Se registra el cierre en el log */
             Ficheros ficheros=new Ficheros();
             String fechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            ficheros.escritura(new File("Ficheros/log.txt"), "Sesión cerrada por administrador " + fechaHora);
+            ficheros.escritura(new File("Ficheros/log.txt"), "Sesión cerrada por árbitro " + fechaHora);
         }
     }
 
-    /* Metodo para inicializar la interfaz grafica de seleccion de tabla */
-    public void Inicializar_Seleccion() {
-        Interfaz_CRUD interfazCrud = new Interfaz_CRUD(); /* Se crea una instancia de la clase Interfaz_CRUD */
-
-        /* Se obtienen las dimensiones de la pantalla para calcular el tamaño de la ventana */
+    /* Metodo para inicializar la interfaz de seleccion de tabla */
+    public void Inicializar_Interfaz_Arbitro() {
+        /* Se obtienen las dimensiones de la pantalla */
         int ancho = Toolkit.getDefaultToolkit().getScreenSize().width;
         int alto = Toolkit.getDefaultToolkit().getScreenSize().height;
 
-        /* Se crea la ventana principal para la seleccion de tablas */
+        /* Se crea la ventana principal */
         JFrame frame;
-        frame = new JFrame("Seleccion tabla a trabajar"); /* Se establece el titulo de la ventana */
+        frame = new JFrame("Seleccion tabla a ver"); /* Se establece el titulo de la ventana */
         frame.setSize(ancho / 4, alto / 2); /* Se ajusta el tamaño de la ventana */
         frame.setLayout(new GridLayout(2, 2)); /* Se usa un diseño de cuadrícula de 2 filas y 2 columnas */
-        frame.setLocationRelativeTo(null); /* Se centra la ventana en la pantalla */
+        frame.setLocationRelativeTo(null); /* Se centra la ventana */
         frame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); /* Evita cierre sin confirmación */
 
-        /* Se crean los botones para seleccionar diferentes tablas */
-        JButton equipos = new JButton("Equipos"); /* Boton para trabajar con la tabla Equipos */
-        JButton juega = new JButton("Juegan"); /* Boton para trabajar con la tabla Juegan */
-        JButton partidos = new JButton("Partidos"); /* Boton para trabajar con la tabla Partidos */
-        JButton informe = new JButton("Informe"); /* Boton para trabajar con la tabla Informe */
+        /* Se crean los botones para seleccionar las distintas tablas */
+        JButton equipos = new JButton("Ver Equipos"); /* Boton para visualizar la tabla de Equipos */
+        JButton juega = new JButton("Ver Log"); /* Boton para visualizar la tabla de Juegan */
+        JButton partidos = new JButton("Ver Partidos"); /* Boton para visualizar la tabla de Partidos */
+        JButton informe = new JButton("Ver Informe"); /* Boton para visualizar la tabla de Informe */
 
         /* Se añaden los botones a la ventana */
         frame.add(equipos);
@@ -68,36 +69,40 @@ public class Interfaz_Seleccion_Tablas {
 
         frame.setVisible(true); /* Se muestra la ventana */
 
-        /* Se asignan acciones a los botones, cada uno llama a Inicializar_CRUD() con un identificador diferente */
+        /* Se asignan acciones a los botones, cada uno llama a Iniciar_Vista() segun la tabla seleccionada */
         equipos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(1); /* Se inicializa la gestion de la tabla Equipos */
+                VR_Equipo vrEquipo = new VR_Equipo();
+                vrEquipo.Iniciar_Vista(); /* Se muestra la vista de la tabla Equipos */
             }
         });
 
         juega.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(2); /* Se inicializa la gestion de la tabla Juegan */
+                Leer_Log leerLog=new Leer_Log();
+                leerLog.mostrarInterfaz();
             }
         });
 
         partidos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(3); /* Se inicializa la gestion de la tabla Partidos */
+                VR_Partido vrPartido = new VR_Partido();
+                vrPartido.Iniciar_Vista(); /* Se muestra la vista de la tabla Partidos */
             }
         });
 
         informe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazCrud.Inicializar_CRUD(4); /* Se inicializa la gestion de la tabla Informe */
+                VR_Informe vrInforme = new VR_Informe();
+                vrInforme.Iniciar_Vista(); /* Se muestra la vista de la tabla Informe */
             }
         });
 
-        /* Manejo el cierre de la ventana con confirmación */
+        /* Manejar el cierre de la ventana con confirmación */
         frame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {

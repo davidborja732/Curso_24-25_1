@@ -1,4 +1,4 @@
-package Vista.Modificar;
+package Vista.Partido;
 
 import Controlador.Controlador_Partidos.CO_Partidos;
 import Modelo.Partidos;
@@ -81,37 +81,30 @@ public class MO_Partido {
         boton_Cancelar.addActionListener(e -> frame.dispose());
     }
 
-    private void cargarPartidos() {
+    private void cargarEquipos() {
+        equipoLocal.removeAllItems();
+        equipoVisitante.removeAllItems();
+
         try {
-            partidos.removeAllItems();
-            List<String> listaPartidos = coPartidos.obtenerPartidos();
-
-            for (String partido : listaPartidos) {
-                partidos.addItem(partido);
-            }
-
-            if (!listaPartidos.isEmpty()) {
-                partidos.setSelectedIndex(0);
-                cargarDatosPartido();
+            List<String> listaEquipos = coPartidos.obtenerEquipos(); // ✅ Obtiene todos los equipos desde la base de datos
+            for (String equipo : listaEquipos) {
+                equipoLocal.addItem(equipo);
+                equipoVisitante.addItem(equipo);
             }
         } catch (RuntimeException e) {
-            JOptionPane.showMessageDialog(frame, "Error al cargar partidos: " + e.getMessage());
+            JOptionPane.showMessageDialog(frame, "Error al cargar equipos: " + e.getMessage());
         }
     }
 
     private void cargarDatosPartido() {
-        equipoLocal.removeAllItems();
-        equipoVisitante.removeAllItems();
-        ganador.removeAllItems();
-        arbitro.removeAllItems();
-
         if (partidos.getSelectedItem() != null) {
             String partidoSeleccionado = (String) partidos.getSelectedItem();
             String[] equipos = CO_Partidos.extraerEquipos(partidoSeleccionado);
 
             if (!equipos[0].equals("Error")) {
-                equipoLocal.addItem(equipos[0]);
-                equipoVisitante.addItem(equipos[1]);
+                cargarEquipos(); // ✅ Cargar todos los equipos antes de asignar los seleccionados
+                equipoLocal.setSelectedItem(equipos[0]);
+                equipoVisitante.setSelectedItem(equipos[1]);
 
                 ganador.addItem(equipos[0]);
                 ganador.addItem(equipos[1]);
@@ -132,6 +125,25 @@ public class MO_Partido {
             }
         }
     }
+
+    private void cargarPartidos() {
+        try {
+            partidos.removeAllItems();
+            List<String> listaPartidos = coPartidos.obtenerPartidos();
+
+            for (String partido : listaPartidos) {
+                partidos.addItem(partido);
+            }
+
+            if (!listaPartidos.isEmpty()) {
+                partidos.setSelectedIndex(0);
+                cargarDatosPartido(); // ✅ Asegurar que se cargan los equipos correctamente
+            }
+        } catch (RuntimeException e) {
+            JOptionPane.showMessageDialog(frame, "Error al cargar partidos: " + e.getMessage());
+        }
+    }
+
 
     private void actualizarGanador() {
         ganador.removeAllItems();
@@ -188,6 +200,14 @@ public class MO_Partido {
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 

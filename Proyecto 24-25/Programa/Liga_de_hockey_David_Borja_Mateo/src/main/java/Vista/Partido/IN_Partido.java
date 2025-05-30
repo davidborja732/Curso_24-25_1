@@ -1,4 +1,4 @@
-package Vista.Insertar;
+package Vista.Partido;
 
 import Controlador.Controlador_Partidos.CO_Partidos; // Usamos CO_Partidos en lugar de Anadir
 import Modelo.Partidos;

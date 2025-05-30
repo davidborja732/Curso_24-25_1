@@ -14,6 +14,16 @@ public class Informe {
         Id_informe = id_informe;
     }
 
+    public Informe(int n_rojas, int n_amarillas, int id_informe, int ID_partido, int ID_arbitro, String equipoLocal, String equipoVisitante) {
+        N_rojas = n_rojas;
+        N_amarillas = n_amarillas;
+        Id_informe = id_informe;
+        this.ID_partido = ID_partido;
+        this.ID_arbitro = ID_arbitro;
+        this.equipoLocal = equipoLocal;
+        this.equipoVisitante = equipoVisitante;
+    }
+
     // Constructor para modificar informe
     public Informe(int id_informe, int n_rojas, int n_amarillas) {
         Id_informe = id_informe;

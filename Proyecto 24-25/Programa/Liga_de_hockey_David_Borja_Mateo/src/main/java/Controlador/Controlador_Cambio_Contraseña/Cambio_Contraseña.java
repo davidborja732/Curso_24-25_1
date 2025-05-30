@@ -1,8 +1,8 @@
 package Controlador.Controlador_Cambio_Contraseña;
 
 import Controlador.Conexion;
-import Vista.Interfaz_Cambiar_Contraseña;
-import Vista.Interfaz_login;
+import Vista.Vistas_Generales.Interfaz_Cambiar_Contraseña;
+import Vista.Vistas_Generales.Interfaz_login;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

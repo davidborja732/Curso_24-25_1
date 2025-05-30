@@ -1,4 +1,4 @@
-package Vista;
+package Vista.Vistas_Generales;
 
 import Controlador.Controlador_Login.Revisar_Contraseña;
 

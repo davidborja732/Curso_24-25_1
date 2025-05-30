@@ -1,4 +1,4 @@
-package Vista.Modificar;
+package Vista.Equipo;
 
 import Controlador.Controlador_Equipos.CO_Equipos;
 import Modelo.Equipo;

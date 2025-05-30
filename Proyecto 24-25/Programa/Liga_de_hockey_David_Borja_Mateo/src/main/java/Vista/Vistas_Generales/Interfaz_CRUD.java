@@ -1,17 +1,17 @@
-package Vista;
+package Vista.Vistas_Generales;
 
-import Vista.Borrar.BO_Equipo;
-import Vista.Borrar.BO_Informe;
-import Vista.Borrar.BO_Partido;
-import Vista.Insertar.IN_Equipo;
-import Vista.Insertar.IN_Partido;
-import Vista.Insertar.IN_informe;
-import Vista.Modificar.MO_Equipo;
-import Vista.Modificar.MO_Informe;
-import Vista.Modificar.MO_Partido;
-import Vista.Ver.VR_Equipo;
-import Vista.Ver.VR_Informe;
-import Vista.Ver.VR_Partido;
+import Vista.Equipo.BO_Equipo;
+import Vista.Informe.BO_Informe;
+import Vista.Partido.BO_Partido;
+import Vista.Equipo.IN_Equipo;
+import Vista.Partido.IN_Partido;
+import Vista.Informe.IN_informe;
+import Vista.Equipo.MO_Equipo;
+import Vista.Informe.MO_Informe;
+import Vista.Partido.MO_Partido;
+import Vista.Equipo.VR_Equipo;
+import Vista.Informe.VR_Informe;
+import Vista.Partido.VR_Partido;
 
 import javax.swing.*;
 import java.awt.*;

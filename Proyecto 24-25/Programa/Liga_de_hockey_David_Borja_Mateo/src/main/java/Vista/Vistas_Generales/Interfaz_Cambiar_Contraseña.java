@@ -1,4 +1,4 @@
-package Vista;
+package Vista.Vistas_Generales;
 
 import Controlador.Conexion;
 import Controlador.Controlador_Cambio_Contraseña.Cambio_Contraseña;

@@ -1,7 +1,6 @@
-package Vista.Borrar;
+package Vista.Equipo;
 
 import Controlador.Controlador_Equipos.CO_Equipos;
-import Modelo.Equipo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
