@@ -339,3 +339,5 @@ Registro Administrador 2025-05-30T11:58:32.059275800
 Sesión cerrada por administrador 2025-05-30 11:59:53
 Registro Arbitro 2025-05-30T11:59:58.421250700
 Sesión cerrada por árbitro 2025-05-30 12:00:10
+Registro Administrador 2025-06-02T14:58:12.895726800
+Sesión cerrada por administrador 2025-06-02 15:01:43

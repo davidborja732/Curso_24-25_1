@@ -6,6 +6,6 @@ class libro(
     val añoPublicacion: Int
 ){
     override fun toString(): String {
-        return titulo+" "+autor+" "+añoPublicacion
+        return "$titulo $autor $añoPublicacion"
     }
 }
